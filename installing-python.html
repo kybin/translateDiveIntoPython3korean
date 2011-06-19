@@ -18,7 +18,7 @@ h2,.i>li{clear:both}
 <p id=level>Difficulty level: <span class=u title=novice>&#x2666;&#x2662;&#x2662;&#x2662;&#x2662;</span>
 <h1>Installing Python</h1>
 <blockquote class=q>
-<p><span class=u>&#x275D;</span> <i lang=la>Tempora mutantur nos et mutamur in illis.</i> (시간은 흐르고, 우리도 그들따라 변해가네.) <span class=u>&#x275E;</span><br>&mdash; 고대 로마의 속담
+<p><span class=u>&#x275D;</span> <i lang=la>Tempora mutantur nos et mutamur in illis.</i> (시간은 흐르고, 우리도 그 따라 변해가네.) <span class=u>&#x275E;</span><br>&mdash; 고대 로마의 속담
 </blockquote>
 <p id=toc>&nbsp;
 <h2 id=divingin>뛰어들기</h2>
@@ -45,7 +45,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 <samp class=p>mark@manganese:~$ </samp><kbd>python3</kbd>
 <samp>bash: python3: command not found</samp></pre>
 
-<p>이 절을 시작하면서 던졌던 질문으로 돌아가보죠, &#8220;어떤 파이썬이 나한테 맞을까?&#8221;  당최 당신이 사용할 시스템은 어떤겁니까.
+<p>이 절을 시작하면서 던졌던 질문으로 돌아가보죠, &#8220;어떤 파이썬이 나한테 맞을까?&#8221;  당최 당신이 사용할 시스템은 어떤건가요.
 
 <p>[윈도우즈에 대한 설명을 들으려면 계속 읽고, 아니라면 <a href=#macosx>맥 OS X에 설치하기</a>, <a href=#ubuntu>우분투 리눅스에 설치하기</a>, 또는 <a href=#other>다른 플랫폼에 설치하기</a> 등으로 건너뛰세요.]
 
@@ -72,7 +72,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 <li>
 <p class='ss nm'><img src=i/win-install-1-all-users-or-just-me.png width=499 height=432 alt='[Python installer: select whether to install Python 3.1 for all users of this computer]'>
-<p>인스톨러가 실행되면 파이썬3를 개인용으로 설치할지 공용으로 설치할지 물어봅니다. 기본값은 &#8220;install for all users&#8221;입니다. 특별한 이유가 없다면 제일 나은 선택이죠. (&#8220;install just for me&#8221;를 선택할 만한 한가지 이유로는 관리자 권한이 없는 회사 윈도우즈 계정에 파이썬을 까는 경우가 있죠. 하지만 회사 윈도우즈 관리자의 허락없이 왜 파이썬을 까려는거죠? 절 곤란하게 하지마세요!)
+<p>인스톨러가 실행되면 파이썬3를 개인용으로 설치할지 공용으로 설치할지 물어봅니다. 기본값은 &#8220;install for all users&#8221;입니다. 특별한 이유가 없다면 제일 나은 선택이죠. (&#8220;install just for me&#8221;를 선택할 만한 한가지 이유로는 관리자 권한이 없는 회사 윈도우즈 계정에 파이썬을 까는 경우가 있죠. 하지만 회사 윈도우즈 관리자의 허락없이 왜 파이썬을 깔려는거죠? 절 곤란하게 하지마세요!)
 <p>설치 형태를 선택한 후 <code>Next</code>버튼을 누르세요.
 
 <li>
@@ -86,20 +86,21 @@ Type "help", "copyright", "credits" or "license" for more information.
 <ul>
 <li><b>Register Extensions</b>는 파이썬 스크립트(<code>.py</code> 라는 확장자를 가진 파일)를 더블 클릭했을 때 실행되도록 합니다.  추천하지만 꼭 필요하지는 않습니다. (이 옵션은 하드디스크를 전혀 쓰지 않기 때문에 뺄 이유가 별로 없죠.)
 <li><b>Tcl/Tk</b>는 파이썬 셸에서 사용하는 그래픽 라이브러리입니다. 이 책에서도 사용하게 되므로, 이 옵션을 유지하는 걸 매우 권장합니다.
-<li><b>Documentation</b>의 설치는  installs a help file that contains much of the information on <a href=http://docs.python.org/><code>docs.python.org</code></a>. Recommended if you are on dialup or have limited Internet access.
-<li><b>Utility Scripts</b> includes the <code>2to3.py</code> script which you&#8217;ll learn about <a href=case-study-porting-chardet-to-python-3.html>later in this book</a>. Required if you want to learn about migrating existing Python 2 code to Python 3. If you have no existing Python 2 code, you can skip this option.
-<li><b>Test Suite</b> is a collection of scripts used to test the Python interpreter itself. We will not use it in this book, nor have I ever used it in the course of programming in Python. Completely optional.
+<li><b>Documentation</b>를 선택하면  <a href=http://docs.python.org/><code>docs.python.org</code></a>에 있는 많은 정보가 로컬드라이브에 복사됩니다. 만약 전화선을 쓰거나 인터넷 접속이 제한적이라면 까는것을 추천합니다.
+<li><b>Utility Scripts</b> 는 <code>2to3.py</code>라는 스크립트를 포함하고 있습니다. 이에 대해서는 <a href=case-study-porting-chardet-to-python-3.html> 책 뒷장에서 다루게 됩니다.</a>. 기존의 파이썬 2 코드를 파이썬 3로 옮기길 원한다면 필요합니다. 만약 파이썬2로 짜놓은 코드가 없다면 선택하지 않아도 됩니다.
+<li><b>Test Suite</b>는 파이썬 대화형 실행기를 테스트 할 목적의 스크립트 모음입니다. 저도 파이썬 프로그래밍을 해오면서 한번도 사용한 적이 없습니다. 이 책에서도 다루지 않습니다. 선택은 자유입니다.
 </ul>
 
 <li>
 <p class='ss nm'><img src=i/win-install-3a-disk-usage.png width=499 height=432 alt='[Python installer: disk space requirements]'>
-<p>If you&#8217;re unsure how much disk space you have, click the <code>Disk Usage</code> button. The installer will list your drive letters, compute how much space is available on each drive, and calculate how much would be left after installation.
-<p>Click the <code>OK</code> button to return to the &#8220;Customizing Python&#8221; page.
+<p>만약 하드 드라이브에 얼마만큼의 용량이 남아있는지 모른다면, <code>Disk Usage</code> 버튼을 클릭하세요. 현재 존재하는 드라이브와 그 남은 용량이 표시됩니다.
+
+<p> <code>OK</code> 버튼을 눌러  &#8220;Customizing Python&#8221; 페이지로 돌아가세요.
 
 <li>
 <p class='ss nm'><img src=i/win-install-3b-test-suite.png width=499 height=432 alt='[Python installer: removing Test Suite option will save 7908KB on your hard drive]'>
-<p>If you decide to exclude an option, select the drop-down button before the option and select &#8220;Entire feature will be unavailable.&#8221; For example, excluding the test suite will save you a whopping 7908<abbr>KB</abbr> of disk space.
-<p>Click the <code>Next</code> button to accept your choice of options.
+<p>만약 그 중 일부를 설치하지 않기로 했다면, 각 옵션 앞에 있는 드롭다운 형식의 버튼을 누른후 &#8220;Entire feature will be unavailable.&#8221;를 선택하세요. 예를 들어, test suit 를 선택해제하면 7908<abbr>KB</abbr>의 디스크 용량이 절약됩니다.
+<p>모든 선택을 마치면 <code>Next</code> 버튼을 눌러 다음 단계로 넘어갑시다.
 
 <li>
 <p class='ss nm'><img src=i/win-install-4-copying.png width=499 height=432 alt='[Python installer: progress meter]'>
@@ -107,11 +108,11 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 <li>
 <p class='ss nm'><img src=i/win-install-5-finish.png width=499 height=432 alt='[Python installer: installation completed. Special Windows thanks to Mark Hammond, without whose years of freely shared Windows expertise, Python for Windows would still be Python for DOS.]'>
-<p><code>Finish</code>버튼을 클릭해 인스톨을 끝내세요.
+<p><code>Finish</code>버튼을 클릭해 설치를 끝내세요.
 
 <li>
 <p class='ss nm'><img src=i/win-interactive-shell.png width=677 height=715 alt='[Windows Python Shell, a graphical interactive shell for Python]'>
-<p><code>시작</code>메뉴에,  <code>Python 3.1</code>이라는 항목이 생겼을 겁니다. 그 안에 <abbr>IDLE</abbr>이란 프로그램이 있습니다. 이 항목을 선택해 대화형 파이썬 셸을 띄우세요.
+<p><code>시작</code>메뉴에,  <code>Python 3.1</code>이라는 항목이 생겼습니다. 그 안에 <abbr>IDLE</abbr>이란 프로그램이 있습니다. 이 항목을 선택해 대화형 파이썬 셸을 띄우세요.
 
 </ol>
 
@@ -119,17 +120,17 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 <p class=a>&#x2042;
 
-<h2 id=macosx>Installing on Mac OS X</h2>
+<h2 id=macosx>Mac OS X 에서의 설치</h2>
 
-<p>All modern Macintosh computers use the Intel chip (like most Windows PCs). Older Macs used PowerPC chips. You don&#8217;t need to understand the difference, because there&#8217;s just one Mac Python installer for all Macs.
+<p>최근에 나온 모든 매킨토시 컴퓨터는 (보통의 윈도우 PC들 처럼) 인텔칩을 사용합니다. 그전의 맥은 파워피씨 칩을 사용했습니다. 하지만 그 차이를 알 필요는 없습니다. 파이썬은 모든 맥에 대해 하나의 인스톨러를 제공합니다.
 
-<p>Visit <a href=http://python.org/download/><code>python.org/download/</code></a> and download the Mac installer. It will be called something like <b>Python 3.1 Mac Installer Disk Image</b>, although the version number may vary. Be sure to download version 3.x, not 2.x.
+<p><a href=http://python.org/download/><code>python.org/download/</code></a> 에서 맥 인스톨러를 다운 받으세요. <b>Python 3.1 Mac Installer Disk Image</b>같은 형식으로 되어있습니다. 버전 숫자는 차이가 있을수 있습니다. 2점대 버전이 아니라 3점대 버전인 점을 유의하세요.
 
 <ol class=i>
 
 <li>
 <p class='ss nm'><img src=i/mac-install-0-dmg-contents.png width=752 height=438 alt='[contents of Python installer disk image]'>
-<p>Your browser should automatically mount the disk image and open a Finder window to show you the contents. (If this doesn&#8217;t happen, you&#8217;ll need to find the disk image in your downloads folder and double-click to mount it. It will be named something like <code>python-3.1.dmg</code>.) The disk image contains a number of text files (<code>Build.txt</code>, <code>License.txt</code>, <code>ReadMe.txt</code>), and the actual installer package, <code>Python.mpkg</code>.
+<p>아마도 브라우저가 자동으로 디스크 이미지를 불러와 그 내용을 파인더에 띄울겁니다. (만약 그렇지 않다면 다운로드 폴더에 있는 파일을 찾아 실행하세요. <code>python-3.1.dmg</code>같은 형태의 파일이 있을겁니다.) The disk image contains a number of text files (<code>Build.txt</code>, <code>License.txt</code>, <code>ReadMe.txt</code>), and the actual installer package, <code>Python.mpkg</code>.
 <p>Double-click the <code>Python.mpkg</code> installer package to launch the Mac Python installer.
 
 <li>
