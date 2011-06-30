@@ -26,9 +26,9 @@ h2,.i>li{clear:both}
 
 <h2 id=which>어떤 파이썬이 내 시스템에 맞을까?</h2>
 
-<p>만일 당신이 호스팅되고있는 서버의 한 계정을 받아쓰고 있다면, <abbr>ISP(인터넷 서비스 제공자)</abbr>가 아마도 파이썬3를 깔아 놓았을겁니다. 만약 집에서 리눅스를 쓰고 있다 해도 마찬가지죠. 많은 유명 GNU/Linux 배포판들에 기본적으로 파이썬2가 설치되어 있습니다. 파이썬3도 함께 설치되어 있는 배포판의 수는 적지만 점점 많아지고 있죠. 맥 OS X는 커맨드라인 버전의 파이썬2를 포함하고 있습니다. 하지만 이 글을 쓰고 있는 시점에서 파이썬3는 깔려 있지 않습니다. 마이크로소프트 윈도우즈에는 어떤 파이썬도 설치되어 있지 않습니다. 하지만 실망하진 마세요! 어떤 운영체제를 사용하던지 버튼을 몇번 누르는 것만으로 직접 파이썬을 설치할 수 있으니까요.
+<p>당신이 지금 호스팅 되고 있는 서버의 한 계정을 받아쓰고 있다면, <abbr>ISP(인터넷 서비스 제공자)</abbr>가 아마도 파이썬3를 깔아 놓았을겁니다. 만약 집에서 리눅스를 쓰고 있다 해도 마찬가지죠. 많은 유명 GNU/Linux 배포판들에 기본적으로 파이썬2가 설치되어 있습니다. 파이썬3도 함께 설치되어 있는 배포판의 수는 적지만 점점 많아지고 있죠. 맥 OS X는 커맨드라인 버전의 파이썬2를 포함하고 있습니다. 하지만 이 글을 쓰고 있는 시점에서 파이썬3는 깔려 있지 않습니다. 마이크로소프트 윈도우즈에는 어떤 파이썬도 설치되어 있지 않습니다. 하지만 실망하진 마세요! 어떤 운영체제를 사용하던지 버튼을 몇번 누르는 것만으로 직접 파이썬을 설치할 수 있으니까요.
 
-<p>지금 컴퓨터에 깔린 리눅스나 맥 OS X 등에 파이썬 3가 깔려있는지 확인하는 가장 쉬운 방법은 <a href=troubleshooting.html#getting-to-the-command-line>커맨드라인 창으로 들어가는 겁니다</a>. 커맨드라인창으로 들어간 후, (소문자로 공백없이) <kbd>python3</kbd>라고 친 후 <kbd>ENTER</kbd>키를 누르세요. 그리고 어떻게 되는지 보죠. 제 리눅스 시스템에는 이미 파이썬3.1이 깔려있어 <i>파이썬 <dfn>대화형 실행기</dfn></i>가 실행되네요.
+<p>지금 컴퓨터에 깔린 리눅스나 맥 OS X 등에 파이썬 3가 깔려있는지 확인하는 가장 쉬운 방법은 <a href=troubleshooting.html#getting-to-the-command-line>커맨드라인 창으로 들어가는 겁니다</a>. 커맨드라인 창으로 들어간 후, (소문자로 공백없이) <kbd>python3</kbd>라고 친 후 <kbd>ENTER</kbd>키를 누르세요. 그리고 어떻게 되는지 보죠. 제 리눅스 시스템에는 이미 파이썬3.1이 깔려있어 <i>파이썬 <dfn>대화형 실행기</dfn></i>가 실행되네요.
 
 <pre class='nd screen cmdline'>
 <samp class=p>mark@atlantis:~$ </samp><kbd>python3</kbd>
@@ -45,7 +45,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 <samp class=p>mark@manganese:~$ </samp><kbd>python3</kbd>
 <samp>bash: python3: command not found</samp></pre>
 
-<p>이 절을 시작하면서 던졌던 질문으로 돌아가보죠, &#8220;어떤 파이썬이 나한테 맞을까?&#8221;  당최 당신이 사용할 시스템은 어떤건가요.
+<p>이 절을 시작하면서 던졌던 질문으로 돌아가보죠, &#8220;어떤 파이썬이 나한테 맞을까?&#8221;  당신이 사용할 시스템은 당최 어떤건가요.
 
 <p>[윈도우즈에 대한 설명을 들으려면 계속 읽고, 아니라면 <a href=#macosx>맥 OS X에 설치하기</a>, <a href=#ubuntu>우분투 리눅스에 설치하기</a>, 또는 <a href=#other>다른 플랫폼에 설치하기</a> 등으로 건너뛰세요.]
 
@@ -55,7 +55,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 <p>윈도우즈에는 현재 두가지 아키텍쳐가 존재합니다. 32비트와 64비트죠. 물론, 윈도우즈는 각기 다른 많은<i>버전</i>이 있죠. XP, Vista, 윈도우 7 등&nbsp;&mdash;&nbsp; 하지만 파이썬은 그 모두에서 잘 돌아갑니다. 더 중요한 차이는 32비트냐 64비트냐 입니다. 만약 당신 윈도우가 어떤 아키텍쳐상에서 돌아가는지 모른다면, 아마도 32비트일 확률이 큽니다.
 
-<p><a href=http://python.org/download/><code>python.org/download/</code></a>에 들어가 당신 아키텍쳐에 맞는 윈도우 인스톨러를 받으세요. 다음 둘 중 하나를 선택할 수 있습니다.
+<p><a href=http://python.org/download/><code>python.org/download/</code></a>에 들어가 아키텍쳐에 맞는 윈도우 인스톨러를 받으세요. 다음 둘 중 하나를 선택할 수 있습니다.
 
 <ul>
 <li><b>Python 3.1 Windows installer</b> (Windows binary&nbsp;&mdash;&nbsp;does not include source)
@@ -82,7 +82,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 <li>
 <p class='ss nm'><img src=i/win-install-3-customize.png width=499 height=432 alt='[Python installer: customize Python 3.1]'>
-<p>다음 페이지는 좀 복잡해 보이지만, 사실 간단합니다. 다른 많은 인스톨러에서처럼, 파이썬3에서도 모든 부분을 설치할 필요는 없습니다. 만약 하드공간이 많이 남아있지 않다면, 어떤 부분은 제외해도 괜찮습니다.
+<p>다음 페이지는 좀 복잡해 보이지만, 사실 간단합니다. 다른 프로그램들을 설치할 때처럼, 파이썬3도 모든 요소를 설치할 필요는 없습니다. 만약 하드공간이 많이 남아있지 않다면, 어떤 부분은 제외해도 괜찮습니다.
 <ul>
 <li><b>Register Extensions</b>는 파이썬 스크립트(<code>.py</code> 라는 확장자를 가진 파일)를 더블 클릭했을 때 실행되도록 합니다.  추천하지만 꼭 필요하지는 않습니다. (이 옵션은 하드디스크를 전혀 쓰지 않기 때문에 뺄 이유가 별로 없죠.)
 <li><b>Tcl/Tk</b>는 파이썬 셸에서 사용하는 그래픽 라이브러리입니다. 이 책에서도 사용하게 되므로, 이 옵션을 유지하는 걸 매우 권장합니다.
@@ -130,46 +130,46 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 <li>
 <p class='ss nm'><img src=i/mac-install-0-dmg-contents.png width=752 height=438 alt='[contents of Python installer disk image]'>
-<p>아마도 브라우저가 자동으로 디스크 이미지를 불러와 그 내용을 파인더에 띄울겁니다. (만약 그렇지 않다면 다운로드 폴더에 있는 파일을 찾아 실행하세요. <code>python-3.1.dmg</code>같은 형태의 파일이 있을겁니다.) The disk image contains a number of text files (<code>Build.txt</code>, <code>License.txt</code>, <code>ReadMe.txt</code>), and the actual installer package, <code>Python.mpkg</code>.
-<p>Double-click the <code>Python.mpkg</code> installer package to launch the Mac Python installer.
+<p>아마도 브라우저가 자동으로 디스크 이미지를 불러와 그 내용을 파인더에 띄울겁니다. (만약 그렇지 않다면 다운로드 폴더에 있는 파일을 찾아 실행하세요. <code>python-3.1.dmg</code>같은 형태의 파일이 있을겁니다.) 이 디스크 이미지안에는 몇개의 텍스트 파일과 (<code>Build.txt</code>, <code>License.txt</code>, <code>ReadMe.txt</code>), 실제 설치 패키지 <code>Python.mpkg</code> 가 들어 있습니다.
+<p><code>Python.mpkg</code>파일을 더블클릭해 맥 파이썬 인스톨러를 띄우세요.
 
 <li>
 <p class='ss nm'><img src=i/mac-install-1-welcome.png width=622 height=442 alt='[Python installer: welcome screen]'>
-<p>The first page of the installer gives a brief description of Python itself, then refers you to the <code>ReadMe.txt</code> file (which you didn&#8217;t read, did you?) for more details.
-<p>Click the <code>Continue</code> button to move along.
+<p>설치 첫페이지에는 파이썬에 대한 간략한 설명이 들어있습니다. 더 자세한 사항은 <code>ReadMe.txt</code> 파일을 참고하라네요. (아직 읽지 않았을 겁니다. 아닌가요?) 
+<p><code>Continue</code> 버튼을 눌러 다음으로 넘어갑시다.
 
 <li>
 <p class='ss nm'><img src=i/mac-install-2-information.png width=622 height=442 alt='[Python installer: information about supported architectures, disk space, and acceptable destination folders]'>
-<p>The next page actually contains some important information: Python requires Mac OS X 10.3 or later. If you are still running Mac OS X 10.2, you should really upgrade. Apple no longer provides security updates for your operating system, and your computer is probably at risk if you ever go online. Also, you can&#8217;t run Python 3.
-<p>Click the <code>Continue</code> button to advance.
+<p>다음 페이지는 중요한 몇가지 정보를 담고 있습니다: 맥 오에스 X 10.3 또는 그 이후 버전에서만 파이썬이 돌아간다는 것. 아직 맥 오에스 X 10.2를 쓰고 있다면, 빨리 버전 업 하세요. 애플이 더이상 10.2에 대한 보안 업데이트를 내놓지 않기 때문에 인터넷 사용시 문제가 생길수 있습니다. 물론 파이썬3도 실행할수 없구요.
+<p><code>Continue</code> 버튼을 눌러 더 들어가봅시다.
 
 <li>
 <p class='ss nm'><img src=i/mac-install-3-license.png width=622 height=442 alt='[Python installer: software license agreement]'>
-<p>Like all good installers, the Python installer displays the software license agreement. Python is open source, and its license is <a href=http://opensource.org/licenses/>approved by the Open Source Initiative</a>. Python has had a number of owners and sponsors throughout its history, each of which has left its mark on the software license. But the end result is this: Python is open source, and you may use it on any platform, for any purpose, without fee or obligation of reciprocity.
-<p>Click the <code>Continue</code> button once again.
+<p>제대로 된 많은 인스톨러처럼, 파이썬 인스톨러도 소프트웨어 라이센스 동의 페이지를 띄웁니다. 파이썬은 오픈소스고 그 라이센스는<a href=http://opensource.org/licenses/>Open Source Initiative</a>에 적용을 받습니다. 파이썬은 그 라이센스에 족적을 남긴 여러명의 소유자와 스폰서가 있어왔습니다. 하지만 지금은 이렇습니다: 파이썬은 오픈소스입니다. 파이썬은 돈을 받지 않고 어떤 의무도 지우지 않습니다. 어떤 플랫폼에서, 어떤 목적으로 사용하더라도 상관없습니다.
+<p><code>Continue</code> 버튼을 한번 더 누르세요.
 
 <li>
 <p class='ss nm'><img src=i/mac-install-4-license-dialog.png width=622 height=442 alt='[Python installer: dialog to accept license agreement]'>
-<p>Due to quirks in the standard Apple installer framework, you must &#8220;agree&#8221; to the software license in order to complete the installation. Since Python is open source, you are really &#8220;agreeing&#8221; that the license is granting you additional rights, rather than taking them away.
-<p>Click the <code>Agree</code> button to continue.
+<p>애플 인스톨 프레임워크는 이상한 취미를 가지고 있습니다. 설치를 끝내기 위해선 소프트웨어 라이센스에 동의를 해야만 한다네요 . 하지만 오픈소스인 파이썬은 당신에게 권리를 주면 주었지 뺏지는 않습니다.
+<p>한번 더 <code>Agree</code> 버튼을 누르세요.
 
 <li>
 <p class='ss nm'><img src=i/mac-install-5-standard-install.png width=622 height=442 alt='[Python installer: standard install screen]'>
-<p>The next screen allows you to change your install location. You <strong>must</strong> install Python on your boot drive, but due to limitations of the installer, it does not enforce this. In truth, I have never had the need to change the install location.
-<p>From this screen, you can also customize the installation to exclude certain features. If you want to do this, click the <code>Customize</code> button; otherwise click the <code>Install</code> button.
+<p>여기서는 설치 위치를 변경할수 있습니다. 파이썬을 꼭 시스템 드라이브에 깔아야 하지만, 인스톨러는 바보같이 이를 강요하지는 않습니다. 뭐 사실 저는 설치 폴더를 변경할만한 이유가 없네요.
+<p>이 페이지에서 몇가지 기능들을 설치 목록에서 제거할 수도 있습니다. 만약 그렇게 하고 싶으면 <code>Customize</code> 버튼을 누르고, 아니라면 <code>Install</code> 버튼을 누르세요.
 
 <li>
 <p class='ss nm'><img src=i/mac-install-6-custom-install.png width=622 height=442 alt='[Python installer: custom install screen]'>
 <p>If you choose a Custom Install, the installer will present you with the following list of features:
 <ul>
-<li><b>Python Framework</b>. This is the guts of Python, and is both selected and disabled because it must be installed.
-<li><b>GUI Applications</b> includes IDLE, the graphical Python Shell which you will use throughout this book. I strongly recommend keeping this option selected.
-<li><b>UNIX command-line tools</b> includes the command-line <code>python3</code> application. I strongly recommend keeping this option, too.
-<li><b>Python Documentation</b> contains much of the information on <a href=http://docs.python.org/><code>docs.python.org</code></a>. Recommended if you are on dialup or have limited Internet access.
-<li><b>Shell profile updater</b> controls whether to update your shell profile (used in <code>Terminal.app</code>) to ensure that this version of Python is on the search path of your shell. You probably don&#8217;t need to change this.
-<li><b>Fix system Python</b> should not be changed. (It tells your Mac to use Python 3 as the default Python for all scripts, including built-in system scripts from Apple. This would be very bad, since most of those scripts are written for Python 2, and they would fail to run properly under Python 3.)
+<li><b>Python Framework</b>. 파이썬의 심장입니다. 무조건 설치되어야 하기때문에, 선택된 채로 잠겨있습니다.
+<li><b>GUI Applications</b> IDLE을 포함한, Python Shell 윈도우입니다. 이 책에서 계속 사용할 겁니다. 이 옵션을 꼭 선택하세요.
+<li><b>UNIX command-line tools</b> 는 커맨드라인 형 <code>python3</code> 애플리케이션입니다. 이 옵션도 꼭 선택해주세요.
+<li><b>Python Documentation</b>에는 <a href=http://docs.python.org/><code>docs.python.org</code></a>에 있는 많은 정보들이 들어가 있습니다. 전화선을 사용한다거나 인터넷 접속이 제한되어있는 환경이라면 설치하시는게 좋습니다.
+<li><b>Shell profile updater</b> 이 버전의 파이썬이 검색경로에 포함되도록 셸 프로파일(일반적으로 Terminal.app)을 업데이트할지 결정할수 있습니다. 딱히 설정을 변경할 이유는 없을 겁니다.
+<li><b>Fix system Python</b> 절대 변경하지 마세요. (이는 맥이 모든 파이썬 스크립트를 실행할때 기본적으로 파이썬 3를 쓰도록 합니다. 애플의 시스템내장 스크립트까지 포함해서 말이죠. 대부분의 스크립트들이 파이썬 2로 쓰여졌기 때문에 파이썬3에서는 제대로 돌아가지 않습니다. 때문에 이 옵션을 체크하면 정말 곤란해질겁니다.
 </ul>
-<p>Click the <code>Install</code> button to continue.
+<p><code>Install</code>버튼을 눌러 넘어가세요.
 
 <li>
 <p class='ss nm'><img src=i/mac-install-7-admin-password.png width=622 height=457 alt='[Python installer: dialog to enter administrative password]'>
@@ -261,7 +261,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 <h2 id=idle>파이썬 셸의 사용법</h2>
 
-<p>파이썬 셸은 파이썬 문법을 확인해보거나, 명령어에 대한 도움말을 바로바로 보려하거나, 작은 프로그램을 고칠 때 사용합니다. (<abbr>IDLE</abbr>이라는 이름을 가진) 그래픽 파이썬 셸은, 파이썬 셸을 품고 문법을 각가지 생상들로 표현해주는 괜찮은 텍스트 편집기입니다. 선호하는 텍스트 편집기가 없다면 <abbr>IDLE</abbr> 을 한번 써보세요.
+<p>파이썬 셸은 파이썬 문법을 확인해보거나, 명령어에 대한 도움말을 바로바로 보려하거나, 작은 프로그램을 고칠 때 사용합니다. (<abbr>IDLE</abbr>이라는 이름의) 그래픽 파이썬 셸은, 파이썬 셸을 품고 문법을 각가지 색상들로 표현해주는 괜찮은 텍스트 편집기입니다. 선호하는 텍스트 편집기가 없다면 <abbr>IDLE</abbr> 을 한번 써보세요.
 
 <p>우선 파이썬 셸에 대해 알아봅시다. 파이썬 셸은 놀라운 대화형 놀이터 입니다. 아래같은 예제들을, 이 책에서 계속 보게 될겁니다. 
 

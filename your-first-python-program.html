@@ -24,7 +24,7 @@ mark{display:inline}
 </blockquote>
 <p id=toc>&nbsp;
 <h2 id=divingin>Diving In</h2>
-<p class=f>여기서 파이썬 규약을 일일히 설명하는 것은 기본적인 요소들을 나열해 지루하게 만들수 밖에 없고, 그런 방식으로는 나중에야 점차 유용한 무언가를 만들 수 있을겁니다. 그런것들은 다 넘어갑시다. 여기 완전하고 실행되는 파이썬 프로그램이 있습니다. 이 코드의 내용이 아직 전혀 이해되지 않을지도 모릅니다. 앞으로 한 줄씩 상세하게 분석하게 될테니 걱정하지 마세요. 먼저 이 코드를 쭉 읽어 본 후, 할 수 있다면 그 의미에 대해 생각해봅시다.
+<p class=f>여기서 파이썬 규약을 일일히 설명하려면 기본적인 요소들을 나열해 지루하게 만들 수 밖에 없고, 그런 방식으로는 나중에야 점차 유용한 무언가를 만들 수 있을겁니다. 그런것들은 다 넘어갑시다. 여기 완전하고 실행되는 파이썬 프로그램이 있습니다. 이 코드의 내용이 아직 전혀 이해되지 않을지도 모릅니다. 앞으로 한 줄씩 상세하게 분석하게 될테니 걱정하지 마세요. 먼저 이 코드를 쭉 읽어 본 후, 할 수 있다면 그 의미에 대해 생각해봅시다.
 <p class=d>[<a href=examples/humansize.py>download <code>humansize.py</code></a>]
 <pre class=pp><code>SUFFIXES = {1000: ['KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],
             1024: ['KiB', 'MiB', 'GiB', 'TiB', 'PiB', 'EiB', 'ZiB', 'YiB']}
@@ -54,7 +54,7 @@ def approximate_size(size, a_kilobyte_is_1024_bytes=True):
 if __name__ == '__main__':
     print(approximate_size(1000000000000, False))
     print(approximate_size(1000000000000))</code></pre>
-<p>이제 이 프로그램을 커맨드라인에서 실행해 봅시다. 윈도우즈에서는 이런 형태로 써주세요:
+<p>이제 이 프로그램을 커맨드라인에서 실행해 봅시다. 윈도우즈에서는 이런 형태로 씁니다:
 <pre class='nd screen'>
 <samp class=p>c:\home\diveintopython3\examples> </samp><kbd>c:\python31\python.exe humansize.py</kbd>
 <samp>1.0 TB
@@ -80,11 +80,11 @@ if __name__ == '__main__':
 <p>함수 선언은 <code>def</code>라는 키워드로 시작하고, 그 뒤에 함수 이름, 괄호가 나옵니다. 괄호 안에는 넘김값이 들어가죠. 넘김값이 여러개라면 콤마를 사용해 떨어뜨립니다.
 <p>또 함수가 그 결과를 돌려줄 때 형태를 지정하지 않는다는 것을 주의하세요. 파이썬의 함수는 그 결과값의 형태를 따로 알리지 않습니다; 심지어는 값을 반환하는지 그러지 않는지도 알리지 않죠.  (사실, 모든 파이썬 함수는 값을 돌려줍니다. 만약 함수에서 <code>return</code>문을 실행되면 그 값을 돌려주고, 아니라면 <code>None</code>이라는 빈 파이썬 값을 돌려줍니다.)
 <blockquote class=note>
-<p><span class=u>&#x261E;</span>어떤 언어들에서는, 값을 반환하는 함수는 <code>function</code>으로 선언을 시작하고, 값을 반환하지 않는 서브루틴은 <code>sub</code>라는 낱말로 시작합니다. 파이썬에는 서브루틴 개념이 없습니다. 모든것은 함수고, 모든 함수는 값을 반환합니다(그 값이 <code>None</code> 이라도). 그리고 모든 함수는 <code>def</code>로 선언을 시작합니다.
+<p><span class=u>&#x261E;</span>어떤 언어들에서는, 값을 반환하는 함수는 <code>function</code>으로 선언을 시작하고, 값을 반환하지 않는 단순코드묶음(subroutine)은 <code>sub</code>라는 낱말로 시작합니다. 파이썬에는 코드묶음 개념이 없습니다. 모든것은 함수고, 모든 함수는 값을 반환합니다(그 값이 <code>None</code> 이라도). 그리고 모든 함수는 <code>def</code>로 선언을 시작합니다.
 </blockquote>
 <p>여기서 <code>approximate_size()</code> 함수는 두개의 넘김값을 받습니다&nbsp;&mdash;&nbsp;<var>size</var> 와 <var>a_kilobyte_is_1024_bytes</var>이 그것입니다&nbsp;&mdash;&nbsp; 두 넘김값 모두 자료형을 명시하지 않았습니다. 파이썬에서 변수는 따로 선언되지 않습니다. 파이썬이 변수의 형태를 내부적으로  알아낸 후 기억합니다.
 <blockquote class='note compare java'>
-<p><span class=u>&#x261E;</span>자바나 다른 형선언 언어들에서는, 함수 결과값과 넘김값의 자료형을 꼭 함께 적어주어야 합니다. 파이썬에서는 따로 자료형이든 어떤것이든 적어줄 필요가 없습니다. 그 변수나 함수에 어떤 값이 들어갔는지를 보고 파이썬이 그 형태를 기억하고 있습니다.
+<p><span class=u>&#x261E;</span>자바나 다른 형선언 언어들에서는, 함수 결과값과 넘김값의 자료형을 꼭 함께 적어주어야 합니다. 파이썬에서는 따로 자료형이든 어떤것이든 적어줄 필요가 없습니다. 파이썬은 그 변수나 함수에 어떤 값이 들어갔는지를 보고 그 형태를 기억합니다.
 </blockquote>
 
 <h3 id=optional-arguments>추가적이거나 이름을 가지는 넘김값</h3>
@@ -107,7 +107,7 @@ if __name__ == '__main__':
 <li>두번째로 <code>approximate_size()</code>함수를 부를 때는 하나의 넘김값만을 넘겼습니다. 하지만 괜찮습니다, 두번째 넘김값은 추가적이거든요! 함수를 부르는 이가 따로 두번째 넘김값을 지정하지 않았기 때문에, 그 값은 함수 선언에 따라 자연히 <code>True</code>가 됩니다.
 </ol>
 
-<p>You can also pass values into a function by name.
+<p>또한 이름을 가지고 함수에 값을 전달할수도 있습니다.
 
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>from humansize import approximate_size</kbd>
@@ -124,19 +124,19 @@ SyntaxError: non-keyword arg after keyword arg</samp>
 <samp class=traceback>  File "&lt;stdin>", line 1
 SyntaxError: non-keyword arg after keyword arg</samp></pre>
 <ol>
-<li>This calls the <code>approximate_size()</code> function with <code>4000</code> for the first argument (<var>size</var>) and <code>False</code> for the argument named <var>a_kilobyte_is_1024_bytes</var>. (That happens to be the second argument, but doesn&#8217;t matter, as you&#8217;ll see in a minute.)
-<li>This calls the <code>approximate_size()</code> function with <code>4000</code> for the argument named <var>size</var> and <code>False</code> for the argument named <var>a_kilobyte_is_1024_bytes</var>. (These named arguments happen to be in the same order as the arguments are listed in the function declaration, but that doesn&#8217;t matter either.)
-<li>This calls the <code>approximate_size()</code> function with <code>False</code> for the argument named <var>a_kilobyte_is_1024_bytes</var> and <code>4000</code> for the argument named <var>size</var>. (See? I told you the order didn&#8217;t matter.)
-<li>This call fails, because you have a named argument followed by an unnamed (positional) argument, and that never works. Reading the argument list from left to right, once you have a single named argument, the rest of the arguments must also be named.
-<li>This call fails too, for the same reason as the previous call. Is that surprising? After all, you passed <code>4000</code> for the argument named <code>size</code>, then &#8220;obviously&#8221; that <code>False</code> value was meant for the <var>a_kilobyte_is_1024_bytes</var> argument. But Python doesn&#8217;t work that way. As soon as you have a named argument, all arguments to the right of that need to be named arguments, too.
+<li>이번 <code>approximate_size()</code> 함수부름에는 첫번째 넘김값(<var>size</var>)에 <code>4000</code>을 넣고, <var>a_kilobyte_is_1024_bytes</var> 에는 <code>False</code>를 넣습니다.(두번째 넘김값이기도 하지만 곧 그것과는 상관없다는 걸 알게됩니다.)
+<li>이번 <code>approximate_size()</code> 함수 부름에는 <var>size</var>라는 넘김값에 <code>4000</code>을, <var>a_kilobyte_is_1024_bytes</var>에는 <code>False</code>를 각각 넣습니다. (함수선언시의 배열과 순서가 같지만, 역시 그래서가 아닙니다.)
+<li>이번 <code>approximate_size()</code> 함수 부름에는 먼저 <var>a_kilobyte_is_1024_bytes</var>에 <code>False</code>값을 넣고  <var>size</var>에 <code>4000</code>을 넣습니다. (순서는 상관없다고 말했었죠?)
+<li>한번 넘김값의 이름을 쓰고 나면 그 뒤로 이름을 쓰지 않는 넘김값(위치로 추정하는)은 허용되지 않습니다. 때문에 이번 함수 부름은 실패하고 맙니다. 넘김값들을 왼쪽에서 오른쪽으로 읽어가다가, 한번 넘김값 이름이 나오면, 그 뒤의 넘김값들은 계속 이름을 써 주어야 합니다.
+<li>앞과 같은 이유로 이번 부름도 실패합니다. 놀라운가요? <code>size</code>에 <code>4000</code>이란 값을 준 후에  <code>False</code>가 뜻하는 바는 명확함에도 불구하고 파이썬은 그렇게 작동하지 않습니다. 일단 하나의 넘김값에 이름을 주고 나면 그 오른쪽의 모든 넘김값들도 이름이 필요합니다.
 </ol>
 
 <p class=a>&#x2042;
 
-<h2 id=readability>Writing Readable Code</h2>
-<p>I won&#8217;t bore you with a long finger-wagging speech about the importance of documenting your code. Just know that code is written once but read many times, and the most important audience for your code is yourself, six months after writing it (<i>i.e.</i> after you&#8217;ve forgotten everything but need to fix something). Python makes it easy to write readable code, so take advantage of it. You&#8217;ll thank me in six months.
-<h3 id=docstrings>Documentation Strings</h3>
-<p>You can document a Python function by giving it a documentation string (<code>docstring</code> for short). In this program, the <code>approximate_size()</code> function has a <code>docstring</code>:
+<h2 id=readability>읽히는 코드 쓰기</h2>
+<p>코드에 대한 문서를 만드는 일의 중요성을 장황하게 설명해 지루하게 하고 싶지는 않습니다. 단지 코드는 한번 쓰여지지만 여러번 읽히고, 그중 가장 중요한 독자는 코드를 작성한 후 6개월이 지났을 때의 (즉, 코드에 대해 이미 다 잊었지만 수정을 해야하는) 당신입니다. 파이썬은 읽기좋은 코드를 작성하기 쉽습니다, 그 혜택을 누리세요. 6개월도 지나지 않아 제게 고마워하게 될겁니다.
+<h3 id=docstrings>참조 문서</h3>
+<p>파이썬 함수를 문서화 하려면 함수에 참조 문자열을 달아주세요(줄여서 참조문이라 부르죠). 이 프로그램에서<code>approximate_size()</code> 함수는 <code>참조문</code>을 가지고 있습니다.:
 <pre class='nd pp'><code>def approximate_size(size, a_kilobyte_is_1024_bytes=True):
     '''Convert a file size to human-readable form.
 
@@ -148,19 +148,20 @@ SyntaxError: non-keyword arg after keyword arg</samp></pre>
     Returns: string
 
     '''</code></pre>
-<aside>Every function deserves a decent docstring.</aside>
-<p>Triple quotes signify a multi-line string. Everything between the start and end quotes is part of a single string, including carriage returns, leading white space, and other quote characters. You can use them anywhere, but you&#8217;ll see them most often used when defining a <code>docstring</code>.
+<aside>모든 함수는 참조문을 달아줄만한 가치가 있어요.</aside>
+<p>세따옴표는 여러줄 문자열을 의미합니다. 앞의 세 따옴표와 뒤의 세 따옴표 사이의 줄바꿈 글쇠나 들여쓰기 공백, 그리고 홑 이나 겹 따옴표 등을 포함한 모든 것은 문자열의 한 부분입니다. 세따옴표는 어디에서나 쓰이지만 <code>참조문</code>에서 가장 많이 쓰입니다.  
 <blockquote class='note compare perl5'>
-<p><span class=u>&#x261E;</span>Triple quotes are also an easy way to define a string with both single and double quotes, like <code>qq/.../</code> in Perl 5.
+<p><span class=u>&#x261E;</span>세따옴표는 (펄5의 <code>qq/.../</code>와 비슷하게) 홑따옴표와 겹따옴표를 같이 쓸수 있는 가장 쉬운 방법입니다.
 </blockquote>
-<p>Everything between the triple quotes is the function&#8217;s <code>docstring</code>, which documents what the function does. A <code>docstring</code>, if it exists, must be the first thing defined in a function (that is, on the next line after the function declaration). You don&#8217;t technically need to give your function a <code>docstring</code>, but you always should. I know you&#8217;ve heard this in every programming class you&#8217;ve ever taken, but Python gives you an added incentive: the <code>docstring</code> is available at runtime as an attribute of the function.
+<p>여기서 세따옴표로 구성된 문자열 전체는 함수가 하는 일을 적어놓은 <code>참조문</code>입니다. <code>참조문</code>이 있다면, 항상 함수 선언의 처음에 와야 합니다(함수 선언 다음줄). 참조문을 다는것이 의무는 아닙니다, 하지만 할 수 있다면 꼭 참조문을 다세요. 프로그래밍 수업마다 귀가 따갑게 들은 이야기겠지만, 파이썬은 약간의 편의를 더 제공합니다: 
+<br>프로그램을 실행했을 때 참조문이 함수의 속성으로 사용될 수 있다는 거죠.
 <blockquote class=note>
-<p><span class=u>&#x261E;</span>Many Python <abbr>IDE</abbr>s use the <code>docstring</code> to provide context-sensitive documentation, so that when you type a function name, its <code>docstring</code> appears as a tooltip. This can be incredibly helpful, but it&#8217;s only as good as the <code>docstring</code>s you write.
+<p><span class=u>&#x261E;</span>많은 파이썬 <abbr>개발환경</abbr>이 문맥에 따른 <code>참조문</code>을 내비칩니다. 가령 특정 함수이름을 쓰면 툴팁으로 그 함수의 <code>참조문</code>이 나타납니다. 이 때 <code>참조문</code>을 잘 달아놓았다면, 큰 도움을 얻을수 있겠지만, 그렇지 않다면 속이 좀 쓰리겠죠?
 </blockquote>
 <p class=a>&#x2042;
 
 <h2 id=importsearchpath>The <code>import</code> Search Path</h2>
-<p>Before this goes any further, I want to briefly mention the library search path. Python looks in several places when you try to import a module. Specifically, it looks in all the directories defined in <code>sys.path</code>. This is just a list, and you can easily view it or modify it with standard list methods. (You&#8217;ll learn more about lists in <a href=native-datatypes.html#lists>Native Datatypes</a>.)
+<p>더 나아가기 전에, 라이브러리 검색 경로에 대해 간략히 언급하겠습니다. 파이썬은 모듈을 불러들일 때 몇가지 경로를 찾아봅니다. Specifically, it looks in all the directories defined in <code>sys.path</code>. This is just a list, and you can easily view it or modify it with standard list methods. (You&#8217;ll learn more about lists in <a href=native-datatypes.html#lists>Native Datatypes</a>.)
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>import sys</kbd>                                                 <span class=u>&#x2460;</span></a>
 <a><samp class=p>>>> </samp><kbd class=pp>sys.path</kbd>                                                   <span class=u>&#x2461;</span></a>
