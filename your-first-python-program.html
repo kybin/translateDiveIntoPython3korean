@@ -104,7 +104,7 @@ if __name__ == '__main__':
 <a>    print(approximate_size(1000000000000))         <span class=u>&#x2461;</span></a></code></pre>
 <ol>
 <li>처음으로 <code>approximate_size()</code>를 부를 때는 두 넘김값을 모두 넘겼습니다. 두번째 값으로 <code>False</code>라는 값을 넘겼기 때문에 <code>approximate_size()</code>함수의  <var>a_kilobyte_is_1024_bytes</var>는 <code>False</code>가 됩니다.
-<li>두번째로 <code>approximate_size()</code>함수를 부를 때는 하나의 넘김값만을 넘겼습니다. 하지만 괜찮습니다, 두번째 넘김값은 추가적이거든요! 함수를 부르는 이가 따로 두번째 넘김값을 지정하지 않았기 때문에, 그 값은 함수 선언에 따라 자연히 <code>True</code>가 됩니다.
+<li>두번째로 <code>approximate_size()</code>함수를 부를 때는 하나의 넘김값만을 넘겼습니다. 하지만 괜찮습니다, 두번째 넘김값을 넘길지는 선택할 수 있습니다. 함수를 부르는 이가 따로 두번째 넘김값을 지정하지 않았기 때문에, 그 값은 함수 선언에 따라 자연히 <code>True</code>가 됩니다.
 </ol>
 
 <p>또한 이름을 가지고 함수에 값을 전달할수도 있습니다.
@@ -160,8 +160,8 @@ SyntaxError: non-keyword arg after keyword arg</samp></pre>
 </blockquote>
 <p class=a>&#x2042;
 
-<h2 id=importsearchpath>The <code>import</code> Search Path</h2>
-<p>더 나아가기 전에, 라이브러리 검색 경로에 대해 간략히 언급하겠습니다. 파이썬은 모듈을 불러들일 때 몇가지 경로를 찾아봅니다. Specifically, it looks in all the directories defined in <code>sys.path</code>. This is just a list, and you can easily view it or modify it with standard list methods. (You&#8217;ll learn more about lists in <a href=native-datatypes.html#lists>Native Datatypes</a>.)
+<h2 id=importsearchpath><code>import</code>가 찾아보는 경로들</h2>
+<p>더 나아가기 전에, 라이브러리 검색 경로에 대해 간략히 언급하겠습니다. 파이썬은 모듈을 불러들일 때 몇가지 경로를 찾아봅니다. 정확하게는 <code>sys.path</code>에 있는 모든 디렉토리에 대해 검색합니다. 이 목록은 리스트로 표현되고, 일반적인 리스트 처리방법을 통해 쉽게 읽거나 수정할 수 있습니다. (리스트에 대해서는 <a href=native-datatypes.html#lists>고유 자료형</a>장에서 더 알아보도록 하죠.)
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>import sys</kbd>                                                 <span class=u>&#x2460;</span></a>
 <a><samp class=p>>>> </samp><kbd class=pp>sys.path</kbd>                                                   <span class=u>&#x2461;</span></a>
@@ -185,11 +185,11 @@ SyntaxError: non-keyword arg after keyword arg</samp></pre>
  '/usr/lib/python3.1/dist-packages', 
  '/usr/local/lib/python3.1/dist-packages']</samp></pre>
 <ol>
-<li>Importing the <code>sys</code> module makes all of its functions and attributes available.
-<li><code>sys.path</code> is a list of directory names that constitute the current search path. (Yours will look different, depending on your operating system, what version of Python you&#8217;re running, and where it was originally installed.)  Python will look through these directories (in this order) for a <code>.py</code> file whose name matches what you&#8217;re trying to import.
-<li>Actually, I lied; the truth is more complicated than that, because not all modules are stored as <code>.py</code> files. Some are <i>built-in modules</i>; they are actually baked right into Python itself. Built-in modules behave just like regular modules, but their Python source code is not available, because they are not written in Python! (Like Python itself, these built-in modules are written in C.)
-<li>You can add a new directory to Python&#8217;s search path at runtime by adding the directory name to <code>sys.path</code>, and then Python will look in that directory as well, whenever you try to import a module. The effect lasts as long as Python is running.
-<li>By using <code>sys.path.insert(0, <var>new_path</var>)</code>, you inserted a new directory as the first item of the <code>sys.path</code> list, and therefore at the beginning of Python&#8217;s search path. This is almost always what you want. In case of naming conflicts (for example, if Python ships with version 2 of a particular library but you want to use version 3), this ensures that your modules will be found and used instead of the modules that came with Python.
+<li><code>sys</code> 모듈을 불러오면, 그 안의 모든 함수와 속성을 사용할 수 있습니다.
+<li><code>sys.path</code>에는 현재 검색 경로로 지정된 디렉토리 목록이 들어있습니다.  (운영체제나 파이썬 버전, 설치 위치에 따라 여기서와 다르게 보일수 있습니다.) 파이썬은 불러오려는 모듈과 같은 이름을 가진 <code>.py</code> 파일이 있는지 확인하기 위해 폴더들을 쭉 검색합니다.
+<li>예, 뻥을 좀 쳤어요; 사실은 좀 더 복잡합니다. 모든 모듈이 <code>.py</code> 파일에 저장되어있는것은 아니기 때문이죠. 어떤 것들은 고유모듈입니다; 얘네들은 파이썬 내부에 흡수되어 있습니다. 고유 모듈은 다른 모듈과 똑같지만 파이썬 소스 코드는 볼수 없습니다. 왜냐면 파이썬으로 작성되지 않았기 때문이죠! (파이썬처럼, 이 고유 모듈들도 C로 작성되었습니다.)
+<li>실행시 <code>sys.path</code>에 디렉토리명을 추가하면 파이썬 검색 경로에 새 디렉토리가 들어갑니다. 다음 번 부터 모듈을 불러올 때는 이 디렉토리도 마찬가지로 눈여겨 볼겁니다. 이 효과는 파이썬이 켜있는 동안 지속됩니다.
+<li><code>sys.path.insert(0, <var>new_path</var>)</code>라고 쓰면, 새 디렉토리가 <code>sys.path</code>의 첫 항목으로 추가됩니다. 파이썬 검색경로의 처음에 있는거죠. 이렇게 하는게 대부분 더 낫습니다. 같은 이름의 파일이 여러 개 있을 때(예를 들어, 특정한 라이브러리의 파이썬2 용 버전이 있지만 파이썬3 용 버전을 쓰고 싶을때), 이렇게 하면 파이썬에 탑재된 모듈보다 직접 추가한 모듈을 먼저 찾게 됩니다.
 </ol>
 
 <p class=a>&#x2042;
@@ -220,9 +220,9 @@ SyntaxError: non-keyword arg after keyword arg</samp></pre>
 <blockquote class='note compare perl5'>
 <p><span class=u>&#x261E;</span><code>import</code> in Python is like <code>require</code> in Perl. Once you <code>import</code> a Python module, you access its functions with <code><var>module</var>.<var>function</var></code>; once you <code>require</code> a Perl module, you access its functions with <code><var>module</var>::<var>function</var></code>.
 </blockquote>
-<h3 id=whatsanobject>What&#8217;s An Object?</h3>
-<p>Everything in Python is an object, and everything can have attributes and methods. All functions have a built-in attribute <code>__doc__</code>, which returns the <var>docstring</var> defined in the function&#8217;s source code. The <code>sys</code> module is an object which has (among other things) an attribute called <var>path</var>. And so forth.
-<p>Still, this doesn&#8217;t answer the more fundamental question: what is an object?  Different programming languages define &#8220;object&#8221; in different ways. In some, it means that <em>all</em> objects <em>must</em> have attributes and methods; in others, it means that all objects are subclassable. In Python, the definition is looser. Some objects have neither attributes nor methods, <em>but they could</em>. Not all objects are subclassable. But everything is an object in the sense that it can be assigned to a variable or passed as an argument to a function.
+<h3 id=whatsanobject>객체가 뭔가요?</h3>
+<p>파이썬안의 모든것은 다 객체고, 동시에 속성과 메소드를 가집니다. 모든 함수는 선언시의 소스코드에 포함된 <var>참조문</var>을 돌려주는 고유 속성 <code>__doc__</code>을 가지고 있습니다. <code>sys</code> 모듈은 (다른것도 있지만) <var>path</var>라는 속성을 가지고 있습니다. 등등등.
+<p>여전히 기본적인 질문에 대한 답은 나오질 않았네요: 객체란 무엇일까요? 여러 프로그래밍 언어들은 서로 다르게 객체를 정의합니다. 몇몇 언어에서는 모든 객체가 무조건 속성과 메소드를 가져야 합니다; 다른 언어에서는 모든 객체가 하위클래스를 가질수 있어야 합니다. 파이썬의 정의는 조금 느슨합니다. 객체는 속성과 메소드를 가질수 있지만, 어떤 객체는 둘 다 안 가지고 있을 수도 있습니다. 모든 객체가 하위클래스를 가지지는 않습니다. 하지만 무엇이나 변수에 저장되거나 함수에 넘겨질 수 있다는 점에서 모든것은 객체입니다.
 <p>You may have heard the term &#8220;first-class object&#8221; in other programming contexts. In Python, functions are <i>first-class objects</i>. You can pass a function as an argument to another function. Modules are <i>first-class objects</i>. You can pass an entire module as an argument to a function. Classes are first-class objects, and individual instances of a class are also first-class objects.
 <p>This is important, so I&#8217;m going to repeat it in case you missed it the first few times: <em>everything in Python is an object</em>. Strings are objects. Lists are objects. Functions are objects. Classes are objects. Class instances are objects. Even modules are objects.
 <p class=a>&#x2042;

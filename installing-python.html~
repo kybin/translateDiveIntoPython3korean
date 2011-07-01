@@ -87,13 +87,13 @@ Type "help", "copyright", "credits" or "license" for more information.
 <li><b>Register Extensions</b>는 파이썬 스크립트(<code>.py</code> 라는 확장자를 가진 파일)를 더블 클릭했을 때 실행되도록 합니다.  추천하지만 꼭 필요하지는 않습니다. (이 옵션은 하드디스크를 전혀 쓰지 않기 때문에 뺄 이유가 별로 없죠.)
 <li><b>Tcl/Tk</b>는 파이썬 셸에서 사용하는 그래픽 라이브러리입니다. 이 책에서도 사용하게 되므로, 이 옵션을 유지하는 걸 매우 권장합니다.
 <li><b>Documentation</b>를 선택하면  <a href=http://docs.python.org/><code>docs.python.org</code></a>에 있는 많은 정보가 로컬드라이브에 복사됩니다. 만약 전화선을 쓰거나 인터넷 접속이 제한적이라면 까는것을 추천합니다.
-<li><b>Utility Scripts</b> 는 <code>2to3.py</code>라는 스크립트를 포함하고 있습니다. 이에 대해서는 <a href=case-study-porting-chardet-to-python-3.html> 책 뒷장에서 다루게 됩니다.</a>. 기존의 파이썬 2 코드를 파이썬 3로 옮기길 원한다면 필요합니다. 만약 파이썬2로 짜놓은 코드가 없다면 선택하지 않아도 됩니다.
+<li><b>Utility Scripts</b> 는 <code>2to3.py</code>라는 스크립트를 포함하고 있습니다. 이에 대해서는 <a href=case-study-porting-chardet-to-python-3.html> 책 뒷장에서 다루게 됩니다.</a>. 기존의 파이썬 2 코드를 파이썬 3로 옮길 때 필요합니다. 만약 파이썬2로 짜놓은 코드가 없다면 선택하지 않아도 됩니다.
 <li><b>Test Suite</b>는 파이썬 대화형 실행기를 테스트 할 목적의 스크립트 모음입니다. 저도 파이썬 프로그래밍을 해오면서 한번도 사용한 적이 없습니다. 이 책에서도 다루지 않습니다. 선택은 자유입니다.
 </ul>
 
 <li>
 <p class='ss nm'><img src=i/win-install-3a-disk-usage.png width=499 height=432 alt='[Python installer: disk space requirements]'>
-<p>만약 하드 드라이브에 얼마만큼의 용량이 남아있는지 모른다면, <code>Disk Usage</code> 버튼을 클릭하세요. 현재 존재하는 드라이브와 그 남은 용량이 표시됩니다.
+<p>만약 하드 드라이브에 얼마만큼의 용량이 남아있는지 모른다면, <code>Disk Usage</code> 버튼을 클릭하세요. 가지고 있는 드라이브와 그 남은 용량이 표시됩니다.
 
 <p> <code>OK</code> 버튼을 눌러  &#8220;Customizing Python&#8221; 페이지로 돌아가세요.
 
@@ -135,7 +135,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 <li>
 <p class='ss nm'><img src=i/mac-install-1-welcome.png width=622 height=442 alt='[Python installer: welcome screen]'>
-<p>설치 첫페이지에는 파이썬에 대한 간략한 설명이 들어있습니다. 더 자세한 사항은 <code>ReadMe.txt</code> 파일을 참고하라네요. (아직 읽지 않았을 겁니다. 아닌가요?) 
+<p>설치 첫페이지에는 파이썬에 대한 간략한 설명이 들어있습니다. 더 자세한 사항은 <code>ReadMe.txt</code> 파일을 참고하라네요. (아직 읽지 않으셨죠?) 
 <p><code>Continue</code> 버튼을 눌러 다음으로 넘어갑시다.
 
 <li>
@@ -145,12 +145,12 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 <li>
 <p class='ss nm'><img src=i/mac-install-3-license.png width=622 height=442 alt='[Python installer: software license agreement]'>
-<p>제대로 된 많은 인스톨러처럼, 파이썬 인스톨러도 소프트웨어 라이센스 동의 페이지를 띄웁니다. 파이썬은 오픈소스고 그 라이센스는<a href=http://opensource.org/licenses/>Open Source Initiative</a>에 적용을 받습니다. 파이썬은 그 라이센스에 족적을 남긴 여러명의 소유자와 스폰서가 있어왔습니다. 하지만 지금은 이렇습니다: 파이썬은 오픈소스입니다. 파이썬은 돈을 받지 않고 어떤 의무도 지우지 않습니다. 어떤 플랫폼에서, 어떤 목적으로 사용하더라도 상관없습니다.
+<p>제대로 된 많은 인스톨러처럼, 파이썬 인스톨러도 소프트웨어 라이센스 동의 페이지를 띄웁니다. 파이썬은 오픈소스고 그 라이센스는<a href=http://opensource.org/licenses/>Open Source Initiative</a>에 적용을 받습니다. 파이썬은 그 라이센스에 족적을 남긴 여러명의 소유자와 스폰서가 있어왔습니다. 하지만 지금 파이썬은 오픈소스입니다. 파이썬은 돈을 받지 않고 어떤 의무도 지우지 않습니다. 어떤 플랫폼에서, 어떤 목적으로 사용하더라도 상관없습니다.
 <p><code>Continue</code> 버튼을 한번 더 누르세요.
 
 <li>
 <p class='ss nm'><img src=i/mac-install-4-license-dialog.png width=622 height=442 alt='[Python installer: dialog to accept license agreement]'>
-<p>애플 인스톨 프레임워크는 이상한 취미를 가지고 있습니다. 설치를 끝내기 위해선 소프트웨어 라이센스에 동의를 해야만 한다네요 . 하지만 오픈소스인 파이썬은 당신에게 권리를 주면 주었지 뺏지는 않습니다.
+<p>이번에도 애플 인스톨 프레임워크의 고약한 취미가 나왔습니다. 설치를 끝내기 위해선 소프트웨어 라이센스에 동의를 하라네요 . 하지만 오픈소스인 파이썬은 당신에게 권리를 주면 주었지 뺏지는 않습니다.
 <p>한번 더 <code>Agree</code> 버튼을 누르세요.
 
 <li>
@@ -160,7 +160,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 <li>
 <p class='ss nm'><img src=i/mac-install-6-custom-install.png width=622 height=442 alt='[Python installer: custom install screen]'>
-<p>If you choose a Custom Install, the installer will present you with the following list of features:
+<p>사용자가 골라 설치하기를 선택하면, 인스톨러가 아래 몇가지 기능에 대한 목록을 띄웁니다.
 <ul>
 <li><b>Python Framework</b>. 파이썬의 심장입니다. 무조건 설치되어야 하기때문에, 선택된 채로 잠겨있습니다.
 <li><b>GUI Applications</b> IDLE을 포함한, Python Shell 윈도우입니다. 이 책에서 계속 사용할 겁니다. 이 옵션을 꼭 선택하세요.
