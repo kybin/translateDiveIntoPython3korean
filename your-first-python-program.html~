@@ -194,9 +194,9 @@ SyntaxError: non-keyword arg after keyword arg</samp></pre>
 
 <p class=a>&#x2042;
 
-<h2 id=everythingisanobject>Everything Is An Object</h2>
-<p>In case you missed it, I just said that Python functions have attributes, and that those attributes are available at runtime. A function, like everything else in Python, is an object.
-<p>Run the interactive Python shell and follow along:
+<h2 id=everythingisanobject>모든것은 객체다</h2>
+<p>잊으셨을까봐 다시 얘기하자면 파이썬에서 함수는 속성을 가지고, 그 속성은 실행시에 사용할수 있습니다. 파이썬의 다른 모든 것들처럼 함수도 객체입니다.
+<p>대화형 파이썬 셸을 키고 다음을 따라해 보세요:
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>import humansize</kbd>                               <span class=u>&#x2460;</span></a>
 <a><samp class=p>>>> </samp><kbd class=pp>print(humansize.approximate_size(4096, True))</kbd>  <span class=u>&#x2461;</span></a>
@@ -213,21 +213,21 @@ SyntaxError: non-keyword arg after keyword arg</samp></pre>
 
 </samp></pre>
 <ol>
-<li>The first line imports the <code>humansize</code> program as a module&nbsp;&mdash;&nbsp;a chunk of code that you can use interactively, or from a larger Python program. Once you import a module, you can reference any of its public functions, classes, or attributes. Modules can do this to access functionality in other modules, and you can do it in the Python interactive shell too. This is an important concept, and you&#8217;ll see a lot more of it throughout this book.
-<li>When you want to use functions defined in imported modules, you need to include the module name. So you can&#8217;t just say <code>approximate_size</code>; it must be <code>humansize.approximate_size</code>. If you&#8217;ve used classes in Java, this should feel vaguely familiar.
-<li>Instead of calling the function as you would expect to, you asked for one of the function&#8217;s attributes, <code>__doc__</code>.
+<li>첫번째 줄은 imports the <code>humansize</code> 프로그램을 모듈&nbsp;&mdash;&nbsp;필요시 꺼내 쓰거나 더 큰 파이썬 프로그램에서 사용할 수 있는 코드 묶음&nbsp;&mdash;&nbsp;로 받아옵니다. 한번 모듈을 받아오면, 그 모듈이 공개하는 모든 함수나 클래스, 속성 등을 참조할수 있습니다. 모듈 또한 다른 모듈의 기능을 받아와 쓸수 있고, 이를 바로반응형 파이썬 셸에서 해볼수도 있습니다. 이런 컨셉이 얼마나 중요한지 이 책을 읽어나가며 이해하게 될겁니다.
+<li>모듈안에서 정의된 함수를 사용하려면, 그 모듈의 이름도 같이 써주어야 합니다. 그냥 <code>approximate_size</code>라고 할수가 없죠; <code>humansize.approximate_size</code>여야만 합니다. 자바의 클래스를 써본 적이 있다면 왠지 친숙할겁니다.
+<li>함수 자체를 불러오지 않고, <code>__doc__</code>이라는 한가지 속성만을 불러와 봅시다.
 </ol>
 <blockquote class='note compare perl5'>
-<p><span class=u>&#x261E;</span><code>import</code> in Python is like <code>require</code> in Perl. Once you <code>import</code> a Python module, you access its functions with <code><var>module</var>.<var>function</var></code>; once you <code>require</code> a Perl module, you access its functions with <code><var>module</var>::<var>function</var></code>.
+<p><span class=u>&#x261E;</span>파이썬의 <code>import</code>는 펄의 <code>require</code>과 비슷합니다. 한번 파이썬 모듈을 부르면, <code><var>모듈</var>.<var>함수</var></code> 로 그 함수를 부릅니다; 펄에서 모듈을 한번 요청(<code>require</code>)하면, <code><var>모듈</var>::<var>함수</var></code> 라고 써 그 함수를 부릅니다.
 </blockquote>
 <h3 id=whatsanobject>객체가 뭔가요?</h3>
 <p>파이썬안의 모든것은 다 객체고, 동시에 속성과 메소드를 가집니다. 모든 함수는 선언시의 소스코드에 포함된 <var>참조문</var>을 돌려주는 고유 속성 <code>__doc__</code>을 가지고 있습니다. <code>sys</code> 모듈은 (다른것도 있지만) <var>path</var>라는 속성을 가지고 있습니다. 등등등.
-<p>여전히 기본적인 질문에 대한 답은 나오질 않았네요: 객체란 무엇일까요? 여러 프로그래밍 언어들은 서로 다르게 객체를 정의합니다. 몇몇 언어에서는 모든 객체가 무조건 속성과 메소드를 가져야 합니다; 다른 언어에서는 모든 객체가 하위클래스를 가질수 있어야 합니다. 파이썬의 정의는 조금 느슨합니다. 객체는 속성과 메소드를 가질수 있지만, 어떤 객체는 둘 다 안 가지고 있을 수도 있습니다. 모든 객체가 하위클래스를 가지지는 않습니다. 하지만 변수에 저장되거나 함수에 넘겨질 수 있다는 점에서 모든것은 객체입니다.
-<p>You may have heard the term &#8220;first-class object&#8221; in other programming contexts. In Python, functions are <i>first-class objects</i>. You can pass a function as an argument to another function. Modules are <i>first-class objects</i>. You can pass an entire module as an argument to a function. Classes are first-class objects, and individual instances of a class are also first-class objects.
-<p>This is important, so I&#8217;m going to repeat it in case you missed it the first few times: <em>everything in Python is an object</em>. Strings are objects. Lists are objects. Functions are objects. Classes are objects. Class instances are objects. Even modules are objects.
+<p>여전히 기본적인 질문에 대한 답은 나오질 않았네요: 객체란 무엇일까요? 여러 프로그래밍 언어들은 서로 다르게 객체를 정의합니다. 몇몇 언어에서는 모든 객체가 무조건 속성과 메소드를 가져야 합니다; 다른 언어에서는 모든 객체가 하위클래스를 가질수 있어야 합니다. 파이썬의 정의는 조금 느슨합니다. 객체는 속성과 메소드를 가질수 있지만, 어떤 객체는 둘 다 안 가지고 있을 수도 있습니다. 모든 객체가 하위클래스를 가지지는 않습니다. 하지만 무엇이나 변수에 저장되거나 함수에 넘겨질 수 있다는 점에서 모든것은 객체입니다.
+<p>아마 다른 프로그래밍 언어에서 &#8220;제한적이지 않은 객체(first-class object)&#8221; 라는 말을 들어보았을 겁니다. 파이썬에서 함수는 제한적이지 않은 객체 입니다. 함수를 다른 함수의 넘김값으로 사용할수 있습니다. 모듈은 제한적이지 않은 객체입니다. 함수에 모듈 전체를 넘기는것도 가능합니다. 클래스도 제한적이지 않은 객체이고, 그 클래스 각각의 인스턴스()도 제한적이지 않은 객체입니다.
+<p>파이썬의 모든것은 다 객체다: 이 개념은 매우 중요하기 때문에 처음 몇번은 계속 되풀이 해서 얘기할겁니다. 문자열은 객체입니다. 리스트는 객체입니다. 함수는 객체입니다. 클래스틑 객체입니다. 클래스 인스턴스는 객체입니다. 모듈도 객체입니다.
 <p class=a>&#x2042;
 
-<h2 id=indentingcode>Indenting Code</h2>
+<h2 id=indentingcode>코드 들여쓰기</h2>
 <p>Python functions have no explicit <code>begin</code> or <code>end</code>, and no curly braces to mark where the function code starts and stops. The only delimiter is a colon (<code>:</code>) and the indentation of the code itself.
 <pre class=pp><code><a>def approximate_size(size, a_kilobyte_is_1024_bytes=True):  <span class=u>&#x2460;</span></a>
 <a>    if size &lt; 0:                                            <span class=u>&#x2461;</span></a>
