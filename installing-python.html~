@@ -51,7 +51,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 <p class=a>&#x2042;
 
-<h2 id=windows>마이크로소프트 윈도우즈에 설치하기</h2>
+<h2 id=windows>마이크로소프트 윈도우즈에 설치</h2>
 
 <p>윈도우즈에는 현재 두가지 아키텍쳐가 존재합니다. 32비트와 64비트죠. 물론, 윈도우즈는 각기 다른 많은<i>버전</i>이 있죠. XP, Vista, 윈도우 7 등&nbsp;&mdash;&nbsp; 하지만 파이썬은 그 모두에서 잘 돌아갑니다. 더 중요한 차이는 32비트냐 64비트냐 입니다. 만약 당신 윈도우가 어떤 아키텍쳐상에서 돌아가는지 모른다면, 아마도 32비트일 확률이 큽니다.
 
@@ -116,11 +116,11 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 </ol>
 
-<p>[<a href=#idle>파이썬 셸의 사용</a>으로 이동]
+<p>[<a href=#idle>파이썬 셸 다루기</a>으로 이동]
 
 <p class=a>&#x2042;
 
-<h2 id=macosx>Mac OS X 에서의 설치</h2>
+<h2 id=macosx>Mac OS X 에서 설치</h2>
 
 <p>최근에 나온 모든 매킨토시 컴퓨터는 (보통의 윈도우 PC들 처럼) 인텔칩을 사용합니다. 그전의 맥은 파워피씨 칩을 사용했습니다. 하지만 그 차이를 알 필요는 없습니다. 파이썬은 모든 맥에 대해 하나의 인스톨러를 제공합니다.
 
@@ -155,7 +155,7 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 <li>
 <p class='ss nm'><img src=i/mac-install-5-standard-install.png width=622 height=442 alt='[Python installer: standard install screen]'>
-<p>여기서는 설치 위치를 변경할수 있습니다. 파이썬을 꼭 시스템 드라이브에 깔아야 하지만, 인스톨러는 바보같이 이를 강요하지는 않습니다. 뭐 사실 저는 설치 폴더를 변경할만한 이유가 없네요.
+<p>여기서는 설치 위치를 변경할수 있습니다. 파이썬을 꼭 시스템 드라이브에 깔아야 하지만, 바보같이 인스톨러는 이를 강요하지 않습니다. 뭐 사실 저는 설치 폴더를 변경할만한 이유가 없네요.
 <p>이 페이지에서 몇가지 기능들을 설치 목록에서 제거할 수도 있습니다. 만약 그렇게 하고 싶으면 <code>Customize</code> 버튼을 누르고, 아니라면 <code>Install</code> 버튼을 누르세요.
 
 <li>
@@ -173,93 +173,92 @@ Type "help", "copyright", "credits" or "license" for more information.
 
 <li>
 <p class='ss nm'><img src=i/mac-install-7-admin-password.png width=622 height=457 alt='[Python installer: dialog to enter administrative password]'>
-<p>Because it installs system-wide frameworks and binaries in <code>/usr/local/bin/</code>, the installer will ask you for an administrative password. There is no way to install Mac Python without administrator privileges.
-<p>Click the <code>OK</code> button to begin the installation.
+<p>설치가 시작되면 시스템을 건드리게되고, 그 2진 데이터가 <code>/usr/local/bin/</code>에 설치 되기 때문에, 인스톨러가 관리자 암호를 묻습니다. 관리자 권한없이 맥 파이썬을 설치할 방법은 없습니다. 
+<p><code>OK</code> 버튼을 눌러 설치를 시작하세요.
 
 <li>
 <p class='ss nm'><img src=i/mac-install-8-progress.png width=622 height=442 alt='[Python installer: progress meter]'>
-<p>The installer will display a progress meter while it installs the features you&#8217;ve selected.
+<p>선택한 기능을 인스톨하는 동안 진행 막대가 보여집니다.
 
 <li>
 <p class='ss nm'><img src=i/mac-install-9-succeeded.png width=622 height=442 alt='[Python installer: install succeeded]'>
-<p>Assuming all went well, the installer will give you a big green checkmark to tell you that the installation completed successfully.
-<p>Click the <code>Close</code> button to exit the installer.
+<p>모든 과정이 문제 없이 진행되었으면, 큰 초록색 체크 표시가 뜨면서 설치가 잘 끝났음을 알립니다.
+<p><code>Close</code> 버튼을 눌러 설치를 종료하세요.
 
 <li>
 <p class='ss nm'><img src=i/mac-install-10-application-folder.png width=488 height=482 alt='[contents of /Applications/Python 3.1/ folder]'>
-<p>Assuming you didn&#8217;t change the install location, you can find the newly installed files in the <code>Python 3.1</code> folder within your <code>/Applications</code> folder. The most important piece is <abbr>IDLE</abbr>, the graphical Python Shell.
-<p>Double-click <abbr>IDLE</abbr> to launch the Python Shell.
+<p>설치 폴더를 바꾸지 않았다면, <code>/Applications</code>안에 <code>Python 3.1</code> 폴더에 파일들이 새로이 설치된것을 볼수 있습니다. 그 중 가장 중요한 건 그래픽 파이썬 셸인 <abbr>IDLE</abbr>입니다.
+<p><abbr>IDLE</abbr>을 더블클릭해 파이썬 셸을 띄우세요.
 
 <li>
 <p class='ss nm'><img src=i/mac-interactive-shell.png width=522 height=538 alt='[Mac Python Shell, a graphical interactive shell for Python]'>
-<p>The Python Shell is where you will spend most of your time exploring Python. Examples throughout this book will assume that you can find your way into the Python Shell.
+<p>파이썬을 다루는 대부분의 시간동안 파이썬 셸과 함께하게 됩니다. 저는 독자분들이 파이썬 셸로 들어가는 방법을 찾았다는 전제 하에 이 책의 예제를 썼습니다.
 
 </ol>
 
-<p>[Skip to <a href=#idle>using the Python Shell</a>]
+<p>[<a href=#idle>파이썬 셸 다루기</a>로 넘어가세요]
 
 <p class=a>&#x2042;
 
-<h2 id=ubuntu>Installing on Ubuntu Linux</h2>
+<h2 id=ubuntu>우분투 리눅스에 설치</h2>
 
-<p>Modern Linux distributions are backed by vast repositories of precompiled applications, ready to install. The exact details vary by distribution. In Ubuntu Linux, the easiest way to install Python 3 is through the <code>Add/Remove</code> application in your <code>Applications</code> menu.
+<p>최근 리눅스 배포판들은 엄청난 수의 저장소에 의지하고 있습니다. 이 저장소에는 기계어로 번역되어 설치를 기다리는 애플리케이션이 모여있습니다. 각 배포판마다 선택한 애플케이션들이 다릅니다 . 우분투 리눅스에서 파이썬 3를 설치하는 가장 쉬운 방법은 <code>애플리케이션</code> 메뉴의 <code>설치/제거 관리자</code>를 이용하는 겁니다. 
 
 <ol class=i>
 <li>
 <p class='ss nm'><img src=i/ubu-install-0-add-remove-programs.png width=920 height=473 alt='[Add/Remove: Canonical-maintained applications]'>
-<p>When you first launch the <code>Add/Remove</code> application, it will show you a list of preselected applications in different categories. Some are already installed; most are not. Because the repository contains over 10,000 applications, there are different filters you can apply to see small parts of the repository. The default filter is &#8220;Canonical-maintained applications,&#8221; which is a small subset of the total number of applications that are officially supported by Canonical, the company that creates and maintains Ubuntu Linux.
-
+<p>처음 <code>설치/제거</code> 관리자를 실행하면, 여러 범주의 미리 선택된 프로그램들의 목록이 뜹니다. 어떤것들은 이미 설치되어 있습니다. 저장소에는 만개가 넘는 프로그램들이 있기 때문에, 그 중 적은 일부만 볼수 있게끔 여러 거르개가 있습니다. 기본 거르개는 캐노니컬에서 공식적으로 지원하는 앱을 담은 &#8220;캐노니컬에서 제공하는 애플리케이션 모음&#8220;이라는 작은 꾸러미 입니다. 캐노니컬은 우분투 리눅스를 만들고 지원하는 회사입니다.
 <li>
 <p class='ss nm'><img src=i/ubu-install-1-all-open-source-applications.png width=920 height=473 alt='[Add/Remove: all open source applications]'>
-<p>Python 3 is not maintained by Canonical, so the first step is to drop down this filter menu and select &#8220;All Open Source applications.&#8221;
+<p>파이썬 3는 캐노니컬에 의해 지원되고 있지 않습니다. 그러니 처음에 거르개 메뉴를 열어 &#8220;오픈소스 애플리케이션 전체&#8220;로 바꿔주세요.
 
 <li>
 <p class='ss nm'><img src=i/ubu-install-2-search-python-3.png width=920 height=473 alt='[Add/Remove: search for Python 3]'>
-<p>Once you&#8217;ve widened the filter to include all open source applications, use the Search box immediately after the filter menu to search for <kbd>Python 3</kbd>.
+<p>거르개를 오픈소스 애플리케이션 전체로 확장 시켰으면, 그 오른쪽에 있는 검색 박스에 <kbd>Python 3</kbd>라고 쳐보세요.
 
 <li>
 <p class='ss nm'><img src=i/ubu-install-3-select-python-3.png width=920 height=473 alt='[Add/Remove: select Python 3.0 package]'>
-<p>Now the list of applications narrows to just those matching <kbd>Python 3</kbd>. You&#8217;re going to check two packages. The first is <code>Python (v3.0)</code>. This contains the Python interpreter itself.
+<p>이제 <kbd>Python 3</kbd>가 들어가는 애플리케이션들로 범위가 좁혀집니다. 여기서 두 개의 패키지를 선택하세요. 하나는 <code>Python (v3.0)</code>입니다. 이것은 파이썬 인터프리터를 포함합니다.
 <li>
 <p class='ss nm'><img src=i/ubu-install-4-select-idle.png width=920 height=473 alt='[Add/Remove: select IDLE for Python 3.0 package]'>
-<p>The second package you want is immediately above: <code>IDLE (using Python-3.0)</code>. This is a graphical Python Shell that you will use throughout this book.
-<p>After you&#8217;ve checked those two packages, click the <code>Apply Changes</code> button to continue.
+<p>다른 하나는 그 바로 위에 있는 <code>IDLE (using Python-3.0)</code>입니다. 이것은 이 책에서 계속 사용할 그래픽 파이썬 셸입니다.
+<p>두 패키지를 모두 선택했으면 <code>Apply Changes</code> 버튼을 눌러 다음으로 넘어가세요.
 
 <li>
 <p class='ss nm'><img src=i/ubu-install-5-apply-changes.png width=635 height=364 alt='[Add/Remove: apply changes]'>
-<p>The package manager will ask you to confirm that you want to add both <code>IDLE (using Python-3.0)</code> and <code>Python (v3.0)</code>.
-<p>Click the <code>Apply</code> button to continue.
+<p>패키지 매니저가 <code>IDLE (using Python-3.0)</code>와 <code>Python (v3.0)</code>을 더하려는게 맞는지 다시 물어봅니다.
+<p><code>Apply</code> 버튼을 눌러 넘어가세요.
 
 <li>
 <p class='ss nm'><img src=i/ubu-install-6-download-progress.png width=287 height=211 alt='[Add/Remove: download progress meter]'>
-<p>The package manager will show you a progress meter while it downloads the necessary packages from Canonical&#8217;s Internet repository.
+<p>패키지 매니저가 캐노니컬의 인터넷 저장소에서 필요한 요소를 다운받는동안 진행 바가 보여집니다.
 
 <li>
 <p class='ss nm'><img src=i/ubu-install-7-install-progress.png width=486 height=258 alt='[Add/Remove: installation progress meter]'>
-<p>Once the packages are downloaded, the package manager will automatically begin installing them.
+<p>패키지가 다운되면, 패키지 매니저가 자동으로 설치를 시작합니다.
 
 <li>
 <p class='ss nm'><img src=i/ubu-install-8-success.png width=591 height=296 alt='[Add/Remove: new applications have been installed]'>
-<p>If all went well, the package manager will confirm that both packages were successfully installed. From here, you can double-click <abbr>IDLE</abbr> to launch the Python Shell, or click the <code>Close</code> button to exit the package manager.
-<p>You can always relaunch the Python Shell by going to your <code>Applications</code> menu, then the <code>Programming</code> submenu, and selecting <abbr>IDLE</abbr>.
+<p>모두 잘 끝나면, 패키지 매니저가 두 패키지 모두 설치가 잘 끝났다고 창을 띄웁니다. 이 창에서 <abbr>IDLE</abbr>을 더블클릭해 파이썬 셸을 띄우시던가, <code>Close</code> 버튼을 눌러 패키지 매니저에서 빠져 나가세요.
+<p><code>애플리케이션</code> 메뉴의 하위 메뉴 <code>프로그래밍</code> 으로 들어가면 <abbr>IDLE</abbr>을 실행할수 있습니다.
 
 <li>
 <p class='ss nm'><img src=i/ubu-interactive-shell.png width=679 height=687 alt='[Linux Python Shell, a graphical interactive shell for Python]'>
-<p>The Python Shell is where you will spend most of your time exploring Python. Examples throughout this book will assume that you can find your way into the Python Shell.
+<p>파이썬을 다루는 대부분의 시간동안 파이썬 셸과 함께하게 됩니다. 저는 독자분들이 파이썬 셸로 들어가는 방법을 찾았다는 전제 하에 이 책의 예제를 썼습니다.
 
 </ol>
 
-<p>[Skip to <a href=#idle>using the Python Shell</a>]
+<p>[<a href=#idle>파이썬 셸 다루기</a>로 넘어가세요]
 
 <p class=a>&#x2042;
 
-<h2 id=other>Installing on Other Platforms</h2>
+<h2 id=other>다른 플랫폼에 설치</h2>
 
-<p>Python 3 is available on a number of different platforms. In particular, it is available in virtually every Linux, <abbr>BSD</abbr>, and Solaris-based distribution. For example, RedHat Linux uses the <code>yum</code> package manager. FreeBSD has its <a href=http://www.freebsd.org/ports/>ports and packages collection</a>, <abbr>SUSE</abbr> has <code>zypper</code>, and Solaris has <code>pkgadd</code>. A quick web search for <code>Python 3</code> + <i>your operating system</i> should tell you whether a Python 3 package is available, and if so, how to install it.
+<p>파이썬 3는 매우 다양한 플랫폼에서 사용할 수 있습니다. 사실상 모든 리눅스, <abbr>BSD</abbr>, 솔라리스 기반의 배포판에서 사용할수 있죠. 예를 들어, 레드햇 리눅스는 <code>yum</code> 패키지 매니저를 사용합니다. FreeBSD는 그 만의<a href=http://www.freebsd.org/ports/>ports and packages collection</a>이 있고, <abbr>SUSE</abbr>는 <code>zypper</code>를 쓰며, 솔라리스는 <code>pkgadd</code>를 사용합니다. 웹에 code>Python 3</code> + <i>사용 운영체제</i> 를 검색해보면 그 운영체제에서 파이썬3를 쓸 수 있는지, 어떻게 설치하는지에 대해 나올겁니다.
 
 <p class=a>&#x2042;
 
-<h2 id=idle>파이썬 셸의 사용법</h2>
+<h2 id=idle>파이썬 셸 다루기</h2>
 
 <p>파이썬 셸은 파이썬 문법을 확인해보거나, 명령어에 대한 도움말을 바로바로 보려하거나, 작은 프로그램을 고칠 때 사용합니다. (<abbr>IDLE</abbr>이라는 이름의) 그래픽 파이썬 셸은, 파이썬 셸을 품고 문법을 각가지 색상들로 표현해주는 괜찮은 텍스트 편집기입니다. 선호하는 텍스트 편집기가 없다면 <abbr>IDLE</abbr> 을 한번 써보세요.
 

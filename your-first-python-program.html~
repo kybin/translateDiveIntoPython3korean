@@ -195,7 +195,7 @@ SyntaxError: non-keyword arg after keyword arg</samp></pre>
 <p class=a>&#x2042;
 
 <h2 id=everythingisanobject>모든것은 객체다</h2>
-<p>잊으셨을까봐 다시 얘기하자면 파이썬에서 함수는 속성을 가지고, 그 속성은 실행시에 사용할수 있습니다. 파이썬의 다른 모든 것들처럼 함수도 객체입니다.
+<p>노파심에 다시 얘기하면 파이썬에서 함수는 속성을 가지고, 그 속성은 실행시 사용할 수 있습니다. 파이썬의 다른 모든 것들처럼 함수도 객체입니다.
 <p>대화형 파이썬 셸을 키고 다음을 따라해 보세요:
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>import humansize</kbd>                               <span class=u>&#x2460;</span></a>
@@ -221,14 +221,14 @@ SyntaxError: non-keyword arg after keyword arg</samp></pre>
 <p><span class=u>&#x261E;</span>파이썬의 <code>import</code>는 펄의 <code>require</code>과 비슷합니다. 한번 파이썬 모듈을 부르면, <code><var>모듈</var>.<var>함수</var></code> 로 그 함수를 부릅니다; 펄에서 모듈을 한번 요청(<code>require</code>)하면, <code><var>모듈</var>::<var>함수</var></code> 라고 써 그 함수를 부릅니다.
 </blockquote>
 <h3 id=whatsanobject>객체가 뭔가요?</h3>
-<p>파이썬안의 모든것은 다 객체고, 동시에 속성과 메소드를 가집니다. 모든 함수는 선언시의 소스코드에 포함된 <var>참조문</var>을 돌려주는 고유 속성 <code>__doc__</code>을 가지고 있습니다. <code>sys</code> 모듈은 (다른것도 있지만) <var>path</var>라는 속성을 가지고 있습니다. 등등등.
+<p>파이썬안의 모든것은 다 객체고, 동시에 속성과 메소드를 가집니다. 모든 함수는 선언시 소스코드에 써두었던 <var>참조문</var>을 돌려주는 고유 속성 <code>__doc__</code>을 가지고 있습니다. <code>sys</code> 모듈은 (다른것도 있지만) <var>path</var>라는 속성을 가지고 있습니다. 등등등.
 <p>여전히 기본적인 질문에 대한 답은 나오질 않았네요: 객체란 무엇일까요? 여러 프로그래밍 언어들은 서로 다르게 객체를 정의합니다. 몇몇 언어에서는 모든 객체가 무조건 속성과 메소드를 가져야 합니다; 다른 언어에서는 모든 객체가 하위클래스를 가질수 있어야 합니다. 파이썬의 정의는 조금 느슨합니다. 객체는 속성과 메소드를 가질수 있지만, 어떤 객체는 둘 다 안 가지고 있을 수도 있습니다. 모든 객체가 하위클래스를 가지지는 않습니다. 하지만 무엇이나 변수에 저장되거나 함수에 넘겨질 수 있다는 점에서 모든것은 객체입니다.
-<p>아마 다른 프로그래밍 언어에서 &#8220;제한적이지 않은 객체(first-class object)&#8221; 라는 말을 들어보았을 겁니다. 파이썬에서 함수는 제한적이지 않은 객체 입니다. 함수를 다른 함수의 넘김값으로 사용할수 있습니다. 모듈은 제한적이지 않은 객체입니다. 함수에 모듈 전체를 넘기는것도 가능합니다. 클래스도 제한적이지 않은 객체이고, 그 클래스 각각의 인스턴스()도 제한적이지 않은 객체입니다.
+<p>아마 다른 프로그래밍 언어에서 &#8220;제한적이지 않은 객체(first-class object)&#8221; 라는 말을 들어보았을 겁니다. 파이썬에서 함수는 제한적이지 않은 객체 입니다. 함수를 다른 함수의 넘김값으로 사용할수 있습니다. 모듈은 제한적이지 않은 객체입니다. 함수에 모듈 전체를 넘기는것도 가능합니다. 클래스도 제한적이지 않은 객체이고, 그 클래스 각각의 인스턴스도 제한적이지 않은 객체입니다.
 <p>파이썬의 모든것은 다 객체다: 이 개념은 매우 중요하기 때문에 처음 몇번은 계속 되풀이 해서 얘기할겁니다. 문자열은 객체입니다. 리스트는 객체입니다. 함수는 객체입니다. 클래스틑 객체입니다. 클래스 인스턴스는 객체입니다. 모듈도 객체입니다.
 <p class=a>&#x2042;
 
 <h2 id=indentingcode>코드 들여쓰기</h2>
-<p>Python functions have no explicit <code>begin</code> or <code>end</code>, and no curly braces to mark where the function code starts and stops. The only delimiter is a colon (<code>:</code>) and the indentation of the code itself.
+<p>파이썬의 함수는 시작이나 끝을 나타내는 특정한 코드를 가지지 않습니다. 함수의 시작과 끝을 나타내는 대괄호도 없습니다. 구분문자라고는 콜론(<code>:</code>)과 코드를 들여쓰는 것 밖입니다.
 <pre class=pp><code><a>def approximate_size(size, a_kilobyte_is_1024_bytes=True):  <span class=u>&#x2460;</span></a>
 <a>    if size &lt; 0:                                            <span class=u>&#x2461;</span></a>
 <a>        raise ValueError('number must be non-negative')     <span class=u>&#x2462;</span></a>
@@ -241,7 +241,7 @@ SyntaxError: non-keyword arg after keyword arg</samp></pre>
 
     raise ValueError('number too large')</code></pre>
 <ol>
-<li>Code blocks are defined by their indentation. By &#8220;code block,&#8221; I mean functions, <code>if</code> statements, <code>for</code> loops, <code>while</code> loops, and so forth. Indenting starts a block and unindenting ends it. There are no explicit braces, brackets, or keywords. This means that whitespace is significant, and must be consistent. In this example, the function code is indented four spaces. It doesn&#8217;t need to be four spaces, it just needs to be consistent. The first line that is not indented marks the end of the function.
+<li>코드 블록은 들여쓰기에 의해 결정됩니다. 여기서 코드 블록이라 함은, <code>if</code>문, <code>for</code>문, <code>while</code>문 등을 말하는 겁니다. 들여쓰면 블록이 시작되고 내어쓰면 그 블록이 끝납니다. 대 소 괄호나, 키워드를 따로 써주지 않습니다. 그 말은 공백이 의미를 가지기에 항상 일관적이어야 한다는 뜻입니다. 이 예제에서 함수코드는 네칸을 띄워 씁니다. 꼭 네칸일 필요는 없지만 계속 똑같아야 합니다. 내어쓴 첫줄은 함수구문이 끝났음을 의미합니다.
 <li>In Python, an <code>if</code> statement is followed by a code block. If the <code>if</code> expression evaluates to true, the indented block is executed, otherwise it falls to the <code>else</code> block (if any). Note the lack of parentheses around the expression.
 <li>This line is inside the <code>if</code> code block. This <code>raise</code> statement will raise an exception (of type <code>ValueError</code>), but only if <code>size &lt; 0</code>.
 <li>This is <em>not</em> the end of the function. Completely blank lines don&#8217;t count. They can make the code more readable, but they don&#8217;t count as code block delimiters. The function continues on the next line.

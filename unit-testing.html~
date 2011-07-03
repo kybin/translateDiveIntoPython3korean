@@ -18,7 +18,7 @@ body{counter-reset:h1 9}
 </blockquote>
 <p id=toc>&nbsp;
 <h2 id=divingin>(Not) Diving In</h2>
-<p class=f>요즘 애들이란. 빠른 컴퓨터와 편한 언어들이 다 망쳐버렸어요. 일단 쓰고, 배포하고, 오류가 나면 고치죠. 우리때는 원칙이 있었어요. 원칙이라구요! 우리는 <em>종이</em>에 <em>손</em>으로 프로그램을 썼었어요. 그리고는 펀치카드라는 녀석을 가지고 컴퓨터에 입력시켰습니다. 그리고 그걸 <em>즐겼죠!</em>
+<p class=f>요즘 애들이란. 빠른 컴퓨터와 편한 언어들이 다 망쳐버렸어요. 일단 쓰고, 배포하고, 오류가 나면 고치죠. 우리때는 원칙이 있었어요. 원칙이라구요! 우리는 <em>종이</em>에 <em>손</em>으로 프로그램을 썼었어요. 그리고는 펀치카드라는 녀석을 가지고 컴퓨터에 입력시켰습니다. 그리고 그걸 <em>즐겼어요!</em>
 
 <p>In this chapter, you&#8217;re going to write and debug a set of utility functions to convert to and from Roman numerals. You saw the mechanics of constructing and validating Roman numerals in <a href=regular-expressions.html#romannumerals>&#8220;Case study: roman numerals&#8221;</a>. Now step back and consider what it would take to expand that into a two-way utility.
 <p><a href=regular-expressions.html#romannumerals>The rules for Roman numerals</a> lead to a number of interesting observations:
