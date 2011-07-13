@@ -128,7 +128,7 @@ SyntaxError: non-keyword arg after keyword arg</samp></pre>
 <li>이번 <code>approximate_size()</code> 함수 부름에는 <var>size</var>라는 넘김값에 <code>4000</code>을, <var>a_kilobyte_is_1024_bytes</var>에는 <code>False</code>를 각각 넣습니다. (함수선언시의 배열과 순서가 같지만, 역시 그래서가 아닙니다.)
 <li>이번 <code>approximate_size()</code> 함수 부름에는 먼저 <var>a_kilobyte_is_1024_bytes</var>에 <code>False</code>값을 넣고  <var>size</var>에 <code>4000</code>을 넣습니다. (순서는 상관없다고 말했었죠?)
 <li>한번 넘김값의 이름을 쓰고 나면 그 뒤로 이름을 쓰지 않는 넘김값(위치로 추정하는)은 허용되지 않습니다. 때문에 이번 함수 부름은 실패하고 맙니다. 넘김값들을 왼쪽에서 오른쪽으로 읽어가다가, 한번 넘김값 이름이 나오면, 그 뒤의 넘김값들은 계속 이름을 써 주어야 합니다.
-<li>앞과 같은 이유로 이번 부름도 실패합니다. 놀라운가요? <code>size</code>에 <code>4000</code>이란 값을 준 후에  <code>False</code>가 뜻하는 바는 명확함에도 불구하고 파이썬은 그렇게 작동하지 않습니다. 일단 하나의 넘김값에 이름을 주고 나면 그 오른쪽의 모든 넘김값들도 이름이 필요합니다.
+<li>앞과 같은 이유로 이번 부름도 실패합니다. 놀라운가요? <code>size</code>에 <code>4000</code>이란 값을 준 후에는 <code>False</code>가 뜻하는 바가 분명하지만 파이썬은 그렇게 작동하지 않습니다. 일단 하나의 넘김값에 이름을 주고 나면 그 오른쪽의 모든 넘김값들도 이름이 필요합니다.
 </ol>
 
 <p class=a>&#x2042;
@@ -228,7 +228,7 @@ SyntaxError: non-keyword arg after keyword arg</samp></pre>
 <p class=a>&#x2042;
 
 <h2 id=indentingcode>코드 들여쓰기</h2>
-<p>파이썬의 함수는 시작이나 끝을 나타내는 특정한 코드를 가지지 않습니다. 함수의 시작과 끝을 나타내는 대괄호도 없습니다. 구분문자라고는 콜론(<code>:</code>)과 코드를 들여쓰는 것 밖입니다.
+<p>파이썬의 함수는 시작이나 끝을 나타내는 특정한 코드를 가지지 않습니다. 함수의 시작과 끝을 나타내는 대괄호도 없습니다. 콜론(<code>:</code>)과 들여쓰기 만을 이용해 나타냅니다.
 <pre class=pp><code><a>def approximate_size(size, a_kilobyte_is_1024_bytes=True):  <span class=u>&#x2460;</span></a>
 <a>    if size &lt; 0:                                            <span class=u>&#x2461;</span></a>
 <a>        raise ValueError('number must be non-negative')     <span class=u>&#x2462;</span></a>
@@ -242,22 +242,22 @@ SyntaxError: non-keyword arg after keyword arg</samp></pre>
     raise ValueError('number too large')</code></pre>
 <ol>
 <li>코드 블록은 들여쓰기에 의해 결정됩니다. 여기서 코드 블록이라 함은, <code>if</code>문, <code>for</code>문, <code>while</code>문 등을 말하는 겁니다. 들여쓰면 블록이 시작되고 내어쓰면 그 블록이 끝납니다. 대 소 괄호나, 키워드를 따로 써주지 않습니다. 그 말은 공백이 의미를 가지기에 항상 일관적이어야 한다는 뜻입니다. 이 예제에서 함수코드는 네칸을 띄워 씁니다. 꼭 네칸일 필요는 없지만 계속 똑같아야 합니다. 내어쓴 첫줄은 함수구문이 끝났음을 의미합니다.
-<li>In Python, an <code>if</code> statement is followed by a code block. If the <code>if</code> expression evaluates to true, the indented block is executed, otherwise it falls to the <code>else</code> block (if any). Note the lack of parentheses around the expression.
-<li>This line is inside the <code>if</code> code block. This <code>raise</code> statement will raise an exception (of type <code>ValueError</code>), but only if <code>size &lt; 0</code>.
-<li>This is <em>not</em> the end of the function. Completely blank lines don&#8217;t count. They can make the code more readable, but they don&#8217;t count as code block delimiters. The function continues on the next line.
-<li>The <code>for</code> loop also marks the start of a code block. Code blocks can contain multiple lines, as long as they are all indented the same amount. This <code>for</code> loop has three lines of code in it. There is no other special syntax for multi-line code blocks. Just indent and get on with your life.
+<li>파이썬에서 <code>if</code> 구문은 코드블럭과 함께합니다. 만일 <code>if</code> 식을 계산한 값이 참이라면 바로 내어쓴 블록이 실행되고, 아니고 <code>else</code> 블럭이 있다면, 그리로 이동합니다. 식에 괄호가 없는게 보이시죠?
+<li>이 줄은 <code>if</code> 코드 블럭입니다. 만일 <code>size &lt; 0</code>라면, 여기 <code>raise</code> 문이 (<code>ValueError</code> 형태의) 예외를 일으킬 겁니다. 
+<li>여기는 함수의 끝이 <em>아닙니다</em>. 완전히 빈 줄은 세지 않습니다. 빈 줄은 코드를 더 읽기 좋게 만들뿐, 코드블록을 구분짓는 표시가 아닙니다. 함수는 다음줄로 이어집니다.
+<li><code>for</code> 되돌이 역시 코드블럭의 시작을 의미합니다. 같은 크기로 들여쓴다면 한 코드블럭에 여러 줄을 담더라도 문제 없습니다. 이 <code>for</code> 되돌이는 세줄의 코드를 담고 있습니다. 코드블럭에 여러줄을 담았다 해서 특별한 문법같은건 없습니다. 그냥 들여쓰고 이어가세요.
 </ol>
-<p>After some initial protests and several snide analogies to Fortran, you will make peace with this and start seeing its benefits. One major benefit is that all Python programs look similar, since indentation is a language requirement and not a matter of style. This makes it easier to read and understand other people&#8217;s Python code.
+<p>처음엔 약간 거부감이 들기도하고 포트란과 비교되기도 하겠지만, 점차 익숙해지고 그 장점이 눈에 보일겁니다. 큰 장점중 하나는 각자의 스타일에 따라 들여쓰기를 다르게 하지 않고, 언어의 문법으로 정의해 버렸기에  모든 파이썬 프로그램이 다 비슷해보인다는 거죠. 이는 다른 사람들의 파이썬 코드를 읽고 이해하기 쉽게 만들어 줍니다.
 <blockquote class='note compare java'>
-<p><span class=u>&#x261E;</span>Python uses carriage returns to separate statements and a colon and indentation to separate code blocks. <abbr>C++</abbr> and Java use semicolons to separate statements and curly braces to separate code blocks.
+<p><span class=u>&#x261E;</span>파이썬은 줄바꿈 문자를 사용해 문장을 나누고, 콜론과 들여쓰기를 이용해 코드블럭을 나눕니다. <abbr>C++</abbr> 과 자바는 세미콜론을 사용해 문장을 나누고 대괄호를 써 코드 블럭을 나눕니다.
 </blockquote>
 <p class=a>&#x2042;
 
-<h2 id=exceptions>Exceptions</h2>
+<h2 id=exceptions>예외</h2>
 
-<p>Exceptions are everywhere in Python. Virtually every module in the standard Python library uses them, and Python itself will raise them in a lot of different circumstances. You&#8217;ll see them repeatedly throughout this book.
+<p>파이썬 어디에나 예외가 있습니다. 사실상 파이썬 라이브러리의 모든 모듈이 예외처리를 합니다. 그리고 파이썬은 많은 경우에 예외를 일으킵니다. 이 책을 읽어나가면서도 많은 예외상황이 나타날 겁니다.
 
-<p>What is an exception? Usually it&#8217;s an error, an indication that something went wrong. (Not all exceptions are errors, but never mind that for now.) Some programming languages encourage the use of error return codes, which you <em>check</em>. Python encourages the use of exceptions, which you <em>handle</em>.
+<p>예외가 뭘까요? 대부분의 경우 뭐가 잘못됐는지 표시하는 에러입니다. (모든 예외가 다 에러는 아니지만, 지금은 생각하지 않기로 하죠.) 어떤 프로그래밍 언어에서는 문제를 <em>확인하는데 쓰이는</em> 에러 반환 코드를 지원합니다. 하지만 파이썬에서는 프로그램의 행동에 <em>영향을 미치는</em>, 예외상황을 만들어 낼 수 있습니다.
 
 <p>When an error occurs in the Python Shell, it prints out some details about the exception and how it happened, and that&#8217;s that. This is called an <em>unhandled</em> exception. When the exception was raised, there was no code to explicitly notice it and deal with it, so it bubbled its way back up to the top level of the Python Shell, which spits out some debugging information and calls it a day. In the shell, that's no big deal, but if that happened while your actual Python program was running, the entire program would come to a screeching halt if nothing handles the exception. Maybe that&#8217;s what you want, maybe it isn&#8217;t.
 
