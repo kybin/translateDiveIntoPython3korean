@@ -65,9 +65,9 @@ if __name__ == '__main__':
 <samp>1.0 TB
 931.3 GiB</samp></pre>
 
-<p>무슨 일이 일어났나요? 당신은 지금 파이썬 프로그램을 처음으로 실행 시켰습니다. 커맨드라인에서 파이썬 실행기를 불러와, 실행할 파이썬 스크립트의 이름을 넘겨줍니다. 그 스크립트에는 하나의 함수가 정의되어 있습니다. 바이트 단위의 정확한 파일 크기를 (근사치의) 규격 크기로 변환해주는 <code>approximate_size()</code>라는 함수입니다. (아마도 윈도우 익스플로러나 맥 오에스 X의 파인더, 아니면 리눅스의 노틸러스나 돌핀, 써너등에서 보았을 겁니다. 문서 폴더에서 자세히 보기를 선택하면 문서의 아이콘, 이름, 크기, 형태, 최근 수정일, 등 등이 나타나게 되죠. 만약 폴더에 <code>TODO</code>라는 1093바이트 크기의 파일이 있다면 파일 매니저가 <code>TODO 1093 bytes</code> 라고 나타내는 대신 <code>TODO 1 KB</code> 라고 나타냅니다. 이게 <code>approximate_size()</code> 함수가 하는 일입니다.)
+<p>무슨 일이 일어났나요? 당신은 지금 파이썬 프로그램을 처음으로 실행 시켰습니다. 커맨드라인에서 파이썬 실행기를 불러와, 실행할 파이썬 스크립트의 이름을 넘겨줍니다. 그 스크립트에는 하나의 함수가 정의되어 있습니다. 바이트 단위의 정확한 파일 크기를 (근사치의) 규격 크기로 변환해주는 <code>approximate_size()</code>라는 함수입니다. (아마도 윈도우 익스플로러나 맥 오에스 X의 파인더, 아니면 리눅스의 노틸러스나 돌핀, 써너등에서 보았을 겁니다. 문서 폴더에서 자세히 보기를 선택하면 문서의 아이콘, 이름, 크기, 형태, 최근 수정일 등이 나타나게 되죠. 만약 폴더에 <code>TODO</code>라는 1093바이트 크기의 파일이 있다면 파일 매니저가 <code>TODO 1093 bytes</code> 라고 나타내는 대신 <code>TODO 1 KB</code> 라고 나타냅니다. 이게 <code>approximate_size()</code> 함수가 하는 일입니다.)
 
-<p>스크립트 아래를 보면 <code>print(approximate_size(<var>넘김값</var>))</code>를 두 번 부르는 것을 볼수 있습니다. 이를 함수부름이라 합니다 &mdash; 처음에 <code>approximate_size()</code> 함수를 불러 몇개의 넘김값을 주고 실행시켜, 받은 결과값을 바로 <code>print()</code> 함수에 넘깁니다. <code>print()</code> 는 고유 함수입니다; 이 함수는 따로 선언하지 않습니다. 그냥 언제든, 어디서든 사용할 수 있습니다. (많은 고유 함수들이 있고, 더 많은 함수들은 <i>모듈</i>로 떨어져 있습니다. 어떤 모듈들이 있는지 궁금한가요? 조금만 참아봐요.)
+<p>스크립트 끝 부분 보면 <code>print(approximate_size(<var>넘김값</var>))</code>를을 두 번 부르는 것을 볼수 있습니다. 이를 함수부름이라 합니다 &mdash; 처음에 <code>approximate_size()</code> 함수를 불러 몇개의 넘김값을 주고 실행시켜, 돌려받은 결과값을 바로 <code>print()</code> 함수에 넘깁니다. <code>print()</code> 는 고유 함수입니다; 이 함수는 따로 선언하지 않습니다. 그냥 언제든, 어디서든 사용할 수 있습니다. (많은 고유 함수들이 있고, 더 많은 함수들은 <i>모듈</i>로 떨어져 있습니다. 어떤 모듈들이 있는지 궁금한가요? 조금만 참아보세요.)
 
 <p>이 스크립트를 실행시켰을때 왜 항상 같은 결과가 나올까요? 거기에 대해 알아볼겁니다. 우선, <code>approximate_size()</code> 함수를 들여다 봅시다.
 
@@ -78,11 +78,11 @@ if __name__ == '__main__':
 <pre class='nd pp'><code>def approximate_size(size, a_kilobyte_is_1024_bytes=True):</code></pre>
 <aside>함수가 필요하면, 선언하세요!</aside>
 <p>함수 선언은 <code>def</code>라는 키워드로 시작하고, 그 뒤에 함수 이름, 괄호가 나옵니다. 괄호 안에는 넘김값이 들어가죠. 넘김값이 여러개라면 콤마를 사용해 떨어뜨립니다.
-<p>또 함수가 그 결과를 돌려줄 때 형태를 지정하지 않는다는 것을 주의하세요. 파이썬의 함수는 그 결과값의 형태를 따로 알리지 않습니다; 심지어는 값을 반환하는지 그러지 않는지도 알리지 않죠.  (사실, 모든 파이썬 함수는 값을 돌려줍니다. 만약 함수에서 <code>return</code>문을 실행되면 그 값을 돌려주고, 아니라면 <code>None</code>이라는 빈 파이썬 값을 돌려줍니다.)
+<p>또 함수가 그 결과를 돌려줄 때 형태를 지정하지 않는다는 점에 주의하세요. 파이썬의 함수는 그 결과값의 형태를 따로 알리지 않습니다; 심지어는 값을 돌려주는지 그러지 않는지도 알리지 않죠.  (사실, 모든 파이썬 함수는 값을 돌려줍니다. 만약 함수에서 <code>return</code>문을 실행되면 그 값을 돌려주고, 아니라면 <code>None</code>이라는 빈 파이썬 값을 돌려줍니다.)
 <blockquote class=note>
-<p><span class=u>&#x261E;</span>어떤 언어들에서는, 값을 반환하는 함수는 <code>function</code>으로 선언을 시작하고, 값을 반환하지 않는 단순코드묶음(subroutine)은 <code>sub</code>라는 낱말로 시작합니다. 파이썬에는 코드묶음 개념이 없습니다. 모든것은 함수고, 모든 함수는 값을 반환합니다(그 값이 <code>None</code> 이라도). 그리고 모든 함수는 <code>def</code>로 선언을 시작합니다.
+<p><span class=u>&#x261E;</span>어떤 언어들에서는, 값을 돌려주는 함수는 <code>function</code>으로 선언을 시작하고, 값을 반환하지 않는 단순코드묶음(subroutine)은 <code>sub</code>라는 낱말로 시작합니다. 파이썬에는 코드묶음 개념이 없습니다. 모든것은 함수이고, 모든 함수는 None이든 어쨌든 값을 반환합니다. 그리고 모든 함수는 <code>def</code>로 선언을 시작합니다.
 </blockquote>
-<p>여기서 <code>approximate_size()</code> 함수는 두개의 넘김값을 받습니다&nbsp;&mdash;&nbsp;<var>size</var> 와 <var>a_kilobyte_is_1024_bytes</var>이 그것입니다&nbsp;&mdash;&nbsp; 두 넘김값 모두 자료형을 명시하지 않았습니다. 파이썬에서 변수는 따로 선언되지 않습니다. 파이썬이 변수의 형태를 내부적으로  알아낸 후 기억합니다.
+<p>여기서 <code>approximate_size()</code> 함수는 <var>size</var> 와 <var>a_kilobyte_is_1024_bytes</var>라는 두개의 넘김값을 받습니다. 두 넘김값 모두 자료형을 명시하지 않았습니다. 파이썬에서 변수는 따로 선언하지 않습니다. 파이썬이 변수의 형태를 내부적으로  알아낸 후 기억합니다.
 <blockquote class='note compare java'>
 <p><span class=u>&#x261E;</span>자바나 다른 형선언 언어들에서는, 함수 결과값과 넘김값의 자료형을 꼭 함께 적어주어야 합니다. 파이썬에서는 따로 자료형이든 어떤것이든 적어줄 필요가 없습니다. 파이썬은 그 변수나 함수에 어떤 값이 들어갔는지를 보고 그 형태를 기억합니다.
 </blockquote>
@@ -134,7 +134,7 @@ SyntaxError: non-keyword arg after keyword arg</samp></pre>
 <p class=a>&#x2042;
 
 <h2 id=readability>읽히는 코드 쓰기</h2>
-<p>코드에 대한 문서를 만드는 일의 중요성을 장황하게 설명해 지루하게 하고 싶지는 않습니다. 단지 코드는 한번 쓰여지지만 여러번 읽히고, 그중 가장 중요한 독자는 코드를 작성한 후 6개월이 지났을 때의 (즉, 코드에 대해 이미 다 잊었지만 수정을 해야하는) 당신입니다. 파이썬은 읽기좋은 코드를 작성하기 쉽습니다, 그 혜택을 누리세요. 6개월도 지나지 않아 제게 고마워하게 될겁니다.
+<p>코드에 대한 문서를 만드는 일의 중요성을 장황하게 설명해 지루하게 하고 싶지는 않습니다. 단지 코드는 한번 쓰여지지만 여러번 읽히고, 그중 가장 중요한 독자는 코드를 작성한 후 6개월이 지났을 때의 (즉, 코드에 대해 이미 다 잊었지만 수정을 해야하는) 자신입니다. 파이썬에서 읽기좋은 코드를 작성하기는 쉽습니다, 그 혜택을 누리세요. 6개월도 지나지 않아 제게 고마워하게 될겁니다.
 <h3 id=docstrings>참조 문서</h3>
 <p>파이썬 함수를 문서화 하려면 함수에 참조 문자열을 달아주세요(줄여서 참조문이라 부르죠). 이 프로그램에서<code>approximate_size()</code> 함수는 <code>참조문</code>을 가지고 있습니다.:
 <pre class='nd pp'><code>def approximate_size(size, a_kilobyte_is_1024_bytes=True):
@@ -149,18 +149,18 @@ SyntaxError: non-keyword arg after keyword arg</samp></pre>
 
     '''</code></pre>
 <aside>모든 함수는 참조문을 달아줄만한 가치가 있어요.</aside>
-<p>세따옴표는 여러줄 문자열을 의미합니다. 앞의 세 따옴표와 뒤의 세 따옴표 사이의 줄바꿈 글쇠나 들여쓰기 공백, 그리고 홑 이나 겹 따옴표 등을 포함한 모든 것은 문자열의 한 부분입니다. 세따옴표는 어디에서나 쓰이지만 <code>참조문</code>에서 가장 많이 쓰입니다.  
+<p>세따옴표는 여러줄 문자열을 의미합니다. 앞의 세 따옴표와 뒤의 세 따옴표 사이의 줄바꿈 글쇠나 들여쓰기 공백, 그리고 홑 이나 겹 따옴표 등을 포함한 모든 것은 문자열의 한 부분입니다. 세따옴표는 어디에서나 쓰이지만 <code>참조문</code>을 적을때 가장 많이 쓰입니다.  
 <blockquote class='note compare perl5'>
-<p><span class=u>&#x261E;</span>세따옴표는 (펄5의 <code>qq/.../</code>와 비슷하게) 홑따옴표와 겹따옴표를 같이 쓸수 있는 가장 쉬운 방법입니다.
+<p><span class=u>&#x261E;</span>세따옴표는 (펄5의 <code>qq/.../</code> 처럼) 홑따옴표와 겹따옴표를 같이 쓸수 있는 가장 쉬운 방법입니다.
 </blockquote>
 <p>여기서 세따옴표로 구성된 문자열 전체는 함수가 하는 일을 적어놓은 <code>참조문</code>입니다. <code>참조문</code>이 있다면, 항상 함수 선언의 처음에 와야 합니다(함수 선언 다음줄이죠). 참조문을 다는것이 의무는 아닙니다, 하지만 할 수 있다면 꼭 참조문을 다세요. 이런 말은 프로그래밍 수업 때마다 귀가 따갑게 들었겠지만, 파이썬은 약간의 편의를 더 제공합니다: 
-<br>프로그램을 실행했을 때 참조문이 함수의 속성으로 사용될 수 있다는 거죠.
+<br>프로그램을 실행했을 때 참조문을 함수의 속성으로 사용할 수 있다는 거죠.
 <blockquote class=note>
-<p><span class=u>&#x261E;</span>많은 파이썬 <abbr>개발환경</abbr>이 문맥에 따른 <code>참조문</code>을 내비칩니다. 가령 특정 함수이름을 쓰면 툴팁으로 그 함수의 <code>참조문</code>이 나타납니다. 이 때 <code>참조문</code>을 잘 달아놓았다면, 큰 도움을 얻을수 있겠지만, 그렇지 않다면 속이 좀 쓰리겠죠?
+<p><span class=u>&#x261E;</span>많은 파이썬 <abbr>개발환경</abbr>이 문맥에 따른 <code>참조문</code>을 내비칩니다. 가령 특정 함수이름을 쓰면 작은창에 그 함수의 <code>참조문</code>이 나타납니다. 이 때 <code>참조문</code>을 잘 달아놓았다면, 큰 도움을 얻을수 있겠지만, 그렇지 않다면 속이 좀 쓰리겠죠?
 </blockquote>
 <p class=a>&#x2042;
 
-<h2 id=importsearchpath><code>import</code>가 찾아보는 경로들</h2>
+<h2 id=importsearchpath><code>import</code>시 찾아보는 경로들</h2>
 <p>더 나아가기 전에, 라이브러리 검색 경로에 대해 간략히 언급하겠습니다. 파이썬은 모듈을 불러들일 때 몇가지 경로를 찾아봅니다. 정확하게는 <code>sys.path</code>에 있는 모든 디렉토리에 대해 검색합니다. 이 목록은 리스트로 표현되고, 일반적인 리스트 처리방법을 통해 쉽게 읽거나 수정할 수 있습니다. (리스트에 대해서는 <a href=native-datatypes.html#lists>고유 자료형</a>장에서 더 알아보도록 하죠.)
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>import sys</kbd>                                                 <span class=u>&#x2460;</span></a>
@@ -186,8 +186,8 @@ SyntaxError: non-keyword arg after keyword arg</samp></pre>
  '/usr/local/lib/python3.1/dist-packages']</samp></pre>
 <ol>
 <li><code>sys</code> 모듈을 불러오면, 그 안의 모든 함수와 속성을 사용할 수 있습니다.
-<li><code>sys.path</code>에는 현재 검색 경로로 지정된 디렉토리 목록이 들어있습니다.  (운영체제나 파이썬 버전, 설치 위치에 따라 여기서와 다르게 보일수 있습니다.) 파이썬은 불러오려는 모듈과 같은 이름을 가진 <code>.py</code> 파일이 있는지 확인하기 위해 폴더들을 쭉 검색합니다.
-<li>예, 뻥을 좀 쳤어요; 사실은 좀 더 복잡합니다. 모든 모듈이 <code>.py</code> 파일에 저장되어있는것은 아니기 때문이죠. 어떤 것들은 고유모듈입니다; 얘네들은 파이썬 내부에 흡수되어 있습니다. 고유 모듈은 다른 모듈과 똑같지만 파이썬 소스 코드는 볼수 없습니다. 왜냐면 파이썬으로 작성되지 않았기 때문이죠! (파이썬처럼, 이 고유 모듈들도 C로 작성되었습니다.)
+<li><code>sys.path</code>에는 현재 검색 경로로 지정된 디렉토리 목록이 들어있습니다.  (운영체제나 파이썬 버전, 설치 위치에 따라 책에서와는 다르게 보일수 있습니다.) 파이썬은 불러오려는 모듈과 같은 이름을 가진 <code>.py</code> 파일이 있는지 확인하기 위해 폴더들을 쭉 검색합니다.
+<li>예, 뻥을 좀 쳤어요; 사실은 좀 더 복잡합니다. 모든 모듈이 <code>.py</code> 파일에 저장되어있는것은 아니기 때문이죠. 어떤 것들은 고유모듈입니다; 얘네들은 파이썬 내부에 흡수되어 있습니다. 고유 모듈은 다른 모듈과 똑같지만 파이썬 소스 코드는 볼수 없습니다. 왜냐면 파이썬으로 작성되지 않았기 때문이죠! (파이썬과 이런 고유 모듈들은 C로 작성되었습니다.)
 <li>실행시 <code>sys.path</code>에 디렉토리명을 추가하면 파이썬 검색 경로에 새 디렉토리가 들어갑니다. 다음 번 부터 모듈을 불러올 때는 이 디렉토리도 마찬가지로 눈여겨 볼겁니다. 이 효과는 파이썬이 켜있는 동안 지속됩니다.
 <li><code>sys.path.insert(0, <var>new_path</var>)</code>라고 쓰면, 새 디렉토리가 <code>sys.path</code>의 첫 항목으로 추가됩니다. 파이썬 검색경로의 처음에 있는거죠. 이렇게 하는게 대부분 더 낫습니다. 같은 이름의 파일이 여러 개 있을 때(예를 들어, 특정한 라이브러리의 파이썬2 용 버전이 있지만 파이썬3 용 버전을 쓰고 싶을때), 이렇게 하면 파이썬에 탑재된 모듈보다 직접 추가한 모듈을 먼저 찾게 됩니다.
 </ol>
@@ -213,7 +213,7 @@ SyntaxError: non-keyword arg after keyword arg</samp></pre>
 
 </samp></pre>
 <ol>
-<li>첫번째 줄은 imports the <code>humansize</code> 프로그램을 모듈&nbsp;&mdash;&nbsp;필요시 꺼내 쓰거나 더 큰 파이썬 프로그램에서 사용할 수 있는 코드 묶음&nbsp;&mdash;&nbsp;로 받아옵니다. 한번 모듈을 받아오면, 그 모듈이 공개하는 모든 함수나 클래스, 속성 등을 참조할수 있습니다. 모듈 또한 다른 모듈의 기능을 받아와 쓸수 있고, 이를 바로반응형 파이썬 셸에서 해볼수도 있습니다. 이런 컨셉이 얼마나 중요한지 이 책을 읽어나가며 이해하게 될겁니다.
+<li>첫번째 줄은 <code>humansize</code> 프로그램을 모듈(필요시 꺼내 쓰거나 더 큰 파이썬 프로그램에서 사용할 수 있는 코드 묶음)로 받아옵니다. 한번 모듈을 받아오면, 그 모듈이 공개하는 모든 함수나 클래스, 속성 등을 참조할수 있습니다. 모듈 또한 다른 모듈의 기능을 받아와 쓸수 있고, 이를 바로반응형 파이썬 셸에서 해볼수도 있습니다. 이런 컨셉이 얼마나 중요한지 이 책을 읽어나가며 이해하게 될겁니다.
 <li>모듈안에서 정의된 함수를 사용하려면, 그 모듈의 이름도 같이 써주어야 합니다. 그냥 <code>approximate_size</code>라고 할수가 없죠; <code>humansize.approximate_size</code>여야만 합니다. 자바의 클래스를 써본 적이 있다면 왠지 친숙할겁니다.
 <li>함수 자체를 불러오지 않고, <code>__doc__</code>이라는 한가지 속성만을 불러와 봅시다.
 </ol>
@@ -242,8 +242,8 @@ SyntaxError: non-keyword arg after keyword arg</samp></pre>
     raise ValueError('number too large')</code></pre>
 <ol>
 <li>코드 블록은 들여쓰기에 의해 결정됩니다. 여기서 코드 블록이라 함은, <code>if</code>문, <code>for</code>문, <code>while</code>문 등을 말하는 겁니다. 들여쓰면 블록이 시작되고 내어쓰면 그 블록이 끝납니다. 대 소 괄호나, 키워드를 따로 써주지 않습니다. 그 말은 공백이 의미를 가지기에 항상 일관적이어야 한다는 뜻입니다. 이 예제에서 함수코드는 네칸을 띄워 씁니다. 꼭 네칸일 필요는 없지만 계속 똑같아야 합니다. 내어쓴 첫줄은 함수구문이 끝났음을 의미합니다.
-<li>파이썬에서 <code>if</code> 구문은 코드블럭과 함께합니다. 만일 <code>if</code> 식을 계산한 값이 참이라면 바로 내어쓴 블록이 실행되고, 아니고 <code>else</code> 블럭이 있다면, 그리로 이동합니다. 식에 괄호가 없는게 보이시죠?
-<li>이 줄은 <code>if</code> 코드 블럭입니다. 만일 <code>size &lt; 0</code>라면, 여기 <code>raise</code> 문이 (<code>ValueError</code> 형태의) 예외를 일으킬 겁니다. 
+<li>파이썬에서 <code>if</code> 구문은 코드블럭과 함께합니다. 만일 <code>if</code> 식을 계산해 참이라면 바로 들여쓴 블록이 실행되고, 거짓이고 <code>else</code> 블럭이 있다면, 그리로 이동합니다. 식에 괄호가 없는게 보이시죠?
+<li>이 줄은 <code>if</code> 코드 블럭입니다. 만일 <code>size &lt; 0</code>라면, 여기 <code>raise</code> 문이 (<code>ValueError</code> 형태의) 예외를 일으킵니다. 
 <li>여기는 함수의 끝이 <em>아닙니다</em>. 완전히 빈 줄은 세지 않습니다. 빈 줄은 코드를 더 읽기 좋게 만들뿐, 코드블록을 구분짓는 표시가 아닙니다. 함수는 다음줄로 이어집니다.
 <li><code>for</code> 되돌이 역시 코드블럭의 시작을 의미합니다. 같은 크기로 들여쓴다면 한 코드블럭에 여러 줄을 담더라도 문제 없습니다. 이 <code>for</code> 되돌이는 세줄의 코드를 담고 있습니다. 코드블럭에 여러줄을 담았다 해서 특별한 문법같은건 없습니다. 그냥 들여쓰고 이어가세요.
 </ol>
@@ -262,7 +262,7 @@ SyntaxError: non-keyword arg after keyword arg</samp></pre>
 <p>파이썬 셸에서 에러가 발생하면, 셸은 상황에 대한 자세한 설명과 왜 문제가 생겼는지를 알려줍니다. 그러고는 멈추죠. 이런 상황을 <em>예상못한<font size=2>unhandled</font></em> 예외라 합니다. 문제가 생겼음을  알아채고 처리할수 있는 코드가 없는거죠. 그러면 프로그램은 다시 맨위로 올라와, 오류 고치는데 도움이 되는 정보를 주고는 멉춥니다. 셸에서라면 별 문제 될게 없지만, 어디선가 돌아가고 있는 파이썬 프로그램이 이런 일을 맞닥드렸을 때 예외상황을 처리할 코드가 없다면 모든 프로그램이 끼익! 하고 멈추게 됩니다. 그렇게 되길 원할수도 있지만 아닐수도 있죠. 
 
 <blockquote class='note compare java'>
-<p><span class=u>&#x261E;</span>파이썬 함수는 자바와 달리 어떤 예외를 발생시킬지 정의하지 않습니다. 어떤 예외상황이 있을지 스스로 생각해내야 합니다.
+<p><span class=u>&#x261E;</span>파이썬 함수는 자바와 달리 어떤 예외를 발생시킬지 정의하지 않습니다. 어떤 예외상황이 있을지는 스스로 생각해내야 합니다.
 </blockquote>
 
 <p>예외상황이 언제나 프로그램의 충돌로 끝나지는 않습니다. 예외를 처리할 수도 있습니다. 가끔은 없는 변수에 값을 넣을 때처럼 진짜오류!가 있기도 하지만, 어떤 때는 예외가 일어날 것을 미리 알아챌수 있습니다. 없는 파일을 연다거나 불러오려는 모듈이 깔려 있지 않다거나 데이터베이스에 연결하려는데 그 데이터베이스가 없거나 제대로 된 보안키를 가지고 있지 않거나하는 상황 등, 코드의 어떤 부분에서 오류가 날지 알고 있다면 이런 예외를 처리하기 위해 <code>try...except</code> 구문을 써야합니다.
@@ -282,7 +282,7 @@ SyntaxError: non-keyword arg after keyword arg</samp></pre>
 <p><span class=u>&#x261E;</span>모든 함수에 예외처리를 만들지 않아도 됩니다. 어떤 함수가 예외를 처리하지 못한다면, 예외는 함수를 불러낸 함수로 올라갑니다. 그런식으로 단계를 거쳐 올라가죠. 그 와중에 예외가 처리되지 않는다면 프로그램은 충돌을 일으키고 파이썬이 오류 추적용 기본 메시지를 뱉고는 끝이 납니다. 다시 말하지만, 그렇게 하는것도 한 방법입니다. 어떤 프로그램이냐에 달렸죠.
 </blockquote>
 
-<h3 id=importerror>Import Errors 알아채기</h3>
+<h3 id=importerror>부르기 실패 알아채기</h3>
 
 <p>파이썬은 모듈을 불러 오려다 실패했을 때 대비해 <code>ImportError</code> 예외를 미리 정의해 놓았습니다.  이 예외는 여러 이유에서 발생하는데, 보통은 불러오려는 모듈이 <a href=#importsearchpath>반입 검색 경로</a>에 없기 때문에 발생합니다. 이 예외를 써 프로그램에 기능을 추가할수 있습니다. 예로 프로그램이 문자 인코딩을 자동으로 찾아주는 <a href=case-study-porting-chardet-to-python-3.html> <code>chardet</code></a> 이라는 라이브러리를 불려오려다 설치되어있지않아 실패하더라도 <code>try..except</code> 구문을 사용해 우아하게 넘어갈 수 있습니다.
 
@@ -309,13 +309,13 @@ except ImportError:
 
 <p class=a>&#x2042;
 
-<h2 id=nameerror>고정되지 않는 변수</h2>
+<h2 id=nameerror>고정되지 않는(좀더 나은표현?) 변수</h2>
 
 <p><code>approximate_size()</code> 함수 선언의 다른부분을 살펴봅시다:
 
 <pre class='nd pp'><code>multiple = 1024 if a_kilobyte_is_1024_bytes else 1000</code></pre>
 
-<p><var>multiple</var>변수를 선언하지도 않고 값을 집어 넣었습니다. 파이썬이 허락하기 때문에 그래도 됍니다. 하지만 값이 들어가지 않은 변수를 참조하려는건 허락하지 않습니다. 이 때는 <code>NameError</code> 예외가 발생합니다.
+<p><var>multiple</var>변수를 선언하지 않고 값을 집어 넣었습니다. 파이썬에서는 이렇게 하는것이 허용됩니다. 하지만 값이 들어가지 않은 변수를 참조하려는건 허용되지 않습니다. 이 때는 <code>NameError</code> 예외가 발생합니다.
 <pre class='nd screen'>
 <samp class=p>>>> </samp><kbd class=pp>x</kbd>
 <samp class=traceback>Traceback (most recent call last):
@@ -363,7 +363,7 @@ if __name__ == '__main__':
     print(approximate_size(1000000000000, False))
     print(approximate_size(1000000000000))</code></pre>
 <blockquote class='note compare clang'>
-<p><span class=u>&#x261E;</span><abbr>C</abbr>처럼 파이썬도 값을 비교할 때 <code>==</code>를 쓰고 값을 넣을때 <code>=</code>을 씁니다. 하지만 <abbr>C</abbr>와는 달리 값을 비교하는 줄에서는 값을 집어넣을수 없습니다. 이렇게 하면 값을 비교하려다 넣어버리는 사고를 막을수 있죠.
+<p><span class=u>&#x261E;</span><abbr>C</abbr>처럼 파이썬도 값을 비교할 때 <code>==</code>를 쓰고 값을 넣을때 <code>=</code>을 씁니다. 하지만 <abbr>C</abbr>와는 달리 비교하는 줄에서는 값을 집어넣을수 없습니다. 이렇게 하면 값을 비교하려다 넣어버리는 사고를 막을수 있죠.
 
 </blockquote>
 <p>자, 이 독특한 <code>if</code> 문은 뭘까요? 모듈은 객체죠, 그리고 모든 모듈은 <code>__name__</code>이란 고유속성을 가집니다. 모듈의 <code>__name__</code> 값은 모듈을 쓰는 방법에 따라 달라집니다. 만약 모듈을 <code>받아</code> 온거라면, <code>__name__</code> 은 이 모듈이 든 (디렉토리나 확장자를 제외한 순수한) 파일의 이름입니다.
@@ -371,7 +371,7 @@ if __name__ == '__main__':
 <samp class=p>>>> </samp><kbd class=pp>import humansize</kbd>
 <samp class=p>>>> </samp><kbd class=pp>humansize.__name__</kbd>
 <samp class=pp>'humansize'</samp></pre>
-<p>하지만 모듈을 직접 실행할수도 있겠죠. 그랬을 때 <code>__name__</code> 은 특별히 기본값 <code>__main__</code>이 됩니다. 파이썬이 이 <code>if</code> 문의 값을 계산해, 식이 맞다는걸 확인하고, <code>if</code> 구문의 내용을 실행합니다. 그러면 두개의 값이 출력됩니다.
+<p>하지만 모듈을 직접 실행할수도 있겠죠. 그랬을 때 <code>__name__</code> 은 특별한 기본값 <code>__main__</code>이 됩니다. 파이썬이 이 <code>if</code> 문의 값을 계산해 식이 맞다는걸 확인하고, <code>if</code> 구문의 내용을 실행합니다. 그러면 두개의 값이 출력됩니다.
 <pre class='nd screen'>
 <samp class=p>c:\home\diveintopython3> </samp><kbd>c:\python31\python.exe humansize.py</kbd>
 <samp>1.0 TB
@@ -381,7 +381,7 @@ if __name__ == '__main__':
 
 <h2 id=furtherreading>더 읽을거리</h2>
 <ul>
-<li><a href=http://www.python.org/dev/peps/pep-0257/>PEP 257: Docstring Conventions</a> 무엇이 좋은 <code>참조문</code>과 위대한 <code>참조문</code>을 구별되게 하는지 설명합니다..
+<li><a href=http://www.python.org/dev/peps/pep-0257/>PEP 257: Docstring Conventions</a> 무엇이 좋은 <code>참조문</code>과 위대한 <code>참조문</code>을 나누는지 설명합니다..
 <li><a href=http://docs.python.org/3.1/tutorial/controlflow.html#documentation-strings>파이썬 튜토리얼: 참조 문자열</a>또한 이 주제를 다룹니다.
 <li><a href=http://www.python.org/dev/peps/pep-0008/>PEP 8: 파이썬 코드 스타일 가이드</a>는 좋은 들여쓰기 스타일에 대해 논의합니다.
 <li><a href=http://docs.python.org/3.1/reference/><cite>파이썬 참고 매뉴얼</cite></a>은 <a href=http://docs.python.org/3.1/reference/datamodel.html#objects-values-and-types>파이썬의 모든것이 객체라 말할때</a> 그 의미가 무엇인지를 설명합니다. 현학적인 사람들은 이런 문제에 대해 장황하게 토론하기를 좋아하기 때문이죠.
