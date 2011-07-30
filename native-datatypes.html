@@ -36,11 +36,11 @@ Wonder is the foundation of all philosophy, inquiry its progress, ignorance its 
 
 <h2 id=booleans>Booleans</h2>
 <aside>You can use virtually any expression in a boolean context.</aside>
-<p>Booleans are either true or false. Python has two constants, cleverly named <code><dfn>True</dfn></code> and <code><dfn>False</dfn></code>, which can be used to assign <dfn>boolean</dfn> values directly. Expressions can also evaluate to a boolean value. In certain places (like <code>if</code> statements), Python expects an expression to evaluate to a boolean value. These places are called <i>boolean contexts</i>. You can use virtually any expression in a boolean context, and Python will try to determine its truth value. Different datatypes have different rules about which values are true or false in a boolean context. (This will make more sense once you see some concrete examples later in this chapter.)
-<p>For example, take this snippet from <a href=your-first-python-program.html#divingin><code>humansize.py</code></a>:
+<p>논리값은 참 또는 거짓입니다. 똑똑한 파이썬은 바로 논리값을 집어넣을 수 있도록 <code><dfn>True</dfn></code>와 <code><dfn>False</dfn></code>라는 두 상수를 가지고 있습니다. 식에서 논리값을 계산할 수도 있습니다. 파이썬은 (<code>if</code>문 같은) 몇몇 곳에서는, 계산식의 결과가 논리값이길 기대합니다. 이런 곳들을 <i>논리 문맥</i>이라 합니다. 논리 문맥 안에서는 어떤 계산을 하던지 그 식의 참 또는 거짓이 판별됩니다. 각각의 자료형마다 참, 거짓을 판별하는 계산법이 틀립니다. (이 챕터 뒷부분의 구체적인 예제를 보고나면 무슨 말인지 이해가 될겁니다.)
+<p>예를 들어, 여기 <a href=your-first-python-program.html#divingin><code>humansize.py</code>의 일부분을 살펴보죠</a>:
 <pre class='nd pp'><code>if size &lt; 0:
     raise ValueError('number must be non-negative')</code></pre>
-<p><var>size</var> is an integer, 0 is an integer, and <code>&lt;</code> is a numerical operator. The result of the expression <code>size &lt; 0</code> is always a boolean. You can test this yourself in the Python interactive shell:
+<p><var>size</var>는 정수고 0도 정수고 <code>&lt;</code> 는 수 연산자입니다: <code>size &lt; 0</code> 식의 값은 언제나 참 또는 거짓입니다. 파이썬 바로반응 셸에서 테스트 해보세요.
 <pre class='nd screen'>
 <samp class=p>>>> </samp><kbd class=pp>size = 1</kbd>
 <samp class=p>>>> </samp><kbd class=pp>size &lt; 0</kbd>
@@ -51,7 +51,7 @@ Wonder is the foundation of all philosophy, inquiry its progress, ignorance its 
 <samp class=p>>>> </samp><kbd class=pp>size = -1</kbd>
 <samp class=p>>>> </samp><kbd class=pp>size &lt; 0</kbd>
 <samp class=pp>True</samp></pre>
-<p>Due to some legacy issues left over from Python 2, booleans can be treated as numbers. <code>True</code> is <code>1</code>; <code>False</code> is 0.
+<p>파이썬 2에서의 쓰임을 물려받아 논리값은 수로 취급되기도 합니다. <code>참</code>은 <code>1</code>; <code>거짓</code>은 0이지요.
 <pre class='nd screen'>
 <samp class=p>>>> </samp><kbd class=pp>True + True</kbd>
 <samp class=pp>2</samp>
@@ -63,12 +63,12 @@ Wonder is the foundation of all philosophy, inquiry its progress, ignorance its 
 <samp class=traceback>Traceback (most recent call last):
   File "&lt;stdin>", line 1, in &lt;module>
 ZeroDivisionError: int division or modulo by zero</samp></pre>
-<p>Ew, ew, ew! Don&#8217;t do that. Forget I even mentioned it.
+<p>아이쿠! 그러지 마세요. 말씀드린다는걸 깜빡했네요.
 
 <p class=a>&#x2042;
 
 <h2 id=numbers>Numbers</h2>
-<p>Numbers are awesome. There are so many to choose from. Python supports both <dfn>integer</dfn>s and <dfn>floating point</dfn> numbers. There&#8217;s no type declaration to distinguish them; Python tells them apart by the presence or absence of a <dfn>decimal</dfn> point.
+<p>수는 굉장합니다. 많은것들이 들어있죠. 파이썬은 <dfn>정수</dfn>와 <dfn>실수(정확하게는 부동소수)</dfn>를 수라는 형태에 포함합니다. 그 둘을 다르게 선언하지 않아요; <dfn>소수점</dfn>의 유무에 따라 파이썬이 그 둘을 나눕니다.
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>type(1)</kbd>                 <span class=u>&#x2460;</span></a>
 <samp class=pp>&lt;class 'int'></samp>
@@ -81,10 +81,10 @@ ZeroDivisionError: int division or modulo by zero</samp></pre>
 <samp class=p>>>> </samp><kbd class=pp>type(2.0)</kbd>
 <samp class=pp>&lt;class 'float'></samp></pre>
 <ol>
-<li>You can use the <code>type()</code> function to check the type of any value or variable. As you might expect, <code>1</code> is an <code>int</code>.
-<li>Similarly, you can use the <code>isinstance()</code> function to check whether a value or variable is of a given type.
-<li>Adding an <code>int</code> to an <code>int</code> yields an <code>int</code>.
-<li>Adding an <code>int</code> to a <code>float</code> yields a <code>float</code>. Python coerces the <code>int</code> into a <code>float</code> to perform the addition, then returns a <code>float</code> as the result.
+<li><code>type()</code> 함수를 써 어떤 값이나 변수의 형태를 알아볼수 잇습니다. 역시 <code>1</code> 은 <code>정수형</code>이라고 나오네요.
+<li>이와 비슷하게 <code>isinstance()</code> 함수를 쓰면 어떤 값이나 변수가 생각했던 형태가 맞는지 알수 있습니다.
+<li><code>정수</code>에 <code>정수</code>를 더하면 <code>정수</code>가 됩니다.
+<li><code>정수</code>에 <code>실수</code>를 더하면 <code>실수</code>가 됩니다. 파이썬은 <code>정수</code>에 <code>실수</code>를 더하면, 그 값을 <code>실수</code>로 만들어 버립니다.
 </ol>
 <h3 id=number-coercion>Coercing Integers To Floats And Vice-Versa</h3>
 <p>As you just saw, some operators (like addition) will coerce integers to floating point numbers as needed. You can also coerce them by yourself.

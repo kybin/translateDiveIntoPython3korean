@@ -30,7 +30,7 @@ h1:before,h2:before{content:''}
 <ol start=-1>
 <li><a href=whats-new.html>&#8220;파이썬3로 뛰어들기&#8221;의 달라진 부분</a>
 <li><a href=installing-python.html>파이썬 설치</a>
-<li><a href=your-first-python-program.html>처음 만드는 파이썬 프로그램</a>
+<li><a href=your-first-python-program.html>처음 만들어보는 파이썬 프로그램</a>
 <li><a href=native-datatypes.html>고유 자료형</a>
 <li><a href=comprehensions.html>Comprehensions</a>
 <li><a href=strings.html>문자열</a>

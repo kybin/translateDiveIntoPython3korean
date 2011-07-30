@@ -11,7 +11,7 @@ body{counter-reset:h1 2}
 <meta name=viewport content='initial-scale=1.0'>
 <form action=http://www.google.com/cse><div><input type=hidden name=cx value=014021643941856155761:l5eihuescdw><input type=hidden name=ie value=UTF-8>&nbsp;<input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=root value=Search></div></form>
 <p>여기 있어요: <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#native-datatypes>Dive Into Python 3</a> <span class=u>&#8227;</span>
-<p id=level>Difficulty level: <span class=u title=beginner>&#x2666;&#x2666;&#x2662;&#x2662;&#x2662;</span>
+<p id=level>난이도: <span class=u title=beginner>&#x2666;&#x2666;&#x2662;&#x2662;&#x2662;</span>
 <h1>고유 자료형</h1>
 <blockquote class=q>
 <p><span class=u>&#x275D;</span>놀라움은 모든 철학의 토양이고, 질문으로 철학은 꽃피우지만, 무시하기 시작하면 철학은 시든다.<br>
