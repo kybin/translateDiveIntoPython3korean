@@ -26,16 +26,25 @@ My alphabet starts where your alphabet ends! <span class=u>&#x275E;</span><br>&m
 <p>&#8220;텍스트&#8221; 라고 하면 컴퓨터 스크린위에 나타나는 문자나 기호를 떠올릴지도 모릅니다만, 컴퓨터는 사실 문자나 기호를 직접 다루는 대신 비트나 바이트를 다룹니다. 여러분이 컴퓨터 스크린위에서 보는 텍스트란 사실 특정 <i>문자열 인코딩</i>에 의해 저장된 것입니다. 
 간단하게 말하자면, 문자열 인코딩이란 여러분이 스크린을 통해 보는 것들과 실제로 컴퓨터 내부에 저장된 그 무엇간의 연결고리인 셈 입니다. 이런 문자열 인코딩의 종류는 아주 다양한데요, 러시안 어나 중국어, 영어와 같이 특정 언어만을 지원하는 것들부터 한꺼번에 여러 가지의 언어들을 처리할 수 있는 것들도 있습니다.  
 
-<p>물론 진짜 문자열 인코딩의 세계는 방금 말씀드린 것보다 조금 더 복잡합니다. 어떤 문자들은 서로 다른 여러 개의 인코딩을 사용하더라도 화면상으론 동일하게 표현되지만, 실제 각각의 인코딩 내부는 서로 다른 바이트 배열을 사용하고 있기도 합니다. 문자열 인코딩은 암호를 푸는 열쇠정도로 생각하셔도 됩니다. 누군가 여러분에게 바이트 배열을 휙하고 던져주고 나서, &#8220;자 이건 파일이구요, 이건 웹 페이지입니다. 아. 참 그리고 이거 전부 다 텍스트예요. &#8221;이렇게 말했다고 가정해봅시다. 하지만 여러분 손에 들고 있는것은  0과 1로 이루어진 바이트 배열일 뿐입니다. 이걸 텍스트로 올바르게 해석하기 위해서는 캐릭터 인코딩이 뭘로 되있는지 물어봐야 합니다. 만약 그 사람이 잘못된 정보를 알려주거나, 아예 모르쇠로 일관하는 경우엔 십중팔구 여러분은 이게 뭔지 골머리싸고 끙끙대다가 두손들고 포기하는 수 밖에 없을 겁니다.
+<p>물론 진짜 문자열 인코딩의 세계는 방금 말씀드린 것보다 조금 더 복잡합니다. 어떤 문자들은 서로 다른 여러 개의 인코딩을 사용하더라도 화면상으론 동일하게 표현되지만, 실제 각각의 인코딩 내부는 서로 다른 바이트 배열을 사용하고 있기도 합니다. 문자열 인코딩은 암호를 푸는 열쇠정도로 생각하셔도 됩니다. 누군가 여러분에게 바이트 배열을 휙하고 던져주고 나서, &#8220;자 이건 파일이구요, 이건 웹 페이지입니다. 아. 참 그리고 이거 전부 다 텍스트예요. &#8221;이렇게 말했다고 가정해봅시다. 하지만 여러분 손에 들고 있는것은  0과 1로 이루어진 바이트 배열일 뿐입니다. 이걸 텍스트로 올바르게 해석하기 위해서는 캐릭터 인코딩이 뭘로 되있는지 물어봐야 합니다. 만약 그 사람이 잘못된 정보를 알려주거나, 아예 모르쇠로 일관하는 경우엔 십중팔구 여러분은 이게 뭔지 골머리싸고 끙끙대다가 두 손 들고 포기하는 수 밖에 없을 겁니다.
 
 
-<aside>여러분이 문자열에 대해 알고 있다고 생각하는 것들은 다 잘못된거예요.</aside>
+<aside>여러분이 문자열에 대해 알고 있다고 생각하는 것들은 모두 잘못된거예요.</aside>
 
 <p>따옴표가 나와야 할 자리에 요상한 물음표가 나오는 웹페이지를 본 적이 있을겁니다. 또는 웩켁쵁 처럼 알 수 없는 글자들로 가득한 웹페이지도 가끔 만날 수 있지요. 이는 모두 웹 페이지 작성자가 문자열 인코딩 설정을 제대로 해주지 않았기 때문입니다. 웹 브라우저가 이런 페이지를 만나게 되면, 그야말로 어찌할바를 모르다가 이런 알수없는 기호들을 쏟아내게 되는 거죠. 
 
+<p>세상 대부분의 주요언어들은 컴퓨터에서 적절히 처리되기 위한 고유한 문자열 인코딩 방식을 가지고 있습니다. 모든 나라의 문자가 서로 다르고, 이를 한꺼번에 처리한다는 것은 컴퓨터에겐 힘들고 값비싼 작업이었으므로, 각 나라의 문자열 인코딩방식은 그 나라의 언어에 최적화되어 있었습니다. 제가 여기서 말하는 그나라 언어에 최적화 되있다는 말은 서로 다른 인코딩 방식이라도 0&ndash;255 범위 내에 있는 같은 숫자를 사용할 수 있고, 같은 숫자지만 표시하는 문자는 언어별로 다르다는 겁니다. 가령 , 예를 들어, <abbr>ASCII</abbr> 라는 인코딩 방식에 대해 들어본 적이 있을겁니다. 0 부터 127 사이에 값에 영어 알파벳을 매칭해놓은 인코딩 방식으로, 여기서 65라는 숫자는 &#8220;A&#8221;이고, 97은 소문자 &#8220;a&#8221 입니다. 영어는 아주 작은 수의 알파벳 집합을 가지고 있을 뿐이므로, 128개로 모든 문자를 표현할 수 있습니다.  128개는 2의 7승이므로, 한 바이트 (2의 8승)로 알파벳을 모두 표현할 수 있는 셈입니다. 
+
+
 <p>There are character encodings for each major language in the world. Since each language is different, and memory and disk space have historically been expensive, each character encoding is optimized for a particular language. By that, I mean each encoding using the same numbers (0&ndash;255) to represent that language&#8217;s characters. For instance, you&#8217;re probably familiar with the <abbr>ASCII</abbr> encoding, which stores English characters as numbers ranging from 0 to 127. (65 is capital &#8220;A&#8221;, 97 is lowercase &#8220;a&#8221;, <i class=baa>&amp;</i>c.)  English has a very simple alphabet, so it can be completely expressed in less than 128 numbers. For those of you who can count in base 2, that&#8217;s 7 out of the 8 bits in a byte.
 
+
+<p>프랑스어나 스페인어, 독일어 같은 동유럽권의 언어들은 영어보다 많은 수의 알파벳을 가지고 있습니다. 좀더 정확히 말하면, 이들 언어 들에는 알파벳 위에 물결 표시와 같은 (틸다) 것을 얹어놓은 듯한, 가령 <code>&ntilde;</code> 와 같은 문자들도 있습니다. 이 언어들을 위한 대표적인 인코딩방식이 CP-1252 입니다. &#8220;windows-1252&#8221; 이라고도 불리는데 Microsoft Windows에서 많이 사용되었기 때문입니다. CP-1252 의 0부터 127까지의 값은 <abbr>ASCII</abbr> 코드의 값과 동일합니다. 그리고 128 부터 255 까지의 범위의 값에는 앞에서 예를 들었던 <code>&ntilde;</code> 같은 문자들 할당해두었습니다. 예를 들어, <code>&ntilde;</code>는 241입니다. 영어에 사용되는 ascii 방식보다는 데이터가 많이 필요하지만, 그래도 여전히 한 바이트 (0-255)만 있으면 모든 문자를 표현할 수 있습니다.
+
+
 <p>Western European languages like French, Spanish, and German have more letters than English. Or, more precisely, they have letters combined with various diacritical marks, like the <code>&ntilde;</code> character in Spanish. The most common encoding for these languages is CP-1252, also called &#8220;windows-1252&#8221; because it is widely used on Microsoft Windows. The CP-1252 encoding shares characters with <abbr>ASCII</abbr> in the 0&ndash;127 range, but then extends into the 128&ndash;255 range for characters like n-with-a-tilde-over-it (241), u-with-two-dots-over-it (252), <i class=baa>&amp;</i>c. It&#8217;s still a single-byte encoding, though; the highest possible number, 255, still fits in one byte.
+
+<p>한편 중국어, 일본어, 한국어 같은 언어들이 있습니다. 이 언어들은 영어의 알파벳에 해당하는 문자가 수천개에 달하므로 한 바이트 만으로는 해결할 수 없습니다. 따라서 이런 나라의 언어들을 위해서는 한 바이트가 더 필요하여 총 두 바이트를 사용해야 합니다(0&ndash;65535). 제가 앞서 드린 말씀 중에 한 바이트 인코딩에서는 각 언어에 최적화 되어 있다고 한 것 기억나시나요? 같은 숫자를 사용하지만, 표현되는 문자는 언어별로 다르다는 부분말입니다. 이는 그대로 두바이트 문자열 인코딩에서도 적용됩니다. 표현해야 하는 문자의 숫자가 증가한것 밖에 차이나는 것은 없지요.
 
 <p>Then there are languages like Chinese, Japanese, and Korean, which have so many characters that they require multiple-byte character sets. That is, each &#8220;character&#8221; is represented by a two-byte number from 0&ndash;65535. But different multi-byte encodings still share the same problem as different single-byte encodings, namely that they each use the same numbers to mean different things. It&#8217;s just that the range of numbers is broader, because there are many more characters to represent.
 
