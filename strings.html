@@ -55,9 +55,17 @@ My alphabet starts where your alphabet ends! <span class=u>&#x275E;</span><br>&m
 
 <p>Now think about the rise of global networks like email and the web. Lots of &#8220;plain text&#8221; flying around the globe, being authored on one computer, transmitted through a second computer, and received and displayed by a third computer. Computers can only see numbers, but the numbers could mean different things. Oh no! What to do? Well, systems had to be designed to carry encoding information along with every piece of &#8220;plain text.&#8221; Remember, it&#8217;s the decryption key that maps computer-readable numbers to human-readable characters. A missing decryption key means garbled text, gibberish, or worse.
 
+
+<p>여러 종류의 텍스트를 한 군데 모아놓아야 하는 상황에 대해 생각해봅시다. 예를 들면 여러분들이 받는 이메일을 어떤 데이터베이스에 저장해두는 상황이 있을 수 있겠죠? 텍스트만 저장해두면 될까요? 아니죠. 텍스트를 적절하게 화면에 표시하기 위해서는 어떤 문자열 인코딩을 사용했는지도 함께 저장해야 합니다. 흠. 쉽지 않을 거 같군요. 이메일이 들어있는 데이터베이스를 검색해야 하는 상황은 또 어떤가요? 이때는 해당 검색 키워드에 맞는 문자열 인코딩으로 바로 바로 변경해줘야 제대로 된 검색 결과를 얻을 수 있을 것 같군요. 역시 만만치 않을 거 같네요.
+
 <p>Now think about trying to store multiple pieces of text in the same place, like in the same database table that holds all the email you&#8217;ve ever received. You still need to store the character encoding alongside each piece of text so you can display it properly. Think that&#8217;s hard? Try searching your email database,  which means converting between multiple encodings on the fly. Doesn&#8217;t that sound fun?
 
+
+<p>여러분이 작성중인 문서에 영어와 한국어로 동시에 입력해야 하는 경우도 생각해봅시다. (힌트입니다: 실제로 이런 워드프로세스 어플리케이션들은 특정 문자열 인코딩 모드에서 다른 문자열 인코딩 모드로 변경할 때 마다 escape code 를 사용합니다. 러시안 koi8-r 모드에 있는 경우 숫자 241은 Я 를 의미합니다만, Mac Greek 모드로 변경되는 순간 이 숫자는  ώ를 의미합니다.) 당근, 이 문서도 특정 텍스트로 검색할 수 있어야 합니다.
+
 <p>Now think about the possibility of multilingual documents, where characters from several languages are next to each other in the same document. (Hint: programs that tried to do this typically used escape codes to switch &#8220;modes.&#8221; Poof, you&#8217;re in Russian koi8-r mode, so 241 means Я; poof, now you&#8217;re in Mac Greek mode, so 241 means ώ.) And of course you&#8217;ll want to search <em>those</em> documents, too.
+
+<p>짜증이 쓰나미처럼 밀려오시나요? 자, 자. 일단 좀 진정하시고요, 여기까지 읽으신 분들은 미리 잠시 머리를 식혀두시기 바랍니다. 왜냐면 이제까지 여러분이 알고 있던 문자열에 대한 지식은 모두 잘못된 것이라는 사실에 분노게이지가 하늘을 찌를 수도 있으니까요. 아무튼 중요한건, plain text 따위는 이제부턴 존재하지 않는 겁니다. 오늘부터  이렇게 딱 정한거예요. 자 이제 본격적으로 들어갑니다. 심호흡하시고, 안전벨트 매세요.
 
 <p>Now cry a lot, because everything you thought you knew about strings is wrong, and there ain&#8217;t no such thing as &#8220;plain text.&#8221;
 
