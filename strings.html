@@ -110,9 +110,19 @@ My alphabet starts where your alphabet ends! <span class=u>&#x275E;</span><br>&m
 
 <p class=xxxl>UTF-8
 
+UTF-8 은 유니코드를 위한 가변길이 인코딩 시스템입니다. 즉, 고정된 크기의 바이트를 이용하는게 아니라, 문자마다 바이트 길이가 달라질 수 있다는 거죠. <abbr>ASCII</abbr> 코드 (A-Z, <i class=baa>&amp;</i>c.) 의 경우 문자마다 한 바이트만 사용합니다. 사실 UTF-8 인코딩에서 등장하는 1부터 127까지의 바이트 코드와 ASCII 에서 1부터 127 까지의 바이트코드는 동일합니다. 즉 ASCII 코드에서 등장하는 128 가지의 문자는 UTF-8 에서도 동일한 바이트 코드를 갖는다는 거죠. &ntilde; 나 &ouml; 같은 확장 라틴어는 두 바이트를 사용하고, 중국어의 경우는 세 바이트를 사용합니다. 잘 사용되지 않는 &#8220;astral plane (아스트랄 평면)&#8221; 같은 경우엔 네 바이트를 사용합니다.
+
+
 <p>UTF-8 is a <em>variable-length</em> encoding system for Unicode. That is, different characters take up a different number of bytes. For <abbr>ASCII</abbr> characters (A-Z, <i class=baa>&amp;</i>c.) <abbr>UTF-8</abbr> uses just one byte per character. In fact, it uses the exact same bytes; the first 128 characters (0&ndash;127) in <abbr>UTF-8</abbr> are indistinguishable from <abbr>ASCII</abbr>. &#8220;Extended Latin&#8221; characters like &ntilde; and &ouml; end up taking two bytes. (The bytes are not simply the Unicode code point like they would be in UTF-16; there is some serious bit-twiddling involved.) Chinese characters like &#x4E2D; end up taking three bytes. The rarely-used &#8220;astral plane&#8221; characters take four bytes.
 
+물론 UTF-8 에도 장점과 단점이 공존합니다.
+
+단점: 각 문자가 각기 다른 바이트 크기일 수 있기 때문에 N 번째의 문자를 검색하는 속도가 O(N)에 가깝습니다. 즉, 어떤 단어안에서 특정 문자를 검색해야 할때, 그 단어가 길면 길수록 검색하는 시간이 길어집니다. 또한 가변길이의 인코딩 시스템이기 때문에 인코딩이나 디코딩을 할때 비트 오퍼레이션을 사용해야 합니다.
+
 <p>Disadvantages: because each character can take a different number of bytes, finding the <var>Nth</var> character is an O(N) operation&nbsp;&mdash;&nbsp;that is, the longer the string, the longer it takes to find a specific character. Also, there is bit-twiddling involved to encode characters into bytes and decode bytes into characters.
+
+장점:
+<abbr>ASCII</abbr> 코드같이 광범위하게 사용되는 문자를 인코딩해야 할때 탁월한 성능을 보여줍니다. 확장 라틴어의 경우엔 UTF-16과 성능이 비슷하고 (두 바이트를 쓰니까요), 중국어의 경우엔 UTF-32 보다 성능이 좋습니다. 그리고 비트 오퍼레이션을 해야 하는 특성상, 멀티 바이트 인코딩 시스템 (UTF-16, UTF-32) 의 경우에서 발생할 수 있는, 바이트 순서로 인해 발생되는 문제도 미연에 방지할 수 있습니다. 즉, <abbr>UTF-8</abbr>로 인코딩된 문서의 경우 어느 컴퓨터에 갖다놓더라도 동일한 바이트 순서를 갖게 됩니다.
 
 <p>Advantages: super-efficient encoding of common <abbr>ASCII</abbr> characters. No worse than UTF-16 for extended Latin characters. Better than UTF-32 for Chinese characters. Also (and you&#8217;ll have to trust me on this, because I&#8217;m not going to show you the math), due to the exact nature of the bit twiddling, there are no byte-ordering issues. A document encoded in <abbr>UTF-8</abbr> uses the exact same stream of bytes on any computer.
 
