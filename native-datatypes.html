@@ -103,17 +103,25 @@ ZeroDivisionError: int division or modulo by zero</samp></pre>
 <samp class=pp>&lt;class 'int'></samp></pre>
 <ol>
 <li>You can explicitly coerce an <code>int</code> to a <code>float</code> by calling the <code>float()</code> function.
+float() 함수를 써 int형을 float형으로 강제 변환할수 있습니다.
 <li>Unsurprisingly, you can also coerce a <code>float</code> to an <code>int</code> by calling <code>int()</code>.
+int() 함수를 쓰면 float을 int로 바꿀수 있다는건 놀랍지 않겠죠?
 <li>The <code>int()</code> function will truncate, not round.
+int() 함수는 소수점 뒷부분을 반올림하지 않고, 버립니다.
 <li>The <code>int()</code> function truncates negative numbers towards 0. It&#8217;s a true truncate function, not a floor function.
+int() 함수는 음수의 소수 아래부분을 0에 가깝게 잘라냅니다. 이건 진짜 버리는거지, 계단형으로 만드는게 아닙니다.
 <li>Floating point numbers are accurate to 15 decimal places.
+소수는 15자리까지 정밀하게 표현합니다.
 <li>Integers can be arbitrarily large.
+정수는 정말 큰 수도 표현할수 있습니다.
 </ol>
 <blockquote class='note compare python2'>
 <p><span class=u>&#x261E;</span>Python 2 had separate types for <code>int</code> and <code>long</code>. The <code>int</code> datatype was limited by <code>sys.maxint</code>, which varied by platform but was usually <code>2<sup>32</sup>-1</code>. Python 3 has just one integer type, which behaves mostly like the old <code>long</code> type from Python 2. See <a href=http://www.python.org/dev/peps/pep-0237><abbr>PEP</abbr> 237</a> for details.
+파이썬 2에서는 int와 long형이 분리되어있었습니다. int형은 sys.maxint라는 값에 그 크기의 제한을 받고 있었습니다. (이 값은 플랫폼마다 다르기는 하지만 주로 2의 32승 - 1 입니다.) 파이썬3에서는 하나의 정수형만 존재합니다. 이 정수형은 파이썬2의 long과 거의 같다고 보시면 됩니다. 자세히 알아보려면 이 링크를 따라가세요. (링크삽입)
 </blockquote>
 <h3 id=common-numerical-operations>Common Numerical Operations</h3>
 <p>You can do all kinds of things with numbers.
+수를 가지고 무엇이든 할 수 있습니다.
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>11 / 2</kbd>      <span class=u>&#x2460;</span></a>
 <samp class=pp>5.5</samp>
@@ -130,6 +138,7 @@ ZeroDivisionError: int division or modulo by zero</samp></pre>
 </pre>
 <ol>
 <li>The <code>/</code> operator performs floating point division. It returns a <code>float</code> even if both the numerator and denominator are <code>int</code>s.
+/연산자는 실수 나눗셈을 합니다. 그래서 그 결과물이 항상 float으로 떨어지죠. 분모와 분자가 다 정수형이었다 하더라도요.
 <li>The <code>//</code> operator performs a quirky kind of integer division. When the result is positive, you can think of it as truncating (not rounding) to 0 decimal places, but be careful with that.
 <li>When integer-dividing negative numbers, the <code>//</code> operator rounds &#8220;up&#8221; to the nearest integer. Mathematically speaking, it&#8217;s rounding &#8220;down&#8221; since <code>&minus;6</code> is less than <code>&minus;5</code>, but it could trip you up if you were expecting it to truncate to <code>&minus;5</code>.
 <li>The <code>//</code> operator doesn&#8217;t always return an integer. If either the numerator or denominator is a <code>float</code>, it will still round to the nearest integer, but the actual return value will be a <code>float</code>.
