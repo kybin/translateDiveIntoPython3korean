@@ -36,11 +36,11 @@ Wonder is the foundation of all philosophy, inquiry its progress, ignorance its 
 
 <h2 id=booleans>Booleans</h2>
 <aside>You can use virtually any expression in a boolean context.</aside>
-<p>논리값은 참 또는 거짓입니다. 똑똑한 파이썬은 바로 논리값을 집어넣을 수 있도록 <code><dfn>True</dfn></code>와 <code><dfn>False</dfn></code>라는 두 상수를 가지고 있습니다. 식에서 논리값을 계산할 수도 있습니다. 파이썬은 (<code>if</code>문 같은) 몇몇 곳에서는, 계산식의 결과가 논리값이길 기대합니다. 이런 곳들을 <i>논리 문맥</i>이라 합니다. 논리 문맥 안에서는 어떤 계산을 하던지 그 식의 참 또는 거짓이 판별됩니다. 각각의 자료형마다 참, 거짓을 판별하는 계산법이 틀립니다. (이 챕터 뒷부분의 구체적인 예제를 보고나면 무슨 말인지 이해가 될겁니다.)
-<p>예를 들어, 여기 <a href=your-first-python-program.html#divingin><code>humansize.py</code>의 일부분을 살펴보죠</a>:
+<p>Booleans are either true or false. Python has two constants, cleverly named <code><dfn>True</dfn></code> and <code><dfn>False</dfn></code>, which can be used to assign <dfn>boolean</dfn> values directly. Expressions can also evaluate to a boolean value. In certain places (like <code>if</code> statements), Python expects an expression to evaluate to a boolean value. These places are called <i>boolean contexts</i>. You can use virtually any expression in a boolean context, and Python will try to determine its truth value. Different datatypes have different rules about which values are true or false in a boolean context. (This will make more sense once you see some concrete examples later in this chapter.)
+<p>For example, take this snippet from <a href=your-first-python-program.html#divingin><code>humansize.py</code></a>:
 <pre class='nd pp'><code>if size &lt; 0:
     raise ValueError('number must be non-negative')</code></pre>
-<p><var>size</var>는 정수고 0도 정수고 <code>&lt;</code> 는 수 연산자입니다: <code>size &lt; 0</code> 식의 값은 언제나 참 또는 거짓입니다. 파이썬 바로반응 셸에서 테스트 해보세요.
+<p><var>size</var> is an integer, 0 is an integer, and <code>&lt;</code> is a numerical operator. The result of the expression <code>size &lt; 0</code> is always a boolean. You can test this yourself in the Python interactive shell:
 <pre class='nd screen'>
 <samp class=p>>>> </samp><kbd class=pp>size = 1</kbd>
 <samp class=p>>>> </samp><kbd class=pp>size &lt; 0</kbd>
@@ -51,7 +51,7 @@ Wonder is the foundation of all philosophy, inquiry its progress, ignorance its 
 <samp class=p>>>> </samp><kbd class=pp>size = -1</kbd>
 <samp class=p>>>> </samp><kbd class=pp>size &lt; 0</kbd>
 <samp class=pp>True</samp></pre>
-<p>파이썬 2에서의 쓰임을 물려받아 논리값은 수로 취급되기도 합니다. <code>참</code>은 <code>1</code>; <code>거짓</code>은 0이지요.
+<p>Due to some legacy issues left over from Python 2, booleans can be treated as numbers. <code>True</code> is <code>1</code>; <code>False</code> is 0.
 <pre class='nd screen'>
 <samp class=p>>>> </samp><kbd class=pp>True + True</kbd>
 <samp class=pp>2</samp>
@@ -63,12 +63,12 @@ Wonder is the foundation of all philosophy, inquiry its progress, ignorance its 
 <samp class=traceback>Traceback (most recent call last):
   File "&lt;stdin>", line 1, in &lt;module>
 ZeroDivisionError: int division or modulo by zero</samp></pre>
-<p>아이쿠! 그러지 마세요. 말씀드린다는걸 깜빡했네요.
+<p>Ew, ew, ew! Don&#8217;t do that. Forget I even mentioned it.
 
 <p class=a>&#x2042;
 
 <h2 id=numbers>Numbers</h2>
-<p>수는 굉장합니다. 많은것들이 들어있죠. 파이썬은 <dfn>정수</dfn>와 <dfn>실수(정확하게는 부동소수)</dfn>를 수라는 형태에 포함합니다. 그 둘을 다르게 선언하지 않아요; <dfn>소수점</dfn>의 유무에 따라 파이썬이 그 둘을 나눕니다.
+<p>Numbers are awesome. There are so many to choose from. Python supports both <dfn>integer</dfn>s and <dfn>floating point</dfn> numbers. There&#8217;s no type declaration to distinguish them; Python tells them apart by the presence or absence of a <dfn>decimal</dfn> point.
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>type(1)</kbd>                 <span class=u>&#x2460;</span></a>
 <samp class=pp>&lt;class 'int'></samp>
@@ -81,10 +81,10 @@ ZeroDivisionError: int division or modulo by zero</samp></pre>
 <samp class=p>>>> </samp><kbd class=pp>type(2.0)</kbd>
 <samp class=pp>&lt;class 'float'></samp></pre>
 <ol>
-<li><code>type()</code> 함수를 써 어떤 값이나 변수의 형태를 알아볼수 잇습니다. 역시 <code>1</code> 은 <code>정수형</code>이라고 나오네요.
-<li>이와 비슷하게 <code>isinstance()</code> 함수를 쓰면 어떤 값이나 변수가 생각했던 형태가 맞는지 알수 있습니다.
-<li><code>정수</code>에 <code>정수</code>를 더하면 <code>정수</code>가 됩니다.
-<li><code>정수</code>에 <code>실수</code>를 더하면 <code>실수</code>가 됩니다. 파이썬은 <code>정수</code>에 <code>실수</code>를 더하면, 그 값을 <code>실수</code>로 만들어 버립니다.
+<li>You can use the <code>type()</code> function to check the type of any value or variable. As you might expect, <code>1</code> is an <code>int</code>.
+<li>Similarly, you can use the <code>isinstance()</code> function to check whether a value or variable is of a given type.
+<li>Adding an <code>int</code> to an <code>int</code> yields an <code>int</code>.
+<li>Adding an <code>int</code> to a <code>float</code> yields a <code>float</code>. Python coerces the <code>int</code> into a <code>float</code> to perform the addition, then returns a <code>float</code> as the result.
 </ol>
 <h3 id=number-coercion>Coercing Integers To Floats And Vice-Versa</h3>
 <p>As you just saw, some operators (like addition) will coerce integers to floating point numbers as needed. You can also coerce them by yourself.
@@ -103,25 +103,17 @@ ZeroDivisionError: int division or modulo by zero</samp></pre>
 <samp class=pp>&lt;class 'int'></samp></pre>
 <ol>
 <li>You can explicitly coerce an <code>int</code> to a <code>float</code> by calling the <code>float()</code> function.
-float() 함수를 써 int형을 float형으로 강제 변환할수 있습니다.
 <li>Unsurprisingly, you can also coerce a <code>float</code> to an <code>int</code> by calling <code>int()</code>.
-int() 함수를 쓰면 float을 int로 바꿀수 있다는건 놀랍지 않겠죠?
 <li>The <code>int()</code> function will truncate, not round.
-int() 함수는 소수점 뒷부분을 반올림하지 않고, 버립니다.
 <li>The <code>int()</code> function truncates negative numbers towards 0. It&#8217;s a true truncate function, not a floor function.
-int() 함수는 음수의 소수 아래부분을 0에 가깝게 잘라냅니다. 이건 진짜 버리는거지, 계단형으로 만드는게 아닙니다.
 <li>Floating point numbers are accurate to 15 decimal places.
-소수는 15자리까지 정밀하게 표현합니다.
 <li>Integers can be arbitrarily large.
-정수는 정말 큰 수도 표현할수 있습니다.
 </ol>
 <blockquote class='note compare python2'>
 <p><span class=u>&#x261E;</span>Python 2 had separate types for <code>int</code> and <code>long</code>. The <code>int</code> datatype was limited by <code>sys.maxint</code>, which varied by platform but was usually <code>2<sup>32</sup>-1</code>. Python 3 has just one integer type, which behaves mostly like the old <code>long</code> type from Python 2. See <a href=http://www.python.org/dev/peps/pep-0237><abbr>PEP</abbr> 237</a> for details.
-파이썬 2에서는 int와 long형이 분리되어있었습니다. int형은 sys.maxint라는 값에 그 크기의 제한을 받고 있었습니다. (이 값은 플랫폼마다 다르기는 하지만 주로 2의 32승 - 1 입니다.) 파이썬3에서는 하나의 정수형만 존재합니다. 이 정수형은 파이썬2의 long과 거의 같다고 보시면 됩니다. 자세히 알아보려면 이 링크를 따라가세요. (링크삽입)
 </blockquote>
 <h3 id=common-numerical-operations>Common Numerical Operations</h3>
 <p>You can do all kinds of things with numbers.
-수를 가지고 무엇이든 할 수 있습니다.
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>11 / 2</kbd>      <span class=u>&#x2460;</span></a>
 <samp class=pp>5.5</samp>
@@ -138,7 +130,6 @@ int() 함수는 음수의 소수 아래부분을 0에 가깝게 잘라냅니다.
 </pre>
 <ol>
 <li>The <code>/</code> operator performs floating point division. It returns a <code>float</code> even if both the numerator and denominator are <code>int</code>s.
-/연산자는 실수 나눗셈을 합니다. 그래서 그 결과물이 항상 float으로 떨어지죠. 분모와 분자가 다 정수형이었다 하더라도요.
 <li>The <code>//</code> operator performs a quirky kind of integer division. When the result is positive, you can think of it as truncating (not rounding) to 0 decimal places, but be careful with that.
 <li>When integer-dividing negative numbers, the <code>//</code> operator rounds &#8220;up&#8221; to the nearest integer. Mathematically speaking, it&#8217;s rounding &#8220;down&#8221; since <code>&minus;6</code> is less than <code>&minus;5</code>, but it could trip you up if you were expecting it to truncate to <code>&minus;5</code>.
 <li>The <code>//</code> operator doesn&#8217;t always return an integer. If either the numerator or denominator is a <code>float</code>, it will still round to the nearest integer, but the actual return value will be a <code>float</code>.

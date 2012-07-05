@@ -16,11 +16,14 @@ body{counter-reset:h1 7}
 <blockquote class=q>
 <p><span class=u>&#x275D;</span> East is East, and West is West, and never the twain shall meet. <span class=u>&#x275E;</span><br>&mdash; <a href=http://en.wikiquote.org/wiki/Rudyard_Kipling>Rudyard Kipling</a>
 </blockquote>
+동쪽은 동쪽 서쪽은 서쪽일 뿐, 절대 만나는 일이 없지 
 <p id=toc>&nbsp;
 <h2 id=divingin>Diving In</h2>
 <p class=f>Iterators are the &#8220;secret sauce&#8221; of Python 3. They&#8217;re everywhere, underlying everything, always just out of sight. <a href=comprehensions.html>Comprehensions</a> are just a simple form of <i>iterators</i>. Generators are just a simple form of <i>iterators</i>. A function that <code>yield</code>s values is a nice, compact way of building an iterator without building an iterator. Let me show you what I mean by that.
 
+반복자는 파이썬의 비밀 양념입니다. 보이지 않을뿐, 이것들은 어디에나 있고, 모든것의 바탕이 되죠. 생성자 또한 반복자의 단순버전일 뿐입니다.  yield를 써 값을 뽑아내는 함수는 반복자를 "만들지 않고" 만들수 있는 쉽고 편한 방법입니다. 지금부터 그말이 무슨뜻인지 보여드릴겁니다.
 <p>Remember <a href=generators.html#a-fibonacci-generator>the Fibonacci generator</a>? Here it is as a built-from-scratch iterator:
+피보나치 생성자 : 처음에는 반복자를 처음부터 하나하나 만들어 보기로 하죠.
 
 <p class=d>[<a href=examples/fibonacci2.py>download <code>fibonacci2.py</code></a>]
 <pre class=pp><code>class Fib:
@@ -42,33 +45,46 @@ body{counter-reset:h1 7}
         return fib</code></pre>
 
 <p>Let&#8217;s take that one line at a time.
+한번에 한줄씩 살펴보죠.
 
 <pre class='nd pp'><code>class Fib:</code></pre>
 
 <p><code>class</code>? What&#8217;s a class?
+클래스? 클래스가 뭘까요?
 
 <p class=a>&#x2042;
 
 <h2 id=defining-classes>Defining Classes</h2>
 
 <p>Python is fully object-oriented: you can define your own classes, inherit from your own or built-in classes, and instantiate the classes you&#8217;ve defined.
+파이썬은 완전히 객체지향적입니다: 새로운 클래스를 생성할수도, 미리 짜놓거나 내장되어있는 클래스로 부터 상속할수도, 정의한 클래스를 객체화 할수도 있죠.
 
 <p>Defining a class in Python is simple. As with functions, there is no separate interface definition. Just define the class and start coding. A Python class starts with the reserved word <code>class</code>, followed by the class name. Technically, that&#8217;s all that&#8217;s required, since a class doesn&#8217;t need to inherit from any other class.
+파이썬에서는 클래스를 정의하기가 참 쉽습니다. 함수처럼, 특별한 환경정의가 필요하지 않죠. 그량 클래스를 정의하고 코드를 써내려 가면 됩니다. 파이썬 클래스는 예약어 class 뒤에, 클래스 이름만 써주면 끝나죠. 다른 클래스로 부터 상속을 받을 필요가 없다면(해석오류?????) 그게 필요한 전부입니다.
+
 
 <pre class=pp><code><a>class PapayaWhip:  <span class=u>&#x2460;</span></a>
 <a>    pass           <span class=u>&#x2461;</span></a></code></pre>
 <ol>
 <li>The name of this class is <code>PapayaWhip</code>, and it doesn&#8217;t inherit from any other class. Class names are usually capitalized, <code>EachWordLikeThis</code>, but this is only a convention, not a requirement.
+이 클래스의 이름은 PapayaWhip이고, 다른 클래스로부터 상속받지 않습니다. 클래스 이름은 일반적으로 앞글자를 대문자로 써줍니다. 이것은 단지 규약일뿐 그렇게 하지 않아도 됩니다.
 <li>You probably guessed this, but everything in a class is indented, just like the code within a function, <code>if</code> statement, <code>for</code> loop, or any other block of code. The first line not indented is outside the class.
 </ol>
+이미 추측했을지도 모르지만, 클래스 안의 모든것은 들여쓰기가 되어야 합니다. 함수에서나 if문, for문, 또는 다른 코드조각들처럼 말이죠. 들여쓰지 않은 첫번째 줄이 클래스의 바깥이 됩니다.
 
 <p>This <code>PapayaWhip</code> class doesn&#8217;t define any methods or attributes, but syntactically, there needs to be something in the definition, thus the <code>pass</code> statement. This is a Python reserved word that just means &#8220;move along, nothing to see here&#8221;. It&#8217;s a statement that does nothing, and it&#8217;s a good placeholder when you&#8217;re stubbing out functions or classes.
 
+이 PapayaWhip 클래스는 어떤 메소드나 어트리뷰트도 정의하지 않습니다. 하지만 문법적으로 정의 안에 무언가 들어있어야 합니다. 그럴때는 pass 라고 쓰세요. 이 파이썬 예약어는 "그냥 지나치세요, 여긴 볼게 없답니다" 라는 뜻입니다. 이 문장은 아무 일도 하지 않아서, 가끔 앞으로 정의할 함수나 클래스를 미리 써 놓을때 요긴하게 쓰입니다.
+
+
 <blockquote class='note compare java'>
 <p><span class=u>&#x261E;</span>The <code>pass</code> statement in Python is like a empty set of curly braces (<code>{}</code>) in Java or C.
+pass문은 자바나 C에서 중괄호를 내용없이 열었다 닫은것({})과 같습니다. 
 </blockquote>
 
 <p>Many classes are inherited from other classes, but this one is not. Many classes define methods, but this one does not. There is nothing that a Python class absolutely must have, other than a name. In particular, C++ programmers may find it odd that Python classes don&#8217;t have explicit constructors and destructors. Although it&#8217;s not required, Python classes <em>can</em> have something similar to a constructor: the <code>__init__()</code> method.
+많은 클래스는 다른 클래스로 부터 상속받습니다. 하지만 이 클래스는 그렇지 않죠. 파이썬 클래스에 이름은 꼭 필요하지만 다른 요소들은 그렇지 않습니다. 예를 들면 c++ 프로그래머들은 파이썬 클래스에 건설자와 파괴자(?)가 없다는 점이 이상하게 느껴질겁니다. 꼭 필요하진 않지만 파이썬 클래스는 건설자와 비슷한 역할을 하는 __init__ 메소드가 있습니다.
+
 
 <h3 id=init-method>The <code>__init__()</code> Method</h3>
 
