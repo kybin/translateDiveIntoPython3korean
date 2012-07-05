@@ -140,13 +140,19 @@ int() 함수는 음수의 소수 아래부분을 0에 가깝게 잘라냅니다.
 <li>The <code>/</code> operator performs floating point division. It returns a <code>float</code> even if both the numerator and denominator are <code>int</code>s.
 /연산자는 실수 나눗셈을 합니다. 그래서 그 결과물이 항상 float으로 떨어지죠. 분모와 분자가 다 정수형이었다 하더라도요.
 <li>The <code>//</code> operator performs a quirky kind of integer division. When the result is positive, you can think of it as truncating (not rounding) to 0 decimal places, but be careful with that.
+// 연산자는 약간 황당한 정수 나눗셈을 합니다. 만약 결과가 양수라면 소수점 이하를 (반올림 하지 않고) 버린다고 생각해도 되지만, 조심하세요.
 <li>When integer-dividing negative numbers, the <code>//</code> operator rounds &#8220;up&#8221; to the nearest integer. Mathematically speaking, it&#8217;s rounding &#8220;down&#8221; since <code>&minus;6</code> is less than <code>&minus;5</code>, but it could trip you up if you were expecting it to truncate to <code>&minus;5</code>.
+// 연산자로 음수를 나누면 그 결과값에 가까운 정수로 올림 합니다. -5 보단 -6이 더 작으니깐 정확하게 말하면 이는 내림인거죠. 만약 결과가 -5가 될거라고 생각했다면, 실수를 했을지도 모르겠네요.
 <li>The <code>//</code> operator doesn&#8217;t always return an integer. If either the numerator or denominator is a <code>float</code>, it will still round to the nearest integer, but the actual return value will be a <code>float</code>.
+// 연산자는 언제나 정수 값을 내놓지는 않습니다. 분자와 분모중 하나가 실수이면, 그때도 가장 가까운 정수로 변환되긴 하지만, 실제 결과값은 실수로 나오게 됩니다.
 <li>The <code>**</code> operator means &#8220;raised to the power of.&#8221;  <code>11<sup>2</sup></code> is <code>121</code>.
+** 연산자는 제곱을 의미합니다. 11의 2승은 121이죠.
 <li>The <code>%</code> operator gives the remainder after performing integer division. <code>11</code> divided by <code>2</code> is <code>5</code> with a remainder of <code>1</code>, so the result here is <code>1</code>.
+% 연산자는 정수 나눗셈을 하고 난 나머지를 돌려줍니다. 11을 2로 나눈 나머지는 1이죠. 그래서 결과값이 1이 된 겁니다.
 </ol>
 <blockquote class='note compare python2'>
 <p><span class=u>&#x261E;</span>In Python 2, the <code>/</code> operator usually meant integer division, but you could make it behave like floating point division by including a special directive in your code. In Python 3, the <code>/</code> operator always means floating point division. See <a href=http://www.python.org/dev/peps/pep-0238/><abbr>PEP</abbr> 238</a> for details.
+파이썬2에서, /연산자는 주로 정수연산을 의미했습니다. 하지만 코드에 특별 지시자를 넣어 실수연산을 하게 만들수도 있었죠. 파이썬3에서는 /연산자는 항상 실수연산을 의미합니다. 더 자세히는 PEP238을 보세요.
 </blockquote>
 <h3 id=fractions>Fractions</h3>
 <p>Python isn&#8217;t limited to integers and floating point numbers. It can also do all the fancy math you learned in high school and promptly forgot about.
