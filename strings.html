@@ -110,7 +110,7 @@ My alphabet starts where your alphabet ends! <span class=u>&#x275E;</span><br>&m
 
 <p class=xxxl>UTF-8
 
-<p>UTF-8 은 유니코드를 위한 <em>가변길이(variable-length)<em> 인코딩 시스템입니다. 즉, 고정된 크기의 바이트를 이용하는게 아니라, 문자마다 바이트 길이가 달라질 수 있다는 거죠. <abbr>ASCII</abbr> 코드 (A-Z, <i class=baa>&amp;</i>c.) 의 경우 문자마다 한 바이트만 사용합니다. 사실 UTF-8 인코딩에서 등장하는 1부터 127까지의 바이트 코드와 ASCII 에서 1부터 127 까지의 바이트코드는 동일합니다. 즉 ASCII 코드에서 등장하는 128 가지의 문자는 UTF-8 에서도 동일한 바이트 코드를 갖는다는 거죠. &ntilde; 나 &ouml; 같은 확장 라틴어는 두 바이트를 사용하고, 중국어의 경우는 세 바이트를 사용합니다. 잘 사용되지 않는 &#8220;astral plane (아스트랄 평면)&#8221; 같은 경우엔 네 바이트를 사용합니다.
+<p>UTF-8 은 유니코드를 위한 <em>가변길이(variable-length)</em> 인코딩 시스템입니다. 즉, 고정된 크기의 바이트를 이용하는게 아니라, 문자마다 바이트 길이가 달라질 수 있다는 거죠. <abbr>ASCII</abbr> 코드 (A-Z, <i class=baa>&amp;</i>c.) 의 경우 문자마다 한 바이트만 사용합니다. 사실 UTF-8 인코딩에서 등장하는 1부터 127까지의 바이트 코드와 ASCII 에서 1부터 127 까지의 바이트코드는 동일합니다. 즉 ASCII 코드에서 등장하는 128 가지의 문자는 UTF-8 에서도 동일한 바이트 코드를 갖는다는 거죠. &ntilde; 나 &ouml; 같은 확장 라틴어는 두 바이트를 사용하고, 중국어의 경우는 세 바이트를 사용합니다. 잘 사용되지 않는 &#8220;astral plane (아스트랄 평면)&#8221; 같은 경우엔 네 바이트를 사용합니다.
 
 
 <p>UTF-8 is a <em>variable-length</em> encoding system for Unicode. That is, different characters take up a different number of bytes. For <abbr>ASCII</abbr> characters (A-Z, <i class=baa>&amp;</i>c.) <abbr>UTF-8</abbr> uses just one byte per character. In fact, it uses the exact same bytes; the first 128 characters (0&ndash;127) in <abbr>UTF-8</abbr> are indistinguishable from <abbr>ASCII</abbr>. &#8220;Extended Latin&#8221; characters like &ntilde; and &ouml; end up taking two bytes. (The bytes are not simply the Unicode code point like they would be in UTF-16; there is some serious bit-twiddling involved.) Chinese characters like &#x4E2D; end up taking three bytes. The rarely-used &#8220;astral plane&#8221; characters take four bytes.
@@ -163,7 +163,6 @@ My alphabet starts where your alphabet ends! <span class=u>&#x275E;</span><br>&m
 
 <aside>String 을 정의할때는 홑 따옴표나 이중 따옴표를 사용하면 됩니다.</aside>
 <p><a href=your-first-python-program.html#divingin><code>humansize.py</code> 코드를 봅시다.</a>:
-
 
 <aside>Strings can be defined with either single or double quotes.</aside>
 <p>Let&#8217;s take another look at <a href=your-first-python-program.html#divingin><code>humansize.py</code></a>:
@@ -230,6 +229,8 @@ def approximate_size(size, a_kilobyte_is_1024_bytes=True):
 
 <h3 id=compound-field-names>Compound Field Names</h3>
 
+<p>정수를 치환해주는 가장 간단한 예제를 보았습니다. <code>format()</code> 메소드의 인자 리스트에 인덱스를 사용하여 정수를 치환해주는 방식이었는데, 좀더 설명드리면 <code>{0}</code> 는 첫번째 인자를 치환하고 (예에서는 <var>username</var> 이었습니다), <code>{1}</code>는 두번째 인자 (예에서는 <var>password</var> 이었습니다) 를 치환하는 형식입니다. 물론 인자의 갯수만큼,그리고 원하는 만큼 리스트 인덱스를 더 넣을 수도 있습니다. 그러나 replacement field 에는 더 강력한 기능들이 있습니다. 
+
 <p>The previous example shows the simplest case, where the replacement fields are simply integers. Integer replacement fields are treated as positional indices into the argument list of the <code>format()</code> method. That means that <code>{0}</code> is replaced by the first argument (<var>username</var> in this case), <code>{1}</code> is replaced by the second argument (<var>password</var>), <i class=baa>&amp;</i>c. You can have as many positional indices as you have arguments, and you can have as many arguments as you want. But replacement fields are much more powerful than that.
 
 <pre class=screen>
@@ -241,12 +242,31 @@ def approximate_size(size, a_kilobyte_is_1024_bytes=True):
 <samp class=pp>'1000KB = 1MB'</samp>
 </pre>
 <ol>
+
+<li><code>humansize</code> 모듈 안에 있는 함수를 호출하는 대신, 모듈 내부에 정의된 자료구조인 &#8220;SI&#8221; (1000의 제곱)만 불러 들였습니다.(powers-of-1000).
+<li>얼핏 보기엔 복잡하지만, 그렇지 않습니다. <code>{0}</code> 은 <code>format()</code> 메소드에 넘겨진 첫번째 인자인 <var>si_suffixes</var>를 의미합니다. 하지만 <var>si_suffixes</var> 는 리스트입니다. 따라서 <code>{0[0]}</code>는 <code>format()</code> 메소드에 넘겨진 첫번째 인자인 해당리스트의 첫번째 아이템인 <code>'KB'</code>이 되는거죠. 한편, <code>{0[1]}</code> 는 같은 리스트의 두번째 아이템인 <code>'MB'</code>이구요. curly brace 바깥에 있는 모든 것들, 가령 숫자 <code>1000</code>, 등호표시(=), 그리고 빈칸은 변화가 없습니다. 따라서, 출력되는 string은 <code>'1000KB = 1MB'</code>이 됩니다.
+
 <li>Rather than calling any function in the <code>humansize</code> module, you&#8217;re just grabbing one of the data structures it defines: the list of &#8220;SI&#8221; (powers-of-1000) suffixes.
 <li>This looks complicated, but it&#8217;s not. <code>{0}</code> would refer to the first argument passed to the <code>format()</code> method, <var>si_suffixes</var>. But <var>si_suffixes</var> is a list. So <code>{0[0]}</code> refers to the first item of the list which is the first argument passed to the <code>format()</code> method: <code>'KB'</code>. Meanwhile, <code>{0[1]}</code> refers to the second item of the same list: <code>'MB'</code>. Everything outside the curly braces&nbsp;&mdash;&nbsp;including <code>1000</code>, the equals sign, and the spaces&nbsp;&mdash;&nbsp;is untouched. The final result is the string <code>'1000KB = 1MB'</code>.
 </ol>
 
+<aside>{0} 은 format() 메소드의 1<sup>st</sup> 인자로 대체되고. {1} 은 2<sup>nd</sup>인자로 대체됩니다.</aside>
+
 <aside>{0} is replaced by the 1<sup>st</sup> format() argument. {1} is replaced by the 2<sup>nd</sup>.</aside>
+
+
+<p>이 예제가 보여주듯이 <em>format specifiers 는 파이썬 문법을 통하면 거의 모든 파이썬 자료구조의 특성과 각 개별 아이템들에 접근할 수 있습니다</em>. 이를 가르켜 <i>compound field names</i> 이라고 하고, 다음과 같은 compound field names 들이&#8220;가능합니다&#8221;:
+
+
 <p>What this example shows is that <em>format specifiers can access items and properties of data structures using (almost) Python syntax</em>. This is called <i>compound field names</i>. The following compound field names &#8220;just work&#8221;:
+
+<ul>
+<li>리스트를 넘겨주고, 리스트의 아이템을 인덱스를 통해 접근합니다 (앞의 예처럼요)
+<li>딕셔너리를 넘겨주고 딕셔너리의 키 값을 이용하여 해당 값을 참조할 수 있습니다
+<li>모듈을 넘겨주고, 모듈 내부의 변수와 함수를 그 이름을 이용하여 참조할 수 있습니다 
+<li>클래스 인스턴스를 넘겨주고, 이 인스턴스의 프로퍼티와 메소드를 그 이름을 이용하여 참조할 수 있습니다
+<li><em>앞에 열거된 방법들을 모두 섞어서 사용하는 것도 가능합니다</em>
+</ul>
 
 <ul>
 <li>Passing a list, and accessing an item of the list by index (as in the previous example)
@@ -256,6 +276,7 @@ def approximate_size(size, a_kilobyte_is_1024_bytes=True):
 <li><em>Any combination of the above</em>
 </ul>
 
+<p>그럼 실제로 어떻게 사용가능한지 예제를 통해 알아봅시다:
 <p>Just to blow your mind, here&#8217;s an example that combines all of the above:
 
 <pre class='nd screen'>
@@ -264,16 +285,50 @@ def approximate_size(size, a_kilobyte_is_1024_bytes=True):
 <samp class=p>>>> </samp><kbd class=pp>'1MB = 1000{0.modules[humansize].SUFFIXES[1000][0]}'.format(sys)</kbd>
 <samp class=pp>'1MB = 1000KB'</samp></pre>
 
+<p>이제 코드에 대한 설명을 보시죠
 <p>Here&#8217;s how it works:
 
 <ul>
+
+<li><code>sys</code> 모듈을 먼저 임포트 했습니다. 이 모듈은 현재 실행중인 파이썬 인스턴스에 대한 정보를 가지고 있습니다. 이 모듈 자체를 <code>format()</code> 메소드에ㅔ 인자로 넘겨주었으므로, replacement field <code>{0}</code> 은 이제 <code>sys</code> 모듈을 가르킵니다.
+
+
 <li>The <code>sys</code> module holds information about the currently running Python instance. Since you just imported it, you can pass the <code>sys</code> module itself as an argument to the <code>format()</code> method. So the replacement field <code>{0}</code> refers to the <code>sys</code> module.
+
+
+<li><code>sys.modules</code>은 딕셔너리 자료형으로서, 현재 실행중인 파이썬 인스턴스에게로 임포트된 모든 모듈을 키-값 형태로 가지고 있습니다. 키는 모듈의 이름으로 string 타입이며, 값은 모듈 객체로 객체 타입입니다. 따라서 replacement field <code>{0.modules}</code>는 import 된 모듈의 딕셔너리가 됩니다.
+
+
 <li><code>sys.modules</code> is a dictionary of all the modules that have been imported in this Python instance. The keys are the module names as strings; the values are the module objects themselves. So the replacement field <code>{0.modules}</code> refers to the dictionary of imported modules.
+
+
+<li><code>sys.modules['humansize']</code> 는 앞의 예에서 import 했던 <code>humansize</code> 모듈을 가르킵니다. The replacement field <code>{0.modules[humansize]}</code> 도 <code>humansize</code> 모듈을 가르킵니다. 문법이 살짝 다른 부분이 있는데, 실제 파이썬 코드에서 <code>sys.modules</code> 딕셔너리의 키인 모듈 이름의 타입은 string 입니다. 따라서, 이 키 값을 지칭하려면 모듈 이름을 <code>'humansize'</code> 와 같이 따옴표로 감싸줘야 합니다. 그리나 replacement field 에서는, <code>humansize</code>와 같이 따옴표를 사용하지 않았습니다. <a href=http://www.python.org/dev/peps/pep-3101/>PEP 3101: Advanced String Formatting</a>, 에서는 이렇게 정의하고 있기 때문입니다.&#8220;아이템 키를 파싱하기 위한 룰은 간단하게 키 값이 숫자로 시작하면 숫자로 취급하고, 그 외의 경우는 모두 문자로 취급한다.&#8221;
+
+
+
 <li><code>sys.modules['humansize']</code> is the <code>humansize</code> module which you just imported. The replacement field <code>{0.modules[humansize]}</code> refers to the <code>humansize</code> module. Note the slight difference in syntax here. In real Python code, the keys of the <code>sys.modules</code> dictionary are strings; to refer to them, you need to put quotes around the module name (<i>e.g.</i> <code>'humansize'</code>). But within a replacement field, you skip the quotes around the dictionary key name (<i>e.g.</i> <code>humansize</code>). To quote <a href=http://www.python.org/dev/peps/pep-3101/>PEP 3101: Advanced String Formatting</a>, &#8220;The rules for parsing an item key are very simple. If it starts with a digit, then it is treated as a number, otherwise it is used as a string.&#8221;
+
+
+<li><code>sys.modules['humansize'].SUFFIXES</code> 는 <code>humansize</code> 모듈내에서 최상위 레벨에 정의된 딕셔너리 자료구조입니다. The replacement field <code>{0.modules[humansize].SUFFIXES}</code> 은 이를 가르킵니다.
+
+
 <li><code>sys.modules['humansize'].SUFFIXES</code> is the dictionary defined at the top of the <code>humansize</code> module. The replacement field <code>{0.modules[humansize].SUFFIXES}</code> refers to that dictionary.
+
+
+<li><code>sys.modules['humansize'].SUFFIXES[1000]</code> 은 <abbr>SI</abbr> 리스트로  <code>['KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']</code>를 가르킵니다. 따라서 replacement field <code>{0.modules[humansize].SUFFIXES[1000]}</code> 은 이 리스트를 가리킵니다.
+
+
 <li><code>sys.modules['humansize'].SUFFIXES[1000]</code> is a list of <abbr>SI</abbr> suffixes: <code>['KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']</code>. So the replacement field <code>{0.modules[humansize].SUFFIXES[1000]}</code> refers to that list.
+
+
+
+<li><code>sys.modules['humansize'].SUFFIXES[1000][0]</code> 는 <abbr>SI</abbr> 리스트의 첫번째 아이템인 <code>'KB'</code> 를 가르킵니다. 따라서 최종 replacement field <code>{0.modules[humansize].SUFFIXES[1000][0]}</code>는 이 두 개의 문자로 이루어진 string인 <code>KB</code>를 의미합니다.
+
+
+
 <li><code>sys.modules['humansize'].SUFFIXES[1000][0]</code> is the first item of the list of <abbr>SI</abbr> suffixes: <code>'KB'</code>. Therefore, the complete replacement field <code>{0.modules[humansize].SUFFIXES[1000][0]}</code> is replaced by the two-character string <code>KB</code>.
 </ul>
+
 
 <h3 id=format-specifiers>Format Specifiers</h3>
 
