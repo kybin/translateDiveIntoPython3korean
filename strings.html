@@ -18,33 +18,7 @@ body{counter-reset:h1 4}
 My alphabet starts where your alphabet ends! <span class=u>&#x275E;</span><br>&mdash; Dr. Seuss, On Beyond Zebra!
 </blockquote>
 <p id=toc>&nbsp;
-<<<<<<< HEAD
-<h2 id=boring-stuff>Some Boring Stuff You Need To Understand Before You Can Dive In</h2>
-<p class=f>Few people think about it, but text is incredibly complicated. Start with the alphabet. The people of <a href=http://en.wikipedia.org/wiki/Bougainville_Province>Bougainville</a> have the smallest alphabet in the world; their <a href=http://en.wikipedia.org/wiki/Rotokas_alphabet>Rotokas alphabet</a> is composed of only 12 letters: A, E, G, I, K, O, P, R, S, T, U, and V. On the other end of the spectrum, languages like Chinese, Japanese, and Korean have thousands of characters. English, of course, has 26 letters&nbsp;&mdash;&nbsp;52 if you count uppercase and lowercase separately&nbsp;&mdash;&nbsp;plus a handful of <i class=baa>!@#$%&amp;</i> punctuation marks.
 
-<p>When you talk about &#8220;text,&#8221; you&#8217;re probably thinking of &#8220;characters and symbols on my computer screen.&#8221; But computers don&#8217;t deal in characters and symbols; they deal in bits and bytes. Every piece of text you&#8217;ve ever seen on a computer screen is actually stored in a particular <i>character encoding</i>. Very roughly speaking, the character encoding provides a mapping between the stuff you see on your screen and the stuff your computer actually stores in memory and on disk. There are many different character encodings, some optimized for particular languages like Russian or Chinese or English, and others that can be used for multiple languages.
-
-<p>In reality, it&#8217;s more complicated than that. Many characters are common to multiple encodings, but each encoding may use a different sequence of bytes to actually store those characters in memory or on disk. So you can think of the character encoding as a kind of decryption key. Whenever someone gives you a sequence of bytes&nbsp;&mdash;&nbsp;a file, a web page, whatever&nbsp;&mdash;&nbsp;and claims it&#8217;s &#8220;text,&#8221; you need to know what character encoding they used so you can decode the bytes into characters. If they give you the wrong key or no key at all, you&#8217;re left with the unenviable task of cracking the code yourself. Chances are you&#8217;ll get it wrong, and the result will be gibberish.
-
-<aside>Everything you thought you knew about strings is wrong.</aside>
-
-<p>Surely you&#8217;ve seen web pages like this, with strange question-mark-like characters where apostrophes should be. That usually means the page author didn&#8217;t declare their character encoding correctly, your browser was left guessing, and the result was a mix of expected and unexpected characters. In English it&#8217;s merely annoying; in other languages, the result can be completely unreadable.
-
-<p>There are character encodings for each major language in the world. Since each language is different, and memory and disk space have historically been expensive, each character encoding is optimized for a particular language. By that, I mean each encoding using the same numbers (0&ndash;255) to represent that language&#8217;s characters. For instance, you&#8217;re probably familiar with the <abbr>ASCII</abbr> encoding, which stores English characters as numbers ranging from 0 to 127. (65 is capital &#8220;A&#8221;, 97 is lowercase &#8220;a&#8221;, <i class=baa>&amp;</i>c.)  English has a very simple alphabet, so it can be completely expressed in less than 128 numbers. For those of you who can count in base 2, that&#8217;s 7 out of the 8 bits in a byte.
-
-<p>Western European languages like French, Spanish, and German have more letters than English. Or, more precisely, they have letters combined with various diacritical marks, like the <code>&ntilde;</code> character in Spanish. The most common encoding for these languages is CP-1252, also called &#8220;windows-1252&#8221; because it is widely used on Microsoft Windows. The CP-1252 encoding shares characters with <abbr>ASCII</abbr> in the 0&ndash;127 range, but then extends into the 128&ndash;255 range for characters like n-with-a-tilde-over-it (241), u-with-two-dots-over-it (252), <i class=baa>&amp;</i>c. It&#8217;s still a single-byte encoding, though; the highest possible number, 255, still fits in one byte.
-
-<p>Then there are languages like Chinese, Japanese, and Korean, which have so many characters that they require multiple-byte character sets. That is, each &#8220;character&#8221; is represented by a two-byte number from 0&ndash;65535. But different multi-byte encodings still share the same problem as different single-byte encodings, namely that they each use the same numbers to mean different things. It&#8217;s just that the range of numbers is broader, because there are many more characters to represent.
-
-<p>That was mostly OK in a non-networked world, where &#8220;text&#8221; was something you typed yourself and occasionally printed. There wasn&#8217;t much &#8220;plain text&#8221;. Source code was <abbr>ASCII</abbr>, and everyone else used word processors, which defined their own (non-text) formats that tracked character encoding information along with rich styling, <i class=baa>&amp;</i>c. People read these documents with the same word processing program as the original author, so everything worked, more or less.
-
-<p>Now think about the rise of global networks like email and the web. Lots of &#8220;plain text&#8221; flying around the globe, being authored on one computer, transmitted through a second computer, and received and displayed by a third computer. Computers can only see numbers, but the numbers could mean different things. Oh no! What to do? Well, systems had to be designed to carry encoding information along with every piece of &#8220;plain text.&#8221; Remember, it&#8217;s the decryption key that maps computer-readable numbers to human-readable characters. A missing decryption key means garbled text, gibberish, or worse.
-
-<p>Now think about trying to store multiple pieces of text in the same place, like in the same database table that holds all the email you&#8217;ve ever received. You still need to store the character encoding alongside each piece of text so you can display it properly. Think that&#8217;s hard? Try searching your email database,  which means converting between multiple encodings on the fly. Doesn&#8217;t that sound fun?
-
-<p>Now think about the possibility of multilingual documents, where characters from several languages are next to each other in the same document. (Hint: programs that tried to do this typically used escape codes to switch &#8220;modes.&#8221; Poof, you&#8217;re in Russian koi8-r mode, so 241 means Я; poof, now you&#8217;re in Mac Greek mode, so 241 means ώ.) And of course you&#8217;ll want to search <em>those</em> documents, too.
-
-=======
 <h2 id=boring-stuff>조금 지루하지만, 반드시 짚고 넘어가야 할 것들</h2>
 
 
@@ -62,40 +36,24 @@ My alphabet starts where your alphabet ends! <span class=u>&#x275E;</span><br>&m
 
 <p>세상 대부분의 주요언어들은 컴퓨터에서 적절히 처리되기 위한 고유한 문자열 인코딩 방식을 가지고 있습니다. 모든 나라의 문자가 서로 다르고, 이를 한꺼번에 처리한다는 것은 컴퓨터에겐 힘들고 값비싼 작업이었으므로, 각 나라의 문자열 인코딩방식은 그 나라의 언어에 최적화되어 있었습니다. 제가 여기서 말하는 그나라 언어에 최적화 되있다는 말은 서로 다른 인코딩 방식이라도 0&ndash;255 범위 내에 있는 같은 숫자를 사용할 수 있고, 같은 숫자지만 표시하는 문자는 언어별로 다르다는 겁니다. 가령 , 예를 들어, <abbr>ASCII</abbr> 라는 인코딩 방식에 대해 들어본 적이 있을겁니다. 0 부터 127 사이에 값에 영어 알파벳을 매칭해놓은 인코딩 방식으로, 여기서 65라는 숫자는 &#8220;A&#8221;이고, 97은 소문자 &#8220;a&#8221 입니다. 영어는 아주 작은 수의 알파벳 집합을 가지고 있을 뿐이므로, 128개로 모든 문자를 표현할 수 있습니다.  128개는 2의 7승이므로, 한 바이트 (2의 8승)로 알파벳을 모두 표현할 수 있는 셈입니다. 
 
-
-<p>There are character encodings for each major language in the world. Since each language is different, and memory and disk space have historically been expensive, each character encoding is optimized for a particular language. By that, I mean each encoding using the same numbers (0&ndash;255) to represent that language&#8217;s characters. For instance, you&#8217;re probably familiar with the <abbr>ASCII</abbr> encoding, which stores English characters as numbers ranging from 0 to 127. (65 is capital &#8220;A&#8221;, 97 is lowercase &#8220;a&#8221;, <i class=baa>&amp;</i>c.)  English has a very simple alphabet, so it can be completely expressed in less than 128 numbers. For those of you who can count in base 2, that&#8217;s 7 out of the 8 bits in a byte.
-
-
 <p>프랑스어나 스페인어, 독일어 같은 동유럽권의 언어들은 영어보다 많은 수의 알파벳을 가지고 있습니다. 좀더 정확히 말하면, 이들 언어 들에는 알파벳 위에 물결 표시와 같은 (틸다) 것을 얹어놓은 듯한, 가령 <code>&ntilde;</code> 와 같은 문자들도 있습니다. 이 언어들을 위한 대표적인 인코딩방식이 CP-1252 입니다. &#8220;windows-1252&#8221; 이라고도 불리는데 Microsoft Windows에서 많이 사용되었기 때문입니다. CP-1252 의 0부터 127까지의 값은 <abbr>ASCII</abbr> 코드의 값과 동일합니다. 그리고 128 부터 255 까지의 범위의 값에는 앞에서 예를 들었던 <code>&ntilde;</code> 같은 문자들 할당해두었습니다. 예를 들어, <code>&ntilde;</code>는 241입니다. 영어에 사용되는 ascii 방식보다는 데이터가 많이 필요하지만, 그래도 여전히 한 바이트 (0-255)만 있으면 모든 문자를 표현할 수 있습니다.
-
-
-<p>Western European languages like French, Spanish, and German have more letters than English. Or, more precisely, they have letters combined with various diacritical marks, like the <code>&ntilde;</code> character in Spanish. The most common encoding for these languages is CP-1252, also called &#8220;windows-1252&#8221; because it is widely used on Microsoft Windows. The CP-1252 encoding shares characters with <abbr>ASCII</abbr> in the 0&ndash;127 range, but then extends into the 128&ndash;255 range for characters like n-with-a-tilde-over-it (241), u-with-two-dots-over-it (252), <i class=baa>&amp;</i>c. It&#8217;s still a single-byte encoding, though; the highest possible number, 255, still fits in one byte.
 
 <p>한편 중국어, 일본어, 한국어 같은 언어들이 있습니다. 이 언어들은 영어의 알파벳에 해당하는 문자가 수천개에 달하므로 한 바이트 만으로는 해결할 수 없습니다. 따라서 이런 나라의 언어들을 위해서는 한 바이트가 더 필요하여 총 두 바이트를 사용해야 합니다(0&ndash;65535). 제가 앞서 드린 말씀 중에 한 바이트 인코딩에서는 각 언어에 최적화 되어 있다고 한 것 기억나시나요? 같은 숫자를 사용하지만, 표현되는 문자는 언어별로 다르다는 거요. 이 사실은 두 바이트 문자열 인코딩에서도 그대로 적용됩니다. 표현해야 하는 문자의 숫자가 증가한 것 밖에는 차이나는 것이 없습니다.
 
-<p>Then there are languages like Chinese, Japanese, and Korean, which have so many characters that they require multiple-byte character sets. That is, each &#8220;character&#8221; is represented by a two-byte number from 0&ndash;65535. But different multi-byte encodings still share the same problem as different single-byte encodings, namely that they each use the same numbers to mean different things. It&#8217;s just that the range of numbers is broader, because there are many more characters to represent.
-
 <p>사실 이게 여러분이 직접 &#8220;텍스트&#8221;를 입력하고 출력하는 한 큰 문제될 것은 없었습니다. &#8220;평범한 텍스트 (plain text)&#8221;라는 개념은 존재하지도 않았습니다. 프로그램 소스코드는 <abbr>ASCII</abbr> 코드로 되어있고, 워드프로세서를 사용하는 사람들도 평범한 텍스트건 그 워드프로세서에서 정의한 기호이던 간에, 동일한 프로그램만 사용하면 입력하고 출력하는데 아무런 문제가 없었던 것입니다.
-<p>That was mostly OK in a non-networked world, where &#8220;text&#8221; was something you typed yourself and occasionally printed. There wasn&#8217;t much &#8220;plain text&#8221;. Source code was <abbr>ASCII</abbr>, and everyone else used word processors, which defined their own (non-text) formats that tracked character encoding information along with rich styling, <i class=baa>&amp;</i>c. People read these documents with the same word processing program as the original author, so everything worked, more or less.
 
 <p>자 이제, 워드프로세서 앞에서 문서나 작성하던 시대는 지나가고, 이메일이나 웹 서핑같은 일이 일상이 되버린 글로벌 네트워크의 시대가 되었습니다. 엄청난 양의 &#8220;평범한 텍스트 (plain text)&#8221;들이 전세계를 휘저으며 돌아다니고 있습니다. 여러분의 PC에서 작성된 이메일이 다른 컴퓨터를 거쳐 또 다른 컴퓨터에게로 전송되어 배달됩니다. 반면 컴퓨터는 글을 읽을 수 없습니다. 단지 숫자만을 처리하지요. 앞에서 이야기한 것처럼 같은 숫자라도 맥락에 따라 (어떤 문자열 인코딩을 사용했느냐에 따라) 다른 의미를 가질 수 있습니다. 명심하세요. 보낸사람이 타이핑했던 대로 받는 사람이 읽기 위해서는, 컴퓨터가 다루는 숫자를 사람이 읽을 수 있는 글자로 변환할 수 있는 어떤 변환 키 같은 것이 필요합니다. 이 키가 없는 당신은 화면에 온통 이상하게 뭉그러지고, 찌그러진 기호더미 앞에서 한숨을 쉴 수 밖에 없습니다. 
 
-<p>Now think about the rise of global networks like email and the web. Lots of &#8220;plain text&#8221; flying around the globe, being authored on one computer, transmitted through a second computer, and received and displayed by a third computer. Computers can only see numbers, but the numbers could mean different things. Oh no! What to do? Well, systems had to be designed to carry encoding information along with every piece of &#8220;plain text.&#8221; Remember, it&#8217;s the decryption key that maps computer-readable numbers to human-readable characters. A missing decryption key means garbled text, gibberish, or worse.
-
-
 <p>여러 종류의 텍스트를 한 군데 모아놓아야 하는 상황에 대해 생각해봅시다. 예를 들면 여러분들이 받는 이메일을 어떤 데이터베이스에 저장해두는 상황이 있을 수 있겠죠? 텍스트만 저장해두면 될까요? 아니죠. 텍스트를 적절하게 화면에 표시하기 위해서는 어떤 문자열 인코딩을 사용했는지도 함께 저장해야 합니다. 흠. 쉽지 않을 거 같군요. 이메일이 들어있는 데이터베이스를 검색해야 하는 상황은 또 어떤가요? 이때는 해당 검색 키워드에 맞는 문자열 인코딩으로 바로 바로 변경해줘야 제대로 된 검색 결과를 얻을 수 있을 것 같군요. 역시 만만치 않을 거 같네요.
 
-<p>Now think about trying to store multiple pieces of text in the same place, like in the same database table that holds all the email you&#8217;ve ever received. You still need to store the character encoding alongside each piece of text so you can display it properly. Think that&#8217;s hard? Try searching your email database,  which means converting between multiple encodings on the fly. Doesn&#8217;t that sound fun?
 
 
 <p>여러분이 작성중인 문서에 영어와 한국어로 동시에 입력해야 하는 경우도 생각해봅시다. (힌트입니다: 실제로 이런 워드프로세스 어플리케이션들은 특정 문자열 인코딩 모드에서 다른 문자열 인코딩 모드로 변경할 때 마다 escape code 를 사용합니다. 러시안 koi8-r 모드에 있는 경우 숫자 241은 Я 를 의미합니다만, Mac Greek 모드로 변경되는 순간 이 숫자는  ώ를 의미합니다.) 당근, 이 문서도 특정 텍스트로 검색할 수 있어야 합니다.
 
-<p>Now think about the possibility of multilingual documents, where characters from several languages are next to each other in the same document. (Hint: programs that tried to do this typically used escape codes to switch &#8220;modes.&#8221; Poof, you&#8217;re in Russian koi8-r mode, so 241 means Я; poof, now you&#8217;re in Mac Greek mode, so 241 means ώ.) And of course you&#8217;ll want to search <em>those</em> documents, too.
 
 <p>짜증이 쓰나미처럼 밀려오시나요? 자, 자. 일단 좀 진정하시고요, 여기까지 읽으신 분들은 미리 잠시 머리를 식혀두시기 바랍니다. 왜냐면 이제까지 여러분이 알고 있던 문자열에 대한 지식은 모두 잘못된 것이라는 사실에 분노게이지가 하늘을 찌를 수도 있으니까요. 아무튼 중요한건, plain text 따위는 이제부턴 존재하지 않는 겁니다. 오늘부터  이렇게 딱 정한거예요. 자 이제 본격적으로 들어갑니다. 심호흡하시고, 안전벨트 매세요.
 
->>>>>>> e88b8e04d5eef347f3acc841df44082c16766b3a
-<p>Now cry a lot, because everything you thought you knew about strings is wrong, and there ain&#8217;t no such thing as &#8220;plain text.&#8221;
+
 
 <p class=a>&#x2042;
 
@@ -103,91 +61,52 @@ My alphabet starts where your alphabet ends! <span class=u>&#x275E;</span><br>&m
 
 <p><i>Enter <dfn>Unicode</dfn>.</i>
 
-<<<<<<< HEAD
-<p>Unicode is a system designed to represent <em>every</em> character from <em>every</em> language. Unicode represents each letter, character, or ideograph as a 4-byte number. Each number represents a unique character used in at least one of the world&#8217;s languages. (Not all the numbers are used, but more than 65535 of them are, so 2 bytes wouldn&#8217;t be sufficient.) Characters that are used in multiple languages generally have the same number, unless there is a good etymological reason not to. Regardless, there is exactly 1 number per character, and exactly 1 character per number. Every number always means just one thing; there are no &#8220;modes&#8221; to keep track of. <code>U+0041</code> is always <code>'A'</code>, even if your language doesn&#8217;t have an <code>'A'</code> in it.
-
-<p>On the face of it, this seems like a great idea. One encoding to rule them all. Multiple languages per document. No more &#8220;mode switching&#8221; to switch between encodings mid-stream. But right away, the obvious question should leap out at you. Four bytes? For every single character<span class=u title='interrobang!'>&#8253;</span> That seems awfully wasteful, especially for languages like English and Spanish, which need less than one byte (256 numbers) to express every possible character. In fact, it&#8217;s wasteful even for ideograph-based languages (like Chinese), which never need more than two bytes per character.
-
-<p>There is a Unicode encoding that uses four bytes per character. It&#8217;s called UTF-32, because 32 bits = 4 bytes. UTF-32 is a straightforward encoding; it takes each Unicode character (a 4-byte number) and represents the character with that same number. This has some advantages, the most important being that you can find the <var>Nth</var> character of a string in constant time, because the <var>Nth</var> character starts at the <var>4&times;Nth</var> byte. It also has several disadvantages, the most obvious being that it takes four freaking bytes to store every freaking character.
-
-<p>Even though there are a lot of Unicode characters, it turns out that most people will never use anything beyond the first 65535. Thus, there is another Unicode encoding, called UTF-16 (because 16 bits = 2 bytes). UTF-16 encodes every character from 0&ndash;65535 as two bytes, then uses some dirty hacks if you actually need to represent the rarely-used &#8220;astral plane&#8221; Unicode characters beyond 65535. Most obvious advantage: UTF-16 is twice as space-efficient as UTF-32, because every character requires only two bytes to store instead of four bytes (except for the ones that don&#8217;t). And you can still easily find the <var>Nth</var> character of a string in constant time, if you assume that the string doesn&#8217;t include any astral plane characters, which is a good assumption right up until the moment that it&#8217;s not.
-
-<p>But there are also non-obvious disadvantages to both UTF-32 and UTF-16. Different computer systems store individual bytes in different ways. That means that the character <code>U+4E2D</code> could be stored in UTF-16 as either <code>4E 2D</code> or <code>2D 4E</code>, depending on whether the system is big-endian or little-endian. (For UTF-32, there are even more possible byte orderings.) As long as your documents never leave your computer, you&#8217;re safe&nbsp;&mdash;&nbsp;different applications on the same computer will all use the same byte order. But the minute you want to transfer documents between systems, perhaps on a world wide web of some sort, you&#8217;re going to need a way to indicate which order your bytes are stored. Otherwise, the receiving system has no way of knowing whether the two-byte sequence <code>4E 2D</code> means <code>U+4E2D</code> or <code>U+2D4E</code>.
-
-<p>To solve <em>this</em> problem, the multi-byte Unicode encodings define a &#8220;Byte Order Mark,&#8221; which is a special non-printable character that you can include at the beginning of your document to indicate what order your bytes are in. For UTF-16, the Byte Order Mark is <code>U+FEFF</code>. If you receive a UTF-16 document that starts with the bytes <code>FF FE</code>, you know the byte ordering is one way; if it starts with <code>FE FF</code>, you know the byte ordering is reversed.
-
-<p>Still, UTF-16 isn&#8217;t exactly ideal, especially if you&#8217;re dealing with a lot of <abbr>ASCII</abbr> characters. If you think about it, even a Chinese web page is going to contain a lot of <abbr>ASCII</abbr> characters&nbsp;&mdash;&nbsp;all the elements and attributes surrounding the printable Chinese characters. Being able to find the <var>Nth</var> character in constant time is nice, but there&#8217;s still the nagging problem of those astral plane characters, which mean that you can&#8217;t <em>guarantee</em> that every character is exactly two bytes, so you can&#8217;t <em>really</em> find the <var>Nth</var> character in constant time unless you maintain a separate index. And boy, there sure is a lot of <abbr>ASCII</abbr> text in the world&hellip;
-
-=======
 
 <p>유니코드 (Unicode)란 지구상의 모든 언어를 표현하기 위해 고안된 문자 인코딩 시스템입니다. 지구상의 모든 기호와 문자들을 4 바이트 범위내의 숫자로 표현합니다. 각 숫자는 각각 고유한 문자를 표현하므로 절대 겹치는 일은 없습니다만, 만약 특정 문자가 여러 개의 언어에서 사용되는 경우엔 (영어 알파벳을 공통으로 사용하는 나라가 생각보다 많습니다.) 해당하는 유니코드 숫자는 동일한 숫자를 사용합니다. 아무튼 여기서 중요한 내용은 특정 유니코드 숫자는 고유한 문자 하나를 의미한다는 것 입니다. 예를 들어 유니코드의 숫자 <code>U+0041</code> 는 언제나 <code>'A'</code> 라는 문자를 의미하는 거죠. 
 
-<p>Unicode is a system designed to represent <em>every</em> character from <em>every</em> language. Unicode represents each letter, character, or ideograph as a 4-byte number. Each number represents a unique character used in at least one of the world&#8217;s languages. (Not all the numbers are used, but more than 65535 of them are, so 2 bytes wouldn&#8217;t be sufficient.) Characters that are used in multiple languages generally have the same number, unless there is a good etymological reason not to. Regardless, there is exactly 1 number per character, and exactly 1 character per number. Every number always means just one thing; there are no &#8220;modes&#8221; to keep track of. <code>U+0041</code> is always <code>'A'</code>, even if your language doesn&#8217;t have an <code>'A'</code> in it.
 
 <p>자, 이제 우리의 문제가 완벽하게 해결된 것 같지 않나요? 이제 한 문서에 여러 종류의 문자로 입력할 수도 있고, 더 이상 인코딩 모드를 변경시키면서 번거롭게 왔다 갔다 하지 않아도 되겠네요. 하지만 혹시 그런 생각 안드시나요? "뭐? 4 바이트나 사용한다고 ?!! 이거 너무 낭비가 심하잖아 !!" 특히 영어권에서 온 성질급한 사람들은 더할겁니다. 고작 24개 밖에 안되는 알파벳을 사용하는데 4 바이트라니요. 4바이트면 자그마치 40억개가 넘는 가짓수를 표현할 수 있는 사이즈입니다. 사실 영어권의 사람들은 한 바이트만 있어도 충분합니다. 한 바이트로도 256가짓수의 서로 다른 문자를 표현할 수 있으니까요. 심지어 어마어마한 종류의 문자를 가지고 있는 중국어도 두 바이트만 있으면 거뜬히 표현할 수 있습니다. 
  
-<p>On the face of it, this seems like a great idea. One encoding to rule them all. Multiple languages per document. No more &#8220;mode switching&#8221; to switch between encodings mid-stream. But right away, the obvious question should leap out at you. Four bytes? For every single character<span class=u title='interrobang!'>&#8253;</span> That seems awfully wasteful, especially for languages like English and Spanish, which need less than one byte (256 numbers) to express every possible character. In fact, it&#8217;s wasteful even for ideograph-based languages (like Chinese), which never need more than two bytes per character.
 
 <p>어찌됬건 간에, 이렇게 한 문자를 4바이트로 표현하는 유니코드 인코딩 방식을 UTF-32 방식이라고 합니다. 뒤에 붙은 32는 4바이트가 32비트이기 때문에 그렇습니다. UTF-32는 가장 직관적인 인코딩 방식입니다. 세계 어느나라의 문자도 4바이트에 해당하는 숫자로 고유하게 맵핑되기 때문에, 특정 유니코드문자를 검색해야하는 경우 그 숫자만큼 이동해서 찾아보면 됩니다. 따라서 어떤 문자던 동일한 시간내에 찾아낼 수 있습니다. 하지만 그대신 앞에 언급한대로, 32 비트라는 커다란 공간을 사용해야 하는 맹점도 함께 가지고 있습니다. 
 
-<p>There is a Unicode encoding that uses four bytes per character. It&#8217;s called UTF-32, because 32 bits = 4 bytes. UTF-32 is a straightforward encoding; it takes each Unicode character (a 4-byte number) and represents the character with that same number. This has some advantages, the most important being that you can find the <var>Nth</var> character of a string in constant time, because the <var>Nth</var> character starts at the <var>4&times;Nth</var> byte. It also has several disadvantages, the most obvious being that it takes four freaking bytes to store every freaking character.
 
 <p>유니코드 안에 어마어마한 양의 문자들이 있긴 하지만, 이 유니코드의 뒷 쪽에 배치되있는 특수기호나 문자는 거의 사용할 일이 없다는 사실을 깨닫고 나서 UTF-16 이라는 새로운 인코딩 표준이 등장하게 됩니다. 짐작하시듯 이 기술은 16비트, 즉 2 바이트의 숫자만 사용하는 것으로 범위는 0 - 65535 까지 입니다. 이 범위를 넘어서는 문자를 표현해야 하는 경우엔 조금 지저분한 트릭을 사용하긴 합니다만, 아무튼 표현이 가능합니다. UTF-16이 UTF-32에 비해 갖는 이점은 명확합니다. 사용해야 하는 바이트를 반으로 줄일 수 있고, 여전히 검색성능도 우수합니다. (검색해야 하는 문자가 0 부터 65535 범위내라면 말이죠.)
 
-<p>Even though there are a lot of Unicode characters, it turns out that most people will never use anything beyond the first 65535. Thus, there is another Unicode encoding, called UTF-16 (because 16 bits = 2 bytes). UTF-16 encodes every character from 0&ndash;65535 as two bytes, then uses some dirty hacks if you actually need to represent the rarely-used &#8220;astral plane&#8221; Unicode characters beyond 65535. Most obvious advantage: UTF-16 is twice as space-efficient as UTF-32, because every character requires only two bytes to store instead of four bytes (except for the ones that don&#8217;t). And you can still easily find the <var>Nth</var> character of a string in constant time, if you assume that the string doesn&#8217;t include any astral plane characters, which is a good assumption right up until the moment that it&#8217;s not.
 
 <p>그러나 UTF-32에도 UTF-16에도 뭔가 뒷맛이 개운치 못한 문제가 있었으니, 그것이 바로 컴퓨터마다 바이트를 저장하는 방식인 Byte Order가 다르다는 것이었습니다. 가령 예를 들면  UTF-16 문자 <code>U+4E2D</code>의 경우 컴퓨터가 Big-endian을 사용하느냐, Little-endian을 사용하느냐에 따라 <code>4E 2D</code> 로 저장될 수도 있고, <code>2D 4E</code> 로 저장될 수도 있습니다. (역자주. 인텔 CPU 기반의 윈도우와 리눅스 PC는 리틀엔디안을 사용하고, RISC 기반의 UNIX 시스템이나 네트워크 시스템은 빅엔디안을 사용합니다.) UTF-32의 경우엔 상황이 더 안좋아 지고요. 만약 남들과 문서를 주고받을 일이 없다면야 상관이 없겠지만, 다른 PC로 전송해야 하는 경우엔 내가 어떤 인코딩 방식을 사용했는지를 알려주어야 받는 쪽에서 올바르게 해석할 수 있을겁니다.
 
-<p>But there are also non-obvious disadvantages to both UTF-32 and UTF-16. Different computer systems store individual bytes in different ways. That means that the character <code>U+4E2D</code> could be stored in UTF-16 as either <code>4E 2D</code> or <code>2D 4E</code>, depending on whether the system is big-endian or little-endian. (For UTF-32, there are even more possible byte orderings.) As long as your documents never leave your computer, you&#8217;re safe&nbsp;&mdash;&nbsp;different applications on the same computer will all use the same byte order. But the minute you want to transfer documents between systems, perhaps on a world wide web of some sort, you&#8217;re going to need a way to indicate which order your bytes are stored. Otherwise, the receiving system has no way of knowing whether the two-byte sequence <code>4E 2D</code> means <code>U+4E2D</code> or <code>U+2D4E</code>.
 
 <p>이 문제를 해결하기 위해 UTF-32 (4바이트) 나 UTF-16 (2바이트) 같이 멀티 바이트를 사용하는 인코딩 시스템에서는 &#8220;Byte Order Mark,&#8221 라고 하는 특수한 종류의 문자를 만들어 냈습니다. 그리고 이 문자를 전송하는 모든 문서 앞 부분에 포함시켜서 문서에 사용된 Byte Order를 표시합니다. UTF-16 시스템의 Byte Order Mark는 <code>U+FEFF</code> 입니다. 만약 여러분이 어딘가로부터 받은 UTF-16 문서가 <code>FF FE</code> 로 시작한다면 동일한 바이트 순서를 사용하는 것이고, <code>FE FF</code> 로 시작한다면 바이트 순서가 바뀌었다는 의미입니다. 
 
-<p>To solve <em>this</em> problem, the multi-byte Unicode encodings define a &#8220;Byte Order Mark,&#8221; which is a special non-printable character that you can include at the beginning of your document to indicate what order your bytes are in. For UTF-16, the Byte Order Mark is <code>U+FEFF</code>. If you receive a UTF-16 document that starts with the bytes <code>FF FE</code>, you know the byte ordering is one way; if it starts with <code>FE FF</code>, you know the byte ordering is reversed.
 
 <p>하지만 UTF-16 이 이상적인 것은 아닙니다. 특히 <abbr>ASCII</abbr> 문자를 많이 다루어야 한다면 말이죠. 중국에 있는 어느 웹사이트를 생각해봅시다. 만약 이 웹사이트가 영자신문과 같이 대부분의 정보는 영어로 이루어져 있고, 아주 가끔씩 중국어가 나오는 상황이라면 어떨까요? 대부분의 영어정보는 ASCII 문자로 표현 할 수 있고, 중국어의 경우라도 두 바이트로 너끈히 해결이 가능하겠군요. 검색도 정해진 시간에 가능할거구요. 하지만 두 바이트 범위를 넘어서는 문자에 대해서는 어떻게 해야할까요. 별도로 참조테이블을 운영하지 않는 이상 이 문제는 해결되지 않을겁니다.
 
-<p>Still, UTF-16 isn&#8217;t exactly ideal, especially if you&#8217;re dealing with a lot of <abbr>ASCII</abbr> characters. If you think about it, even a Chinese web page is going to contain a lot of <abbr>ASCII</abbr> characters&nbsp;&mdash;&nbsp;all the elements and attributes surrounding the printable Chinese characters. Being able to find the <var>Nth</var> character in constant time is nice, but there&#8217;s still the nagging problem of those astral plane characters, which mean that you can&#8217;t <em>guarantee</em> that every character is exactly two bytes, so you can&#8217;t <em>really</em> find the <var>Nth</var> character in constant time unless you maintain a separate index. And boy, there sure is a lot of <abbr>ASCII</abbr> text in the world&hellip;
-
 <p>자 여기, 해결책이 있습니다.
 
->>>>>>> e88b8e04d5eef347f3acc841df44082c16766b3a
-<p>Other people pondered these questions, and they came up with a solution:
 
 <p class=xxxl>UTF-8
 
-<<<<<<< HEAD
-<p>UTF-8 is a <em>variable-length</em> encoding system for Unicode. That is, different characters take up a different number of bytes. For <abbr>ASCII</abbr> characters (A-Z, <i class=baa>&amp;</i>c.) <abbr>UTF-8</abbr> uses just one byte per character. In fact, it uses the exact same bytes; the first 128 characters (0&ndash;127) in <abbr>UTF-8</abbr> are indistinguishable from <abbr>ASCII</abbr>. &#8220;Extended Latin&#8221; characters like &ntilde; and &ouml; end up taking two bytes. (The bytes are not simply the Unicode code point like they would be in UTF-16; there is some serious bit-twiddling involved.) Chinese characters like &#x4E2D; end up taking three bytes. The rarely-used &#8220;astral plane&#8221; characters take four bytes.
 
-<p>Disadvantages: because each character can take a different number of bytes, finding the <var>Nth</var> character is an O(N) operation&nbsp;&mdash;&nbsp;that is, the longer the string, the longer it takes to find a specific character. Also, there is bit-twiddling involved to encode characters into bytes and decode bytes into characters.
-
-=======
 <p>UTF-8 은 유니코드를 위한 <em>가변길이(variable-length)</em> 인코딩 시스템입니다. 즉, 고정된 크기의 바이트를 이용하는게 아니라, 문자마다 바이트 길이가 달라질 수 있다는 거죠. <abbr>ASCII</abbr> 코드 (A-Z, <i class=baa>&amp;</i>c.) 의 경우 문자마다 한 바이트만 사용합니다. 사실 UTF-8 인코딩에서 등장하는 1부터 127까지의 바이트 코드와 ASCII 에서 1부터 127 까지의 바이트코드는 동일합니다. 즉 ASCII 코드에서 등장하는 128 가지의 문자는 UTF-8 에서도 동일한 바이트 코드를 갖는다는 거죠. &ntilde; 나 &ouml; 같은 확장 라틴어는 두 바이트를 사용하고, 중국어의 경우는 세 바이트를 사용합니다. 잘 사용되지 않는 &#8220;astral plane (아스트랄 평면)&#8221; 같은 경우엔 네 바이트를 사용합니다.
 
 
-<p>UTF-8 is a <em>variable-length</em> encoding system for Unicode. That is, different characters take up a different number of bytes. For <abbr>ASCII</abbr> characters (A-Z, <i class=baa>&amp;</i>c.) <abbr>UTF-8</abbr> uses just one byte per character. In fact, it uses the exact same bytes; the first 128 characters (0&ndash;127) in <abbr>UTF-8</abbr> are indistinguishable from <abbr>ASCII</abbr>. &#8220;Extended Latin&#8221; characters like &ntilde; and &ouml; end up taking two bytes. (The bytes are not simply the Unicode code point like they would be in UTF-16; there is some serious bit-twiddling involved.) Chinese characters like &#x4E2D; end up taking three bytes. The rarely-used &#8220;astral plane&#8221; characters take four bytes.
 
 물론 UTF-8 에도 장점과 단점이 공존합니다.
 
 단점: 각 문자가 각기 다른 바이트 크기일 수 있기 때문에 N 번째의 문자를 검색하는 속도가 O(N)에 가깝습니다. 즉, 어떤 단어안에서 특정 문자를 검색해야 할때, 그 단어가 길면 길수록 검색하는 시간이 길어집니다. 또한 가변길이의 인코딩 시스템이기 때문에 인코딩이나 디코딩을 할때 비트 오퍼레이션을 사용해야 합니다.
 
-<p>Disadvantages: because each character can take a different number of bytes, finding the <var>Nth</var> character is an O(N) operation&nbsp;&mdash;&nbsp;that is, the longer the string, the longer it takes to find a specific character. Also, there is bit-twiddling involved to encode characters into bytes and decode bytes into characters.
 
 장점:
 <abbr>ASCII</abbr> 코드같이 광범위하게 사용되는 문자를 인코딩해야 할때 탁월한 성능을 보여줍니다. 확장 라틴어의 경우엔 UTF-16과 성능이 비슷하고 (두 바이트를 쓰니까요), 중국어의 경우엔 UTF-32 보다 성능이 좋습니다. 그리고 비트 오퍼레이션을 해야 하는 특성상, 멀티 바이트 인코딩 시스템 (UTF-16, UTF-32) 의 경우에서 발생할 수 있는, 바이트 순서로 인해 발생되는 문제도 미연에 방지할 수 있습니다. 즉, <abbr>UTF-8</abbr>로 인코딩된 문서의 경우 어느 컴퓨터에 갖다놓더라도 동일한 바이트 순서를 갖게 됩니다.
 
->>>>>>> e88b8e04d5eef347f3acc841df44082c16766b3a
-<p>Advantages: super-efficient encoding of common <abbr>ASCII</abbr> characters. No worse than UTF-16 for extended Latin characters. Better than UTF-32 for Chinese characters. Also (and you&#8217;ll have to trust me on this, because I&#8217;m not going to show you the math), due to the exact nature of the bit twiddling, there are no byte-ordering issues. A document encoded in <abbr>UTF-8</abbr> uses the exact same stream of bytes on any computer.
 
 <p class=a>&#x2042;
 
 <h2 id=divingin>Diving In</h2>
 
-<<<<<<< HEAD
-=======
 
 <p>파이썬 3에서 모든 스트링은 유니코드 문자열입니다. <abbr>UTF-8</abbr> 이나 CP-1251 등으로 인코딩 되어있지 않은 그냥 유니코드일 뿐입니다. UTF-8 같은 인코딩 시스템은 문자열을 바이트배열로 바꿔주는 방법중의 하나라는 사실을 잊지마세요. 만약 어떤 스트링을 특정 인코딩 시스템을 사용하여 해당 바이트 배열로 바꾸고 싶다면, Python 3 를 이용할 수 있습니다. 반대로 특정 바이트 배열을 스트링으로 바꾸고 싶다면 또 역시 Python 3를 이용할 수 있습니다. 바이트 배열은 문자열이 아닙니다. 바이트 배열은 바이트 배열일 뿐입니다. 문자열은 추상화 레벨의 개념이고, 스트링은 이러한 문자열들의 집합입니다.
->>>>>>> e88b8e04d5eef347f3acc841df44082c16766b3a
-<p>In Python 3, all strings are sequences of Unicode characters. There is no such thing as a Python string encoded in <abbr>UTF-8</abbr>, or a Python string encoded as CP-1252. &#8220;Is this string <abbr>UTF-8</abbr>?&#8221; is an invalid question. <abbr>UTF-8</abbr> is a way of encoding characters as a sequence of bytes. If you want to take a string and turn it into a sequence of bytes in a particular character encoding, Python 3 can help you with that. If you want to take a sequence of bytes and turn it into a string, Python 3 can help you with that too. Bytes are not characters; bytes are bytes. Characters are an abstraction. A string is a sequence of those abstractions.
 
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>s = '深入 Python'</kbd>    <span class=u>&#x2460;</span></a>
@@ -197,36 +116,22 @@ My alphabet starts where your alphabet ends! <span class=u>&#x275E;</span><br>&m
 <samp class=pp>'深'</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>s + ' 3'</kbd>             <span class=u>&#x2463;</span></a>
 <samp class=pp>'深入 Python 3'</samp></pre>
-<ol>
-<<<<<<< HEAD
-=======
 
+<ol>
 <li>스트링을 생성하려면 따옴표로 묶어주면 됩니다. 파이썬 문자열은 홑 따옴표(<code>'</code>)나 또는 이중 따옴표(<code>"</code>)를 사용하여 정의할 수 있습니다. <!--"-->
 <li>파이썬 내장함수 <code><dfn>len</dfn>()</code> 은 문자열의 길이를 리턴해줍니다. <i>즉,</i> 문자의 갯수를 반환합니다. 이 함수는 <a href=native-datatypes.html#extendinglists>리스트(list)나 튜플(tuple), 셋(set), 딕셔너리(dictionary) 에도 사용</a>할 수 있습니다. 스트링은 문자열의 튜플로 생각할 수 있습니다.
 <li>마치 리스트안에서 개별적인 아이템을 꺼내듯, index 표기법으로 개별 문자를 추출할 수 있습니다.
 <li>리스트에서와 같이, <code>+</code> 연산자를 이용하여 string을 다른 string과 <dfn>concatenate</dfn> 할 수도 있습니다.
-
-
->>>>>>> e88b8e04d5eef347f3acc841df44082c16766b3a
-<li>To create a string, enclose it in quotes. Python strings can be defined with either single quotes (<code>'</code>) or double quotes (<code>"</code>).<!--"-->
-<li>The built-in <code><dfn>len</dfn>()</code> function returns the length of the string, <i>i.e.</i> the number of characters. This is the same function you use to <a href=native-datatypes.html#extendinglists>find the length of a list, tuple, set, or dictionary</a>. A string is like a tuple of characters.
-<li>Just like getting individual items out of a list, you can get individual characters out of a string using index notation.
-<li>Just like lists, you can <dfn>concatenate</dfn> strings using the <code>+</code> operator.
 </ol>
 
 <p class=a>&#x2042;
 
 <h2 id=formatting-strings>Formatting Strings</h2>
 
-<<<<<<< HEAD
-=======
 
 <aside>String 을 정의할때는 홑 따옴표나 이중 따옴표를 사용하면 됩니다.</aside>
 <p><a href=your-first-python-program.html#divingin><code>humansize.py</code> 코드를 봅시다.</a>:
 
->>>>>>> e88b8e04d5eef347f3acc841df44082c16766b3a
-<aside>Strings can be defined with either single or double quotes.</aside>
-<p>Let&#8217;s take another look at <a href=your-first-python-program.html#divingin><code>humansize.py</code></a>:
 
 <p class=d>[<a href=examples/humansize.py>download <code>humansize.py</code></a>]
 <pre class=pp><code><a>SUFFIXES = {1000: ['KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB'],         <span class=u>&#x2460;</span></a>
@@ -254,30 +159,14 @@ def approximate_size(size, a_kilobyte_is_1024_bytes=True):
 
     raise ValueError('number too large')</code></pre>
 <ol>
-<<<<<<< HEAD
-=======
 <li><code>'KB'</code>, <code>'MB'</code>, <code>'GB'</code> 이는 모두 각각 string 입니다.
 <li>Function docstring이라고 부르는 것인데, 이것 역시 아무튼 string 입니다. 여러 줄에 걸쳐서 작성할 수 있습니다. 시작할때 따옴표 세개를 연속으로 사용하면 됩니다.
 <li>Function docstring을 끝낼때도 역시 따옴표 세개를 연속으로 사용합니다.
 <li>예외 메시지에도 string이 사용됩니다.
 <li>아...이건..string 같긴한데...쩝. 이건 대체 뭘까요?
-
-
-
-
->>>>>>> e88b8e04d5eef347f3acc841df44082c16766b3a
-<li><code>'KB'</code>, <code>'MB'</code>, <code>'GB'</code>&hellip; those are each strings.
-<li>Function docstrings are strings. This docstring spans multiple lines, so it uses three-in-a-row quotes to start and end the string.
-<li>These three-in-a-row quotes end the docstring.
-<li>There&#8217;s another string, being passed to the exception as a human-readable error message.
-<li>There&#8217;s a&hellip; whoa, what the heck is that?
 </ol>
 
-<<<<<<< HEAD
-=======
 파이썬 3에서는 특정 값을 string 내부에 포맷팅할 수 있습니다. 복잡한 예도 많지만, 일단 기본적으로 placeholder 하나를 사용하여 특정 값 하나를 string 에 넣어주는 예를 봅시다. 
->>>>>>> e88b8e04d5eef347f3acc841df44082c16766b3a
-<p>Python 3 supports <dfn>formatting</dfn> values into strings. Although this can include very complicated expressions, the most basic usage is to insert a value into a string with a single placeholder.
 
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>username = 'mark'</kbd>
@@ -285,26 +174,14 @@ def approximate_size(size, a_kilobyte_is_1024_bytes=True):
 <a><samp class=p>>>> </samp><kbd class=pp>"{0}'s password is {1}".format(username, password)</kbd>  <span class=u>&#x2461;</span></a>
 <samp class=pp>"mark's password is PapayaWhip"</samp></pre>
 <ol>
-<<<<<<< HEAD
-=======
 
 <li>실제로 제가 사용하는 패스워드는 아니예요.
 <li>여기서 많은 일이 벌어졌네요. 먼저 이 라인은 string literal 에 대한 메소드 호출입니다. <em>string은 객체</em>이고 객체는 메소드를 가지고 있습니다. 두번째, 이 메소드의 결과는 다시 string이 됩니다. 마지막으로, <code>{0}</code> 과 <code>{1}</code> 은 <i>replacement fields</i> 라고 부르는 것인데, <code><dfn>format</dfn>()</code>메소드 내부에 인자로 전달되는 것들로 치환됩니다.
-
-
->>>>>>> e88b8e04d5eef347f3acc841df44082c16766b3a
-<li>No, my password is not really <kbd>PapayaWhip</kbd>.
-<li>There&#8217;s a lot going on here. First, that&#8217;s a method call on a string literal. <em>Strings are objects</em>, and objects have methods. Second, the whole expression evaluates to a string. Third, <code>{0}</code> and <code>{1}</code> are <i>replacement fields</i>, which are replaced by the arguments passed to the <code><dfn>format</dfn>()</code> method.
 </ol>
 
 <h3 id=compound-field-names>Compound Field Names</h3>
 
-<<<<<<< HEAD
-=======
 <p>정수를 치환해주는 가장 간단한 예제를 보았습니다. <code>format()</code> 메소드의 인자 리스트에 인덱스를 사용하여 정수를 치환해주는 방식이었는데, 좀더 설명드리면 <code>{0}</code> 는 첫번째 인자를 치환하고 (예에서는 <var>username</var> 이었습니다), <code>{1}</code>는 두번째 인자 (예에서는 <var>password</var> 이었습니다) 를 치환하는 형식입니다. 물론 인자의 갯수만큼,그리고 원하는 만큼 리스트 인덱스를 더 넣을 수도 있습니다. 그러나 replacement field 에는 더 강력한 기능들이 있습니다. 
-
->>>>>>> e88b8e04d5eef347f3acc841df44082c16766b3a
-<p>The previous example shows the simplest case, where the replacement fields are simply integers. Integer replacement fields are treated as positional indices into the argument list of the <code>format()</code> method. That means that <code>{0}</code> is replaced by the first argument (<var>username</var> in this case), <code>{1}</code> is replaced by the second argument (<var>password</var>), <i class=baa>&amp;</i>c. You can have as many positional indices as you have arguments, and you can have as many arguments as you want. But replacement fields are much more powerful than that.
 
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>import humansize</kbd>
@@ -315,32 +192,14 @@ def approximate_size(size, a_kilobyte_is_1024_bytes=True):
 <samp class=pp>'1000KB = 1MB'</samp>
 </pre>
 <ol>
-<<<<<<< HEAD
-=======
 
 <li><code>humansize</code> 모듈 안에 있는 함수를 호출하는 대신, 모듈 내부에 정의된 자료구조인 &#8220;SI&#8221; (1000의 제곱)만 불러 들였습니다.(powers-of-1000).
 <li>얼핏 보기엔 복잡하지만, 그렇지 않습니다. <code>{0}</code> 은 <code>format()</code> 메소드에 넘겨진 첫번째 인자인 <var>si_suffixes</var>를 의미합니다. 하지만 <var>si_suffixes</var> 는 리스트입니다. 따라서 <code>{0[0]}</code>는 <code>format()</code> 메소드에 넘겨진 첫번째 인자인 해당리스트의 첫번째 아이템인 <code>'KB'</code>이 되는거죠. 한편, <code>{0[1]}</code> 는 같은 리스트의 두번째 아이템인 <code>'MB'</code>이구요. curly brace 바깥에 있는 모든 것들, 가령 숫자 <code>1000</code>, 등호표시(=), 그리고 빈칸은 변화가 없습니다. 따라서, 출력되는 string은 <code>'1000KB = 1MB'</code>이 됩니다.
-
->>>>>>> e88b8e04d5eef347f3acc841df44082c16766b3a
-<li>Rather than calling any function in the <code>humansize</code> module, you&#8217;re just grabbing one of the data structures it defines: the list of &#8220;SI&#8221; (powers-of-1000) suffixes.
-<li>This looks complicated, but it&#8217;s not. <code>{0}</code> would refer to the first argument passed to the <code>format()</code> method, <var>si_suffixes</var>. But <var>si_suffixes</var> is a list. So <code>{0[0]}</code> refers to the first item of the list which is the first argument passed to the <code>format()</code> method: <code>'KB'</code>. Meanwhile, <code>{0[1]}</code> refers to the second item of the same list: <code>'MB'</code>. Everything outside the curly braces&nbsp;&mdash;&nbsp;including <code>1000</code>, the equals sign, and the spaces&nbsp;&mdash;&nbsp;is untouched. The final result is the string <code>'1000KB = 1MB'</code>.
 </ol>
 
-<<<<<<< HEAD
-<aside>{0} is replaced by the 1<sup>st</sup> format() argument. {1} is replaced by the 2<sup>nd</sup>.</aside>
-<p>What this example shows is that <em>format specifiers can access items and properties of data structures using (almost) Python syntax</em>. This is called <i>compound field names</i>. The following compound field names &#8220;just work&#8221;:
-
-<ul>
-=======
 <aside>{0} 은 format() 메소드의 1<sup>st</sup> 인자로 대체되고. {1} 은 2<sup>nd</sup>인자로 대체됩니다.</aside>
 
-<aside>{0} is replaced by the 1<sup>st</sup> format() argument. {1} is replaced by the 2<sup>nd</sup>.</aside>
-
-
 <p>이 예제가 보여주듯이 <em>format specifiers 는 파이썬 문법을 통하면 거의 모든 파이썬 자료구조의 특성과 각 개별 아이템들에 접근할 수 있습니다</em>. 이를 가르켜 <i>compound field names</i> 이라고 하고, 다음과 같은 compound field names 들이&#8220;가능합니다&#8221;:
-
-
-<p>What this example shows is that <em>format specifiers can access items and properties of data structures using (almost) Python syntax</em>. This is called <i>compound field names</i>. The following compound field names &#8220;just work&#8221;:
 
 <ul>
 <li>리스트를 넘겨주고, 리스트의 아이템을 인덱스를 통해 접근합니다 (앞의 예처럼요)
@@ -350,20 +209,8 @@ def approximate_size(size, a_kilobyte_is_1024_bytes=True):
 <li><em>앞에 열거된 방법들을 모두 섞어서 사용하는 것도 가능합니다</em>
 </ul>
 
-<ul>
->>>>>>> e88b8e04d5eef347f3acc841df44082c16766b3a
-<li>Passing a list, and accessing an item of the list by index (as in the previous example)
-<li>Passing a dictionary, and accessing a value of the dictionary by key
-<li>Passing a module, and accessing its variables and functions by name
-<li>Passing a class instance, and accessing its properties and methods by name
-<li><em>Any combination of the above</em>
-</ul>
 
-<<<<<<< HEAD
-=======
 <p>그럼 실제로 어떻게 사용가능한지 예제를 통해 알아봅시다:
->>>>>>> e88b8e04d5eef347f3acc841df44082c16766b3a
-<p>Just to blow your mind, here&#8217;s an example that combines all of the above:
 
 <pre class='nd screen'>
 <samp class=p>>>> </samp><kbd class=pp>import humansize</kbd>
@@ -371,62 +218,21 @@ def approximate_size(size, a_kilobyte_is_1024_bytes=True):
 <samp class=p>>>> </samp><kbd class=pp>'1MB = 1000{0.modules[humansize].SUFFIXES[1000][0]}'.format(sys)</kbd>
 <samp class=pp>'1MB = 1000KB'</samp></pre>
 
-<<<<<<< HEAD
-<p>Here&#8217;s how it works:
-
-<ul>
-<li>The <code>sys</code> module holds information about the currently running Python instance. Since you just imported it, you can pass the <code>sys</code> module itself as an argument to the <code>format()</code> method. So the replacement field <code>{0}</code> refers to the <code>sys</code> module.
-<li><code>sys.modules</code> is a dictionary of all the modules that have been imported in this Python instance. The keys are the module names as strings; the values are the module objects themselves. So the replacement field <code>{0.modules}</code> refers to the dictionary of imported modules.
-<li><code>sys.modules['humansize']</code> is the <code>humansize</code> module which you just imported. The replacement field <code>{0.modules[humansize]}</code> refers to the <code>humansize</code> module. Note the slight difference in syntax here. In real Python code, the keys of the <code>sys.modules</code> dictionary are strings; to refer to them, you need to put quotes around the module name (<i>e.g.</i> <code>'humansize'</code>). But within a replacement field, you skip the quotes around the dictionary key name (<i>e.g.</i> <code>humansize</code>). To quote <a href=http://www.python.org/dev/peps/pep-3101/>PEP 3101: Advanced String Formatting</a>, &#8220;The rules for parsing an item key are very simple. If it starts with a digit, then it is treated as a number, otherwise it is used as a string.&#8221;
-<li><code>sys.modules['humansize'].SUFFIXES</code> is the dictionary defined at the top of the <code>humansize</code> module. The replacement field <code>{0.modules[humansize].SUFFIXES}</code> refers to that dictionary.
-<li><code>sys.modules['humansize'].SUFFIXES[1000]</code> is a list of <abbr>SI</abbr> suffixes: <code>['KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']</code>. So the replacement field <code>{0.modules[humansize].SUFFIXES[1000]}</code> refers to that list.
-<li><code>sys.modules['humansize'].SUFFIXES[1000][0]</code> is the first item of the list of <abbr>SI</abbr> suffixes: <code>'KB'</code>. Therefore, the complete replacement field <code>{0.modules[humansize].SUFFIXES[1000][0]}</code> is replaced by the two-character string <code>KB</code>.
-</ul>
-
-=======
 <p>이제 코드에 대한 설명을 보시죠
-<p>Here&#8217;s how it works:
 
 <ul>
 
-<li><code>sys</code> 모듈을 먼저 임포트 했습니다. 이 모듈은 현재 실행중인 파이썬 인스턴스에 대한 정보를 가지고 있습니다. 이 모듈 자체를 <code>format()</code> 메소드에ㅔ 인자로 넘겨주었으므로, replacement field <code>{0}</code> 은 이제 <code>sys</code> 모듈을 가르킵니다.
-
-
-<li>The <code>sys</code> module holds information about the currently running Python instance. Since you just imported it, you can pass the <code>sys</code> module itself as an argument to the <code>format()</code> method. So the replacement field <code>{0}</code> refers to the <code>sys</code> module.
-
+<li><code>sys</code> 모듈을 먼저 임포트 했습니다. 이 모듈은 현재 실행중인 파이썬 인스턴스에 대한 정보를 가지고 있습니다. 이 모듈 자체를 <code>format()</code> 메소드에 인자로 넘겨주었으므로, replacement field <code>{0}</code> 은 이제 <code>sys</code> 모듈을 가르킵니다.
 
 <li><code>sys.modules</code>은 딕셔너리 자료형으로서, 현재 실행중인 파이썬 인스턴스에게로 임포트된 모든 모듈을 키-값 형태로 가지고 있습니다. 키는 모듈의 이름으로 string 타입이며, 값은 모듈 객체로 객체 타입입니다. 따라서 replacement field <code>{0.modules}</code>는 import 된 모듈의 딕셔너리가 됩니다.
 
-
-<li><code>sys.modules</code> is a dictionary of all the modules that have been imported in this Python instance. The keys are the module names as strings; the values are the module objects themselves. So the replacement field <code>{0.modules}</code> refers to the dictionary of imported modules.
-
-
 <li><code>sys.modules['humansize']</code> 는 앞의 예에서 import 했던 <code>humansize</code> 모듈을 가르킵니다. The replacement field <code>{0.modules[humansize]}</code> 도 <code>humansize</code> 모듈을 가르킵니다. 문법이 살짝 다른 부분이 있는데, 실제 파이썬 코드에서 <code>sys.modules</code> 딕셔너리의 키인 모듈 이름의 타입은 string 입니다. 따라서, 이 키 값을 지칭하려면 모듈 이름을 <code>'humansize'</code> 와 같이 따옴표로 감싸줘야 합니다. 그리나 replacement field 에서는, <code>humansize</code>와 같이 따옴표를 사용하지 않았습니다. <a href=http://www.python.org/dev/peps/pep-3101/>PEP 3101: Advanced String Formatting</a>, 에서는 이렇게 정의하고 있기 때문입니다.&#8220;아이템 키를 파싱하기 위한 룰은 간단하게 키 값이 숫자로 시작하면 숫자로 취급하고, 그 외의 경우는 모두 문자로 취급한다.&#8221;
-
-
-
-<li><code>sys.modules['humansize']</code> is the <code>humansize</code> module which you just imported. The replacement field <code>{0.modules[humansize]}</code> refers to the <code>humansize</code> module. Note the slight difference in syntax here. In real Python code, the keys of the <code>sys.modules</code> dictionary are strings; to refer to them, you need to put quotes around the module name (<i>e.g.</i> <code>'humansize'</code>). But within a replacement field, you skip the quotes around the dictionary key name (<i>e.g.</i> <code>humansize</code>). To quote <a href=http://www.python.org/dev/peps/pep-3101/>PEP 3101: Advanced String Formatting</a>, &#8220;The rules for parsing an item key are very simple. If it starts with a digit, then it is treated as a number, otherwise it is used as a string.&#8221;
-
 
 <li><code>sys.modules['humansize'].SUFFIXES</code> 는 <code>humansize</code> 모듈내에서 최상위 레벨에 정의된 딕셔너리 자료구조입니다. The replacement field <code>{0.modules[humansize].SUFFIXES}</code> 은 이를 가르킵니다.
 
-
-<li><code>sys.modules['humansize'].SUFFIXES</code> is the dictionary defined at the top of the <code>humansize</code> module. The replacement field <code>{0.modules[humansize].SUFFIXES}</code> refers to that dictionary.
-
-
 <li><code>sys.modules['humansize'].SUFFIXES[1000]</code> 은 <abbr>SI</abbr> 리스트로  <code>['KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']</code>를 가르킵니다. 따라서 replacement field <code>{0.modules[humansize].SUFFIXES[1000]}</code> 은 이 리스트를 가리킵니다.
 
-
-<li><code>sys.modules['humansize'].SUFFIXES[1000]</code> is a list of <abbr>SI</abbr> suffixes: <code>['KB', 'MB', 'GB', 'TB', 'PB', 'EB', 'ZB', 'YB']</code>. So the replacement field <code>{0.modules[humansize].SUFFIXES[1000]}</code> refers to that list.
-
-
-
 <li><code>sys.modules['humansize'].SUFFIXES[1000][0]</code> 는 <abbr>SI</abbr> 리스트의 첫번째 아이템인 <code>'KB'</code> 를 가르킵니다. 따라서 최종 replacement field <code>{0.modules[humansize].SUFFIXES[1000][0]}</code>는 이 두 개의 문자로 이루어진 string인 <code>KB</code>를 의미합니다.
-
-
-
-<li><code>sys.modules['humansize'].SUFFIXES[1000][0]</code> is the first item of the list of <abbr>SI</abbr> suffixes: <code>'KB'</code>. Therefore, the complete replacement field <code>{0.modules[humansize].SUFFIXES[1000][0]}</code> is replaced by the two-character string <code>KB</code>.
-</ul>
 
 
 >>>>>>> e88b8e04d5eef347f3acc841df44082c16766b3a
