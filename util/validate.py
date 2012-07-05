@@ -1,4 +1,5 @@
 import sys
+
 try:
     import html5lib
 except ImportError:

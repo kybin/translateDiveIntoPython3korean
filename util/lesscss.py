@@ -4,6 +4,7 @@ from pyquery import PyQuery as pq
 import glob
 import sys
 
+
 # These selectors are kept regardless of whether this script thinks they are used.
 # Most of these match nodes that are dynamically inserted or manipulated by script
 # after the page has loaded, which is why a static analysis thinks they're unused.

@@ -1,4 +1,5 @@
 #!/usr/bin/python3
+
 """Quick-and-dirty HTML minimizer"""
 
 import sys
