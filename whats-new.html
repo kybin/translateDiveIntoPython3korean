@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<meta charset=utf-8>
+<title>파이썬3로 뛰어들기의 새로운 점</title>
+<!--[if IE]><script src=j/html5.js></script><![endif]-->
+<link rel=stylesheet href=dip3.css>
+<style>
+body{counter-reset:h1 -1}
+h3:before{content:''}
+</style>
+<link rel=stylesheet media='only screen and (max-device-width: 480px)' href=mobile.css>
+<link rel=stylesheet media=print href=print.css>
+<meta name=viewport content='initial-scale=1.0'>
+<form action=http://www.google.com/cse><div><input type=hidden name=cx value=014021643941856155761:l5eihuescdw><input type=hidden name=ie value=UTF-8>&nbsp;<input type=search name=q size=25 placeholder="powered by Google&trade;">&nbsp;<input type=submit name=sa value=Search></div></form>
+<p>여기 있어요 : <a href=index.html>Home</a> <span class=u>&#8227;</span> <a href=table-of-contents.html#whats-new>Dive Into Python 3</a> <span class=u>&#8227;</span>
+
+<h1>&#8220;파이썬3로 뛰어들기&#8221;에서 바뀐점</h1>
+<blockquote class=q>
+<p><span class=u>&#x275D;</span>여기가 들어왔던 곳이 맞나?<span class=u>&#x275E;</span><br>&mdash; 핑크 플로이드, The Wall
+</blockquote>
+<p id=toc>&nbsp;
+<h2 id=divingin><strong>다시 말해</strong> 준비 레벨</h2>
+
+<p class=f>당신은 파이썬 프로그래머인가요? <a href=http://diveintopython.org/>파이썬으로 뛰어들기</a>를 읽었나요? 책으로? (그렇다면, 고마워요!) 파이썬3로 뛰어들 준비가 됐다고요? 그렇다면,  이 장을 읽으세요. (이 중 하나에도 해당하지 않는다면,  <a href=installing-python.html>다음 장부터 읽어나가세요.</a>)
+
+<p>파이썬3는 <code>2to3</code>이라는 스크립트와 함께 왔습니다. 이 스크립트를 배우고, 사랑하고, 쓰세요. <a href=porting-code-to-python-3-with-2to3.html><code>2to3</code>을 통해 파이썬3로 옮기는 법</a> 에는 <code>2to3</code>이라는 툴이 자동적으로 바꿔주는 모든 것에 대한 설명이 있습니다. 문법의 변경이 대부분이기 때문에, 이를 통해 파이썬3에서 바뀐 문법을 상당부분 배우게 됩니다. (<code>print</code>구문이 함수가 되었기 때문에, <code>`x`</code>가 더이상 사용될수 없는 것 등등)
+
+<p><a href=case-study-porting-chardet-to-python-3.html>사례 연구: 파이썬3로 <code>chardet</code> 옮기기</a> 문서는 파이썬2의 유용한 라이브러리를 파이썬3로 옮기려는 제 노력의 결과입니다. (아, 자랑은 아니지만 매우 성공적이었죠!) 이런 경험이 당신을 도와줄 수 있을겁니다, 아닐수도 있고요. 배우는 과정이 쉽지는 않을 겁니다. 우선 라이브러리에 대한 이해가 필요합니다. 그래야만 이것이 왜 망가졌는지, 제가 이걸 어떻게 고쳤는지 이해가 될겁니다. 많은 파손들이 문자열 때문에 일어납니다.
+
+<p>문자열이라, 휴, 어디서부터 시작해야 할지. 파이썬 2에서는 문자열과 유니코드 문자열이 있었죠. 파이썬3는 바이트와 문자열이 있습니다. 이제 모든 문자열은 유니코드로 작성됩니다. 바이트 열을 다루려면 새롭게 등장한 bytes 타입을 사용하세요. 파이썬3에서는 문자열이 바이트로 자연스레 변하지 않기 때문에, 언제 무엇을 써야하는지 모르는 상태에서 작업을 한다면, 그 코드는 분명히 문제가 생기게 됩니다. 자세한 이야기는 <a href=strings.html>문자열</a> 장에서 나누기로 하죠.
+
+<p>바이트 대 문자열의 싸움은 이 책을 읽어나가면서 계속해서 등장하게 됩니다.
+
+<ul>
+<li><a href=files.html>파일</a> 장에서는 바이너리 모드와 텍스트 모드에서 파일을 부를 때가 각각 어떻게 다른지 배웁니다. 파일을 텍스트 모드에서 읽으려면 (쓰는 것 또한!) <code>encoding</code> 속성이 필요합니다. 어떤 텍스트 파일 메소드는 문자를 세지만, 다른 메소드는 바이트를 세죠. 만약 당신이 짠 코드가 한 문자와 한 바이트를 동일시 한다면, 여러바이트 크기의 문자를 다룰 때 <b>분명히</b> 문제가 생기게 됩니다.
+<li><a href=http-web-services.html><abbr>HTTP</abbr> 웹 서비스</a>에서, <code>httplib2</code>모듈은 <abbr>HTTP</abbr>에서 머릿말과 데이터를 가져옵니다. <abbr>HTTP</abbr> 머릿말은 문자열로 받아들이지만, <abbr>HTTP</abbr> 몸말은 바이트로 받아들이죠.
+<li><a href=serializing.html>파이썬 오브젝트 나열</a>에서, 왜 파이썬3의 <code>pickle</code> 모듈이 파이썬2에서는 쓸수 없는 새로운 데이터 형식을 정의하는지 배우게 됩니다. (힌트 : 이것도 결국 바이트와 문자열 문제겠죠.) 또한 파이썬3는 <abbr>JSON</abbr> 과 연동해 오브젝트 나열을 지원합니다. 하지만  <abbr>JSON</abbr>은 <code>bytes</code> 타입을 지원하지 않죠.  제가 그 문제를 해결하는 방법을 보여드릴 겁니다.
+<li><a href=case-study-porting-chardet-to-python-3.html>사례 연구: 파이썬3로 <code>chardet</code> 옮기기</a>에서는 곳곳에 바이트와 문자열의 혈투가 벌어지고 있는 걸 볼 수 있을겁니다.
+</ul>
+
+<p>유니코드에 대해 별 관심이 없다해도 (결국 관심이 생기게 되겠지만), 파이썬2와는 완전히 다른 <a href=strings.html#formatting-strings>파이썬3에서의 문자열 형식화</a>에 대해서는 읽어보고 싶을겁니다. 
+
+<p>반복자는 Python 3 어디에나 있습니다, 그리고 저는 그것들을 파이썬으로 뛰어들기를 썼던 5년전보다 훨씬 잘 이해하고 있습니다. 당신도 이해가 필요할겁니다. 파이썬2에서 리스트를 뱉어내던 많은 함수들이, 파이썬3에서는 반복자를 뱉기 때문이죠. 적어도, <a href=iterators.html#a-fibonacci-iterator>반복자 장의 뒷쪽 절반</a>쯤은 읽어보세요. <a href=advanced-iterators.html#generator-expressions>고급 반복자 장의 뒷부분</a>도요.
+
+<p>많은 요청들 때문에 , <a href=special-method-names.html>특별한 메소드 이름</a>을 부록으로 첨부했습니다, <a href=http://www.python.org/doc/3.1/reference/datamodel.html#special-method-names>파이썬 공식문서 중 &#8220;데이터 모델&#8221; 장</a>과 비슷하지만 좀더 snark(?)하죠.
+
+<p>처음 파이썬으로 뛰어들기를 썼을 때는 괜찮은 XML라이브러리가 없었습니다. 그러다 Fredrik 과 Lundh가 <a href=http://effbot.org/zone/element-index.htm>ElementTree</a>라는 뛰어난 라이브러리를 만들었죠. 파이썬의 여러 고수들이 현명하게도 <a href=http://docs.python.org/3.1/library/xml.etree.elementtree.html>표준 라이브러리에 ElementTree를 통합</a>시켰습니다, 이를 기본으로 <a href=xml.html>새로운 XML 장</a>을 구성하였습니다. 예전 방식의 XML 해석이 여전히 가능하지만, 쓰지 마세요. 구립니다.
+
+<p>또한 새로워진 것으로는&nbsp;&mdash;&nbsp;언어자체의 변화가 아니라 커뮤니티의 변화로&nbsp;&mdash;&nbsp;<a href=http://pypi.python.org/>파이썬 패키지 목차</a> (PyPI) 처럼 <u>급할 때 가져다 쓸 소스 저장소(?)</u>가 생겼습니다. 파이썬은 만든 코드를 포장하고 배포하는 표준 형식을 유틸리티로 만들었습니다. 자세한 정보는 <a href=packaging.html>파이썬 라이브러리 패키지</a>를 읽어보세요.
+
+<p class=c>&copy; 2001&ndash;11 <a href=about.html>Mark Pilgrim</a>
