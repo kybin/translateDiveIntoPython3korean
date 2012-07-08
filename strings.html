@@ -249,7 +249,7 @@ def approximate_size(size, a_kilobyte_is_1024_bytes=True):
 
 <h2 id=common-string-methods>Other Common String Methods</h2>
 
-<p>Besides formatting, strings can do a number of other useful tricks.
+<p>string에는 Formatting 말고도 다른 유용한 기능들이 많이 있습니다.
 
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd>s = '''Finished files are the re-</kbd>  <span class=u>&#x2460;</span></a>
@@ -268,14 +268,23 @@ ic study combined with the
 experience of years.</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>s.lower().count('f')</kbd>               <span class=u>&#x2463;</span></a>
 <samp class=pp>6</samp></pre>
+
 <ol>
-<li>You can input <dfn>multiline</dfn> strings in the Python interactive shell. Once you start a multiline string with triple quotation marks, just hit <kbd>ENTER</kbd> and the interactive shell will prompt you to continue the string. Typing the closing triple quotation marks ends the string, and the next <kbd>ENTER</kbd> will execute the command (in this case, assigning the string to <var>s</var>).
-<li>The <code><dfn>splitlines</dfn>()</code> method takes one multiline string and returns a list of strings, one for each line of the original. Note that the carriage returns at the end of each line are not included.
-<li>The <code>lower()</code> method converts the entire string to lowercase. (Similarly, the <code>upper()</code> method converts a string to uppercase.)
-<li>The <code>count()</code> method counts the number of occurrences of a substring. Yes, there really are six &#8220;f&#8221;s in that sentence!
+
+<li>파이썬 interactive shell 에서도 <dfn>multiline</dfn> string을 입력할 수 있습니다. multiline string을 입력할 때는 우선 따옴표 세개를 연달아 써주면 됩니다. <kbd>ENTER</kbd> 키를 누르면 다음 행으로 이동해 입력을 계속할 수 있습니다. 입력을 마칠 때는 시작할 때와 같이 따옴표 세개를 연달아 써주면 됩니다. 그리고 다시 <kbd>ENTER</kbd> 키를 누르면 이 커맨드가 실행되는 것입니다. (이 경우엔 해당 multiline string을 변수 <var>s</var>에 할당하게 됩니다).
+
+
+<li><code><dfn>splitlines</dfn>()</code> 메소드는 multiline string 하나를 파라미터로 받아서 string의 list를 반환합니다. list 내 아이템은 각 라인의 string을 의미합니다. 다만, multiline string을 입력할 때 라인 끝에서 입력했던 ENTER 키에 해당하는 carriage return 값은 포함되지 않음에 주의하세요.
+
+
+<li><code>lower()</code> 메소드는 전체 string을 소문자로 변환시킵니다. (같은 이치로, <code>upper()</code> 메소드는 string을 대문자로 변환합니다.)
+
+
+<li><code>count()</code>메소드는 입력으로 전달된 substring이 포함된 갯수를 반환합니다. 네. 맞습니다. 문장 내에서 &#8220;f&#8221;는 정확히 6번 나옵니다!
+
 </ol>
 
-<p>Here&#8217;s another common case. Let&#8217;s say you have a list of key-value pairs in the form <code><var>key1</var>=<var>value1</var>&amp;<var>key2</var>=<var>value2</var></code>, and you want to split them up and make a dictionary of the form <code>{key1: value1, key2: value2}</code>.
+<p>다른 예도 봅시다. 마치 키-값의 쌍처럼 (key-value pair) 보이는, 가령 <code><var>key1</var>=<var>value1</var>&amp;<var>key2</var>=<var>value2</var></code> 과 같은 포맷의 string이 있다고 생각해 봅시다. 이걸 적절히 쪼개서 <code>{key1: value1, key2: value2}</code>의 형태를 갖는 dictionary 로 만들고 싶습니다. 어떻게 하면 될까요?
 
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>query = 'user=pilgrim&amp;database=master&amp;password=PapayaWhip'</kbd>
@@ -290,9 +299,20 @@ experience of years.</samp>
 <samp class=pp>{'password': 'PapayaWhip', 'user': 'pilgrim', 'database': 'master'}</samp></pre>
 
 <ol>
-<li>The <code><dfn>split</dfn>()</code> string method has one required argument, a delimiter. The method splits a string into a list of strings based on the delimiter. Here, the delimiter is an ampersand character, but it could be anything.
+
+<li><code><dfn>split</dfn>()</code> 메소드는 구분자(delimiter)를 인자로서 반드시 제공해야 합니다. 제공된 구분자를 이용해 string을 쪼개어 리스트에 담아 반환합니다. 이 예에서 사용된 구분자는 ampersand 문자입니다만, 다른 어떤 문자도 구분자로 사용할 수 있습니다.
+
+
+
 <li>Now we have a list of strings, each with a key, followed by an equals sign, followed by a value. We can use a <a href=comprehensions.html#listcomprehension>list comprehension</a> to iterate over the entire list and split each string into two strings based on the first equals sign. The optional second argument to the <code>split()</code> method is the number of times you want to split. <code>1</code> means &#8220;only split once,&#8221; so the <code>split()</code> method will return a two-item list. (In theory, a value could contain an equals sign too. If you just used <code>'key=value=foo'.split('=')</code>, you would end up with a three-item list <code>['key', 'value', 'foo']</code>.)
+
+
+<li>Now we have a list of strings, each with a key, followed by an equals sign, followed by a value. We can use a <a href=comprehensions.html#listcomprehension>list comprehension</a> to iterate over the entire list and split each string into two strings based on the first equals sign. The optional second argument to the <code>split()</code> method is the number of times you want to split. <code>1</code> means &#8220;only split once,&#8221; so the <code>split()</code> method will return a two-item list. (In theory, a value could contain an equals sign too. If you just used <code>'key=value=foo'.split('=')</code>, you would end up with a three-item list <code>['key', 'value', 'foo']</code>.)
+
 <li>Finally, Python can turn that list-of-lists into a dictionary simply by passing it to the <code>dict()</code> function.
+
+<li>Finally, Python can turn that list-of-lists into a dictionary simply by passing it to the <code>dict()</code> function.
+
 </ol>
 
 <blockquote class=note>
