@@ -302,6 +302,7 @@ experience of years.</samp>
 
 <li><code><dfn>split</dfn>()</code> 메소드는 구분자(delimiter)를 인자로서 반드시 제공해야 합니다. 제공된 구분자를 이용해 string을 쪼개어 리스트에 담아 반환합니다. 이 예에서 사용된 구분자는 ampersand 문자입니다만, 다른 어떤 문자도 구분자로 사용할 수 있습니다.
 
+<<<<<<< HEAD
 
 
 <li>Now we have a list of strings, each with a key, followed by an equals sign, followed by a value. We can use a <a href=comprehensions.html#listcomprehension>list comprehension</a> to iterate over the entire list and split each string into two strings based on the first equals sign. The optional second argument to the <code>split()</code> method is the number of times you want to split. <code>1</code> means &#8220;only split once,&#8221; so the <code>split()</code> method will return a two-item list. (In theory, a value could contain an equals sign too. If you just used <code>'key=value=foo'.split('=')</code>, you would end up with a three-item list <code>['key', 'value', 'foo']</code>.)
@@ -312,15 +313,25 @@ experience of years.</samp>
 <li>Finally, Python can turn that list-of-lists into a dictionary simply by passing it to the <code>dict()</code> function.
 
 <li>Finally, Python can turn that list-of-lists into a dictionary simply by passing it to the <code>dict()</code> function.
+=======
+<li>이제 string이 원소인 리스트를 갖게 되었습니다. 이 string의 형식은 key, = 표시, 그리고 뒤를 따르는 value 입니다. 전체 리스트를 순회하면서 각 아이템에 대해 key 와 value를 추출하기 위해서 <a href=comprehensions.html#listcomprehension>list comprehension</a> 와 string 메소드중 하나인 split 메소드를 사용하고 있습니다. <code>split()</code> 메소드의 두번째 파라미터는 필수가 아닙니다만, 사용되면 첫 번째 파라미터인 구분자를 이용하여 몇 번이나 분할하고 싶은지를 표현합니다. <code>1</code> 은 &#8220;한 번만 분할&#8221; 하라는 뜻이므로, 여기서 사용된 split 메소드는 = 표시를 기준으로 하여 string을 나누게 되고, key 와 value 이렇게 두 개의 string 아이템을 가진 리스트를 반환하게 됩니다. (만약 <code>'key=value=foo'.split('=')</code> 과 같이 되있었다면, <code>['key', 'value', 'foo']</code> 와 같이 아이템이 3개인 리스트를 얻게 됩니다만, <code>'key=value=foo'.split('=',1)</code> 은 <code>['key', 'value=foo']</code>을 반환합니다. 이처럼, 분할되는 string안에 구분자가 포함되는 것도 가능합니다)
+
+<li>마지막으로, <code>dict()</code> 함수를 이용하여 리스트의 리스트를 딕셔너리 자료형으로 변경합니다.
+>>>>>>> master
 
 </ol>
 
 <blockquote class=note>
-<p><span class=u>&#x261E;</span>The previous example looks a lot like parsing query parameters in a <abbr>URL</abbr>, but real-life <abbr>URL</abbr> parsing is actually more complicated than this. If you&#8217;re dealing with <abbr>URL</abbr> query parameters, you&#8217;re better off using the <a href=http://docs.python.org/3.1/library/urllib.parse.html#urllib.parse.parse_qs><code>urllib.parse.parse_qs()</code></a> function, which handles some non-obvious edge cases.
+<p><span class=u>&#x261E;</span>이번에 다뤘던 예제는 <abbr>URL</abbr>에 나오는 query 파라미터를 파싱하는 것과 유사하지만, 실제 <abbr>URL</abbr> 을 파싱하는 일은 훨씬 더 복잡합니다. 만약 <abbr>URL</abbr> query 파라미터들을 다뤄야 한다면 <a href=http://docs.python.org/3.1/library/urllib.parse.html#urllib.parse.parse_qs><code>urllib.parse.parse_qs()</code></a> 함수를 사용하는 편이 훨씬 낫습니다.
 </blockquote>
 
+
+
+
 <h3 id=slicingstrings>Slicing A String</h3>
-<p>Once you&#8217;ve defined a string, you can get any part of it as a new string. This is called <i>slicing</i> the string. Slicing strings works exactly the same as <a href=native-datatypes.html#slicinglists>slicing lists</a>, which makes sense, because strings are just sequences of characters.
+
+<p>string을 정의한후, 그 일부를 취해서 새로운 string으로 만드는것도 가능합니다.이를 일컬어 string을 <i>slicing</i> 한다고 말합니다. string을 slicing 하는 것은 <a href=native-datatypes.html#slicinglists>list를 slicing 하는 것</a>과 동작 방식이 똑같습니다. string이 character의 집합인, 일종의 리스트라는 사실을 잊지마세요.
+
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>a_string = 'My alphabet starts where your alphabet ends.'</kbd>
 <a><samp class=p>>>> </samp><kbd class=pp>a_string[3:11]</kbd>           <span class=u>&#x2460;</span></a>
@@ -334,18 +345,24 @@ experience of years.</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>a_string[18:]</kbd>            <span class=u>&#x2464;</span></a>
 <samp class=pp>' where your alphabet ends.'</samp></pre>
 <ol>
-<li>You can get a part of a string, called a &#8220;slice&#8221;, by specifying two indices. The return value is a new string containing all the characters of the string, in order, starting with the first slice index.
-<li>Like slicing lists, you can use negative indices to slice strings.
-<li>Strings are zero-based, so <code>a_string[0:2]</code> returns the first two items of the string, starting at <code>a_string[0]</code>, up to but not including <code>a_string[2]</code>.
-<li>If the left slice index is 0, you can leave it out, and 0 is implied. So <code>a_string[:18]</code> is the same as <code>a_string[0:18]</code>, because the starting 0 is implied.
-<li>Similarly, if the right slice index is the length of the string, you can leave it out. So <code>a_string[18:]</code> is the same as <code>a_string[18:44]</code>, because this string has 44 characters.  There is a pleasing symmetry here. In this 44-character string, <code>a_string[:18]</code> returns the first 18 characters, and <code>a_string[18:]</code> returns everything but the first 18 characters. In fact, <code>a_string[:<var>n</var>]</code> will always return the first <var>n</var> characters, and <code>a_string[<var>n</var>:]</code> will return the rest, regardless of the length of the string.
+
+<li>string의 일부분인 &#8220;slice&#8221;를 얻으려면 두 개의 인덱스인 시작 인덱스와 종료 인덱스를 지정해주면 됩니다. 이로 인해 반환되는 값은 string의 시작 인덱스부터 종료인덱스까지의 부분입니다.
+
+<li>리스트의 경우와 유사하게 마이너스 값을 인덱스로 주는 것도 가능합니다.
+
+<li>string의 시작 인덱스는 0입니다. 따라서 <code>a_string[0:2]</code> 은 string의 처음부터 두번째까지의 slice를 반환합니다. 이때 시작되는 지점은 <code>a_string[0]</code> 이고, 종료되는 지점은 <code>a_string[2]</code>의 바로 앞 지점입니다.
+
+<li>만약 시작 지점을 의미하는 좌측의 인덱스가 0인 경우엔 생략도 가능합니다. 따라서 <code>a_string[:18]</code> 은 <code>a_string[0:18]</code> 과 동일한 의미를 갖습니다.
+
+<li>만약 종료 지점을 의미하는 우측의 인덱스를 전체 string 크기와 같게 하려면 이를 생략해도 됩니다. 따라서 <code>a_string[18:]</code> 는 <code>a_string[18:44]</code> 과 동일한 의미를 갖습니다. 예에서의 <code>a_string[:18]</code> 는 string의 앞 부분 18 글자을 잘라 반환하고, <code>a_string[18:]</code> 은 앞 부분의 18 글자를 제외한 뒷부분 전체를 반환합니다. 정리하면, <code>a_string[:<var>n</var>]</code> 은 앞 부분 <var>n</var> 만큼의 글자를, 그리고 <code>a_string[<var>n</var>:]</code> 은 글자의 전체 길이와 관계없이 나머지를 반환합니다.
+
 </ol>
 
 <p class=a>&#x2042;
 
 <h2 id=byte-arrays>Strings vs. Bytes</h2>
 
-<p><dfn>Bytes</dfn> are bytes; characters are an abstraction. An immutable sequence of Unicode characters is called a <i>string</i>. An immutable sequence of numbers-between-0-and-255 is called a <i>bytes</i> object.
+<p><i>string</i> 은 유니코드 문자의 연속된 집합으로 변경이 불가능한 (immutable) 속성을 가지고 있습니다. <i>bytes</i> object가 string과 다른점은 유니코드 문자가 아닌 0부터 255 사이의 숫자로 되어있다는 것입니다. 변경이 불가능한 속성을 가지고 있는 것은 같습니다.
 
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>by = b'abcd\x65'</kbd>  <span class=u>&#x2460;</span></a>
@@ -367,13 +384,25 @@ experience of years.</samp>
   File "&lt;stdin>", line 1, in &lt;module>
 TypeError: 'bytes' object does not support item assignment</samp></pre>
 <ol>
-<li>To define a <code>bytes</code> object, use the <code>b''</code> &#8220;<dfn>byte</dfn> literal&#8221; syntax. Each byte within the byte literal can be an <abbr>ASCII</abbr> character or an encoded hexadecimal number from <code>\x00</code> to <code>\xff</code> (0&ndash;255).
-<li>The type of a <code>bytes</code> object is <code>bytes</code>.
-<li>Just like lists and strings, you can get the length of a <code>bytes</code> object with the built-in <code>len()</code> function.
-<li>Just like lists and strings, you can use the <code>+</code> operator to concatenate <code>bytes</code> objects. The result is a new <code>bytes</code> object.
-<li>Concatenating a 5-byte <code>bytes</code> object and a 1-byte <code>bytes</code> object gives you a 6-byte <code>bytes</code> object.
-<li>Just like lists and strings, you can use index notation to get individual bytes in a <code>bytes</code> object. The items of a string are strings; the items of a <code>bytes</code> object are integers. Specifically, integers between 0&ndash;255.
-<li>A <code>bytes</code> object is immutable; you can not assign individual bytes. If you need to change individual bytes, you can either use <a href=#slicingstrings>string slicing</a> and concatenation operators (which work the same as strings), or you can convert the <code>bytes</code> object into a <code>bytearray</code> object.
+
+<li><code>bytes</code> object를 정의하기 위해서는 <code>b''</code> 라고 하는 &#8220;<dfn>byte</dfn> literal&#8221; 신택스를 사용합니다. byte literal 내에는 <abbr>ASCII</abbr> 문자 또는 0 부터 255 사이의 숫자를 16진수로 인코딩한 숫자인 <code>\x00</code> 부터 <code>\xff</code> 사이의 값을 넣을 수 있습니다.
+
+
+<li><code>bytes</code> object 의 타입은 <code>bytes</code> 입니다.
+
+<li><code>bytes</code> object 의 길이를 구하기 위해서는 내장함수인 <code>len()</code> 함수를 사용하면 됩니다. string 이나 list의 경우에서와 마찬가지 방식이지요.
+
+
+<li><code>bytes</code> objects 를 연결하기 위해서는 <code>+</code> 연산자를 사용하면 됩니다. 결과로 새로운 <code>bytes</code> object가 반환됩니다. 이 또한 string이나 list에서 사용하던 방식과 동일합니다.
+
+<li>5 바이트 크기의 <code>bytes</code> object 와 1 바이트 크기의 <code>bytes</code> object 를 연결하면 6 바이트 크기의 <code>bytes</code> object가 반환됩니다.
+
+
+<li>list나 string에서 사용하던 방식과 마찬가지로 <code>bytes</code> object 내의 개별 바이트에 접근하기 위해 index를 사용할 수 있습니다. string에서 index로 접근한 요소를 string으로 얻어낼 수 있었듯이, <code>bytes</code> object에서 index를 잉요해 얻어낸 요소는 0 부터 255 사이의 정수값입니다.
+
+
+<li><code>bytes</code> object 는 일단 생성되고 나면 변경이 불가능합니다. 이 객체 내의 개별 요소를 바꿀 수 없습니다. 그렇게 하려면 두 가지 방법이 있습니다. 첫째로, <a href=#slicingstrings>string slicing</a> 에서 사용한 방식을 그대로 사용하여 byte object를 분할한 다음 concatenation operator (+=) 를 이용하거나, 두번째로 <code>bytes</code> object를 개별요소에 대한 변경이 가능한 <code>bytearray</code> object 로 바꿔주면 됩니다.
+
 </ol>
 
 <pre class=screen>
@@ -386,13 +415,25 @@ TypeError: 'bytes' object does not support item assignment</samp></pre>
 <a><samp class=p>>>> </samp><kbd class=pp>barr[0] = 102</kbd>         <span class=u>&#x2462;</span></a>
 <samp class=p>>>> </samp><kbd class=pp>barr</kbd>
 <samp class=pp>bytearray(b'fbcde')</samp></pre>
+
 <ol>
-<li>To convert a <code>bytes</code> object into a mutable <code>bytearray</code> object, use the built-in <code>bytearray()</code> function.
-<li>All the methods and operations you can do on a <code>bytes</code> object, you can do on a <code>bytearray</code> object too.
-<li>The one difference is that, with the <code>bytearray</code> object, you can assign individual bytes using index notation. The assigned value must be an integer between 0&ndash;255.
+
+
+<li><code>bytes</code> object 를 <code>bytearray</code> object로 변경하려면 내장함수인 <code>bytearray()</code> 함수를 이용하면 됩니다.
+
+
+
+
+<li><code>bytes</code> object에서 사용하는 메소드나 오퍼레이션은 그대로 <code>bytearray</code> object에도 사용이 가능합니다.
+
+
+
+<li>유일한 차이점은 <code>bytearray</code> object로는 index를 이용하여 개별 바이트에 대한 변경이 가능하다는 것입니다. 다만 변경시키는 값은 0 부터 255 사이의 정수값이어야 합니다.
+
 </ol>
 
-<p>The one thing you <em>can never do</em> is mix bytes and strings.
+
+<p>하지만, byte 와 string 은 <em>절대로</em> 섞지 마세요.
 
 <pre class=screen>
 <samp class=p>>>> </samp><kbd class=pp>by = b'd'</kbd>
@@ -407,13 +448,18 @@ TypeError: can't concat bytes to str</samp>
 TypeError: Can't convert 'bytes' object to str implicitly</samp>
 <a><samp class=p>>>> </samp><kbd class=pp>s.count(by.decode('ascii'))</kbd>  <span class=u>&#x2462;</span></a>
 <samp class=pp>1</samp></pre>
+
 <ol>
-<li>You can&#8217;t concatenate bytes and strings. They are two different data types.
-<li>You can&#8217;t count the occurrences of bytes in a string, because there are no bytes in a string. A string is a sequence of characters. Perhaps you meant &#8220;count the occurrences of the string that you would get after decoding this sequence of bytes in a particular character encoding&#8221;? Well then, you&#8217;ll need to say that explicitly. Python 3 won&#8217;t <dfn>implicitly</dfn> convert bytes to strings or strings to bytes.
-<li>By an amazing coincidence, this line of code says &#8220;count the occurrences of the string that you would get after decoding this sequence of bytes in this particular character encoding.&#8221;
+
+<li>byte 와 string은 절대 합칠 수 없습니다. 서로 다른 타입임을 명심하세요.
+
+<li>string 안에서 byte object의 갯수를 셀 수는 없습니다. string은 string 이고, byte 는 byte 니까요. 다시 한번 강조하지만, 서로 다른 타입입니다. string 은 유니코드 문자의 연속임을 잊지마세요. 만약 어떤 byte를 특정 문자열 인코딩 방식으로 변환했을때, 이에 해당하는 string을 찾고 싶었던 거라면, 다른 방식으로 좀더 명시적으로 표현해줘야 합니다. Python 3에선 string 과 byte 간에 묵시적인 형변환은 절대 허용되지 않습니다.
+
+<li>이 라인에서는 by라는 byte object를 ascii 방식으로 디코딩한 후에 반환되는 string과 동일한 string의 갯수를 s 라는 string object 내에서 찾으라고 명시적으로 표현하고 있네요.
+
 </ol>
 
-<p>And here is the link between strings and bytes: <code>bytes</code> objects have a <code><dfn>decode</dfn>()</code> method that takes a character encoding and returns a string, and strings have an <code><dfn>encode</dfn>()</code> method that takes a character encoding and returns a <code>bytes</code> object. In the previous example, the decoding was relatively straightforward&nbsp;&mdash;&nbsp;converting a sequence of bytes in the <abbr>ASCII</abbr> encoding into a string of characters. But the same process works with any encoding that supports the characters of the string&nbsp;&mdash;&nbsp;even legacy (non-Unicode) encodings.
+<p>byte와 string은 상당히 밀접합니다. <code>bytes</code> object 에는 <code><dfn>decode</dfn>()</code> 라는 메소드가 있는데, 메소드 파라미터로 인코딩을 의미하는 문자열을 받아, 이를 적용한 후 결과에 해당하는 string을 반환합니다. 반대로 string은 <code><dfn>encode</dfn>()</code> 라는 메소드가 있어서, 마찬가지로 인코딩을 의미하는 문자열을 인자로 받아 이를 적용한 결과에 해당하는 <code>bytes</code> object를 반환하죠. 앞의 예제 3번을 보면, 디코딩하는 과정이 쉽게 이해가 될겁니다. <abbr>ASCII</abbr> 방식으로 인코딩된 일련의 바이트를 문자열로 이뤄진 string으로 변환하고 있죠. 예제에서는 byte object 가 ascii 코드인 영어로 작성되어 있기 때문에 ASCII 방식의 디코딩을 사용했지만, 만약 byte object가 다른 언어를 사용했다면, 설령 그 언어가 유니코드가 아닐지라도, 해당 인코딩 방식을 지정해주기만 하면 예제에서와 같이 byte object 와 string 간의 인코딩과 디코딩을 실행할 수 있습니다. 
 
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>a_string = '深入 Python'</kbd>         <span class=u>&#x2460;</span></a>
@@ -440,47 +486,74 @@ TypeError: Can't convert 'bytes' object to str implicitly</samp>
 <samp class=p>>>> </samp><kbd class=pp>a_string == roundtrip</kbd>
 <samp class=pp>True</samp></pre>
 <ol>
-<li>This is a string. It has nine characters.
-<li>This is a <code>bytes</code> object. It has 13 bytes. It is the sequence of bytes you get when you take <var>a_string</var> and encode it in <abbr>UTF-8</abbr>.
-<li>This is a <code>bytes</code> object. It has 11 bytes. It is the sequence of bytes you get when you take <var>a_string</var> and encode it in <a href=http://en.wikipedia.org/wiki/GB_18030>GB18030</a>.
-<li>This is a <code>bytes</code> object. It has 11 bytes. It is an <em>entirely different sequence of bytes</em> that you get when you take <var>a_string</var> and encode it in <a href=http://en.wikipedia.org/wiki/Big5>Big5</a>.
-<li>This is a string. It has nine characters. It is the sequence of characters you get when you take <var>by</var> and decode it using the Big5 encoding algorithm. It is identical to the original string.
+
+<li>이건 string 이고 9개의 character로 되어 있습니다.
+
+
+<li>이건 <code>bytes</code> object 이고, 길이는 13 바이트입니다. <var>a_string</var>을 <abbr>UTF-8</abbr> 형식으로 인코딩한 결과입니다.
+
+
+<li>이건 <code>bytes</code> object 이고, 길이는 11 바이트입니다. <var>a_string</var> 변수를 <a href=http://en.wikipedia.org/wiki/GB_18030>GB18030</a>이라는 인코딩 포맷으로 인코딩한 결과입니다.
+
+<li>이건 <code>bytes</code> object이고, 길이는 11 바이트 입니다. <var>a_string</var> 변수를 <a href=http://en.wikipedia.org/wiki/Big5>Big5</a>라는 인코딩 포맷으로 인코딩한 결과입니다. <em>결과로 나오는 바이트가 전혀 다르다</em>는 것을 볼 수 있습니다.
+
+
+<li>이건 string이고, 9개의 character로 이루어져 있습니다. <var>by</var>라는 byte object 를 Big5 인코딩 포맷으로 디코딩한 결과입니다. 원래의 string 값과 동일하다는 것을 알 수 있습니다.
+
+
 </ol>
 
 <p class=a>&#x2042;
 
 <h2 id=py-encoding>Postscript: Character Encoding Of Python Source Code</h2>
 
-<p>Python 3 assumes that your source code&nbsp;&mdash;&nbsp;<i>i.e.</i> each <code>.py</code> file&nbsp;&mdash;&nbsp;is encoded in <abbr>UTF-8</abbr>.
+<p>Python 3 는 여러분의 소스코드, 즉 <code>.py</code> 파일이 <abbr>UTF-8</abbr> 으로 인코딩 되있다고 가정합니다.
+
+
+
+
 
 <blockquote class='note compare python2'>
-<p><span class=u>&#x261E;</span>In Python 2, the <dfn>default</dfn> encoding for <code>.py</code> files was <abbr>ASCII</abbr>. In Python 3, <a href=http://www.python.org/dev/peps/pep-3120/>the default encoding is <abbr>UTF-8</abbr></a>.
+
+<p><span class=u>&#x261E;</span>Python 2 에서는 <code>.py</code> 파일에 대한 <dfn>디폴트</dfn> 인코딩이 <abbr>ASCII</abbr>입니다. 이에 반해 Python 3 에서의 , <a href=http://www.python.org/dev/peps/pep-3120/>디폴트 인코딩은 <abbr>UTF-8</abbr>입니다</a>.
 </blockquote>
 
-<p>If you would like to use a different encoding within your Python code, you can put an encoding declaration on the first line of each file. This declaration defines a <code>.py</code> file to be windows-1252:
+
+
+<p>만약 UTF-8이 아닌, 다른 인코딩 방식을 소스코드내에 적용하고 싶다면,. 소스코드 맨 첫라인에 인코딩 선언문을 명시하면 됩니다.아래 선언문은 해당 파이썬 소스코드의 인코딩을 windows-1252로 지정합니다:
+
+
+
 
 <pre class='nd pp'><code># -*- coding: windows-1252 -*-</code></pre>
 
-<p>Technically, the character encoding override can also be on the second line, if the first line is a <abbr>UNIX</abbr>-like hash-bang command.
+
+
+<p>만약 첫라인에 hash-bang 커맨드를 입력하는 경우엔, 두번째 라인에 명시해도 됩니다. 아래 처럼요.
+
 
 <pre class='nd pp'><code>#!/usr/bin/python3
 # -*- coding: windows-1252 -*-</code></pre>
 
-<p>For more information, consult <a href=http://www.python.org/dev/peps/pep-0263/><abbr>PEP</abbr> 263: Defining Python Source Code Encodings</a>.
+<p>더 자세한 내용은 <a href=http://www.python.org/dev/peps/pep-0263/><abbr>PEP</abbr> 263: Defining Python Source Code Encodings</a> 표준 문서를 참조하시기 바랍니다.
+
 
 <p class=a>&#x2042;
 
 <h2 id=furtherreading>Further Reading</h2>
 
-<p>On Unicode in Python:
+<p>파이썬에서 유니코드 사용법에 대해서는 아래 링크를 참조하세요.
+
 
 <ul>
 <li><a href=http://docs.python.org/3.1/howto/unicode.html>Python Unicode HOWTO</a>
 <li><a href=http://docs.python.org/3.0/whatsnew/3.0.html#text-vs-data-instead-of-unicode-vs-8-bit>What&#8217;s New In Python 3: Text vs. Data Instead Of Unicode vs. 8-bit</a>
-<li><a href=http://www.python.org/dev/peps/pep-0261/><abbr>PEP 261</abbr></a> explains how Python handles astral characters outside of the Basic Multilingual Plane (<i>i.e.</i> characters whose ordinal value is greater than 65535)
+
+<li><a href=http://www.python.org/dev/peps/pep-0261/><abbr>PEP 261</abbr></a> 문서는 기본 다국어 평면 밖에 있는 아스트랄 캐릭터(65535 보다 큰 범위에 해당하는 문자들)를 다루는 법에 대해 설명합니다.
+
 </ul>
 
-<p>On Unicode in general:
+<p>유니코드에 대해 좀 더 알고 싶다면 아래 링크를 참조하세요:
 
 <ul>
 <li><a href=http://www.joelonsoftware.com/articles/Unicode.html>The Absolute Minimum Every Software Developer Absolutely, Positively Must Know About Unicode and Character Sets (No Excuses!)</a>
@@ -489,14 +562,14 @@ TypeError: Can't convert 'bytes' object to str implicitly</samp>
 <li><a href=http://www.tbray.org/ongoing/When/200x/2003/04/26/UTF>Characters vs. Bytes</a>
 </ul>
 
-<p>On character encoding in other formats:
+<p>다른 방식으로 문자열을 인코딩하는 방법을 알고 싶다면:
 
 <ul>
 <li><a href=http://feedparser.org/docs/character-encoding.html>Character encoding in XML</a>
 <li><a href=http://blog.whatwg.org/the-road-to-html-5-character-encoding>Character encoding in HTML</a>
 </ul>
 
-<p>On strings and string formatting:
+<p>string에 대한 전반적인 내용과 스트링 포맷팅에 대해 궁금하다면:
 
 <ul>
 <li><a href=http://docs.python.org/3.1/library/string.html><code>string</code>&nbsp;&mdash;&nbsp;Common string operations</a>
