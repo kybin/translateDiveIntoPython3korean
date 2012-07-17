@@ -302,7 +302,7 @@ experience of years.</samp>
 
 <li><code><dfn>split</dfn>()</code> 메소드는 구분자(delimiter)를 인자로서 반드시 제공해야 합니다. 제공된 구분자를 이용해 string을 쪼개어 리스트에 담아 반환합니다. 이 예에서 사용된 구분자는 ampersand 문자입니다만, 다른 어떤 문자도 구분자로 사용할 수 있습니다.
 
-<li>이제 string이 원소인 리스트를 갖게 되었습니다. 이 string의 형식은 key, = 표시, 그리고 뒤를 따르는 value 입니다. 전체 리스트를 순회하면서 각 아이템에 대해 key 와 value를 추출하기 위해서 <a href=comprehensions.html#listcomprehension>list comprehension</a> 와 string 메소드중 하나인 split 메소드를 사용하고 있습니다. <code>split()</code> 메소드의 두번째 파라미터는 필수가 아닙니다만, 사용되면 첫 번째 파라미터인 구분자를 이용하여 몇 번이나 분할하고 싶은지를 표현합니다. <code>1</code> 은 &#8220;한 번만 분할&#8221; 하라는 뜻이므로, 여기서 사용된 split 메소드는 = 표시를 기준으로 하여 string을 나누게 되고, key 와 value 이렇게 두 개의 string 아이템을 가진 리스트를 반환하게 됩니다. (만약 <code>'key=value=foo'.split('=')</code> 과 같이 되있었다면, <code>['key', 'value', 'foo']</code> 와 같이 아이템이 3개인 리스트를 얻게 됩니다만, <code>'key=value=foo'.split('=',1)</code> 은 <code>['key', 'value=foo']</code>을 반환합니다. 이처럼, 분할되는 string안에 구분자가 포함되는 것도 가능합니다)
+<li>이제 string이 원소인 리스트를 갖게 되었습니다. 이 string의 형식은 key, = 표시, 그리고 뒤를 따르는 value 입니다. 전체 리스트를 순회하면서 각 아이템에 대해 key 와 value를 추출하기 위해서 <a href=comprehensions.html#listcomprehension>list comprehension</a> 와 string 메소드중 하나인 split 메소드를 사용하고 있습니다. <code>split()</code> 메소드의 두번째 파라미터는 필수가 아닙니다만, 사용되면 첫 번째 파라미터인 구분자를 이용하여 몇 번이나 분할하고 싶은지를 표현합니다. <code>1</code> 은 &#8220;한 번만 분할&#8221; 하라는 뜻이므로, 여기서 사용된 split 메소드는 = 표시를 기준으로 하여 string을 나누게 되고, key 와 value 이렇게 두 개의 string 아이템을 가진 리스트를 반환하게 됩니다. (만약 <code>'key=value=foo'.split('=')</code> 과 같이 되있었다면, <code>['key', 'value', 'foo']</code> 와 같이 아이템이 3개인 리스트를 얻게 됩니다만, <code>'key=value=foo'.split('=',1)</code> 은 <code>['key', 'value=foo']</code>을 반환합니다. 이와 같이 분할되는 string안에 구분자를 포함시키는 것도 가능합니다)
 
 <li>마지막으로, <code>dict()</code> 함수를 이용하여 리스트의 리스트를 딕셔너리 자료형으로 변경합니다.
 
