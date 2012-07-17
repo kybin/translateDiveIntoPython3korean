@@ -351,9 +351,6 @@ experience of years.</samp>
 
 <p><i>string</i> 은 유니코드 문자의 연속된 집합으로 변경이 불가능한 (immutable) 속성을 가지고 있습니다. <i>bytes</i> object가 string과 다른점은 유니코드 문자가 아닌 0부터 255 사이의 숫자로 되어있다는 것입니다. 변경이 불가능한 속성을 가지고 있는 것은 같습니다.
 
-
-<p><dfn>Bytes</dfn> are bytes; characters are an abstraction. An immutable sequence of Unicode characters is called a <i>string</i>. An immutable sequence of numbers-between-0-and-255 is called a <i>bytes</i> object.
-
 <pre class=screen>
 <a><samp class=p>>>> </samp><kbd class=pp>by = b'abcd\x65'</kbd>  <span class=u>&#x2460;</span></a>
 <samp class=p>>>> </samp><kbd class=pp>by</kbd>
@@ -476,33 +473,57 @@ TypeError: Can't convert 'bytes' object to str implicitly</samp>
 <samp class=p>>>> </samp><kbd class=pp>a_string == roundtrip</kbd>
 <samp class=pp>True</samp></pre>
 <ol>
-<li>This is a string. It has nine characters.
-<li>This is a <code>bytes</code> object. It has 13 bytes. It is the sequence of bytes you get when you take <var>a_string</var> and encode it in <abbr>UTF-8</abbr>.
-<li>This is a <code>bytes</code> object. It has 11 bytes. It is the sequence of bytes you get when you take <var>a_string</var> and encode it in <a href=http://en.wikipedia.org/wiki/GB_18030>GB18030</a>.
-<li>This is a <code>bytes</code> object. It has 11 bytes. It is an <em>entirely different sequence of bytes</em> that you get when you take <var>a_string</var> and encode it in <a href=http://en.wikipedia.org/wiki/Big5>Big5</a>.
-<li>This is a string. It has nine characters. It is the sequence of characters you get when you take <var>by</var> and decode it using the Big5 encoding algorithm. It is identical to the original string.
+
+<li>이건 string 이고 9개의 character로 되어 있습니다.
+
+
+<li>이건 <code>bytes</code> object 이고, 길이는 13 바이트입니다. <var>a_string</var>을 <abbr>UTF-8</abbr> 형식으로 인코딩한 결과입니다.
+
+
+<li>이건 <code>bytes</code> object 이고, 길이는 11 바이트입니다. <var>a_string</var> 변수를 <a href=http://en.wikipedia.org/wiki/GB_18030>GB18030</a>이라는 인코딩 포맷으로 인코딩한 결과입니다.
+
+<li>이건 <code>bytes</code> object이고, 길이는 11 바이트 입니다. <var>a_string</var> 변수를 <a href=http://en.wikipedia.org/wiki/Big5>Big5</a>라는 인코딩 포맷으로 인코딩한 결과입니다. <em>결과로 나오는 바이트가 전혀 다르다</em>는 것을 볼 수 있습니다.
+
+
+<li>이건 string이고, 9개의 character로 이루어져 있습니다. <var>by</var>라는 byte object 를 Big5 인코딩 포맷으로 디코딩한 결과입니다. 원래의 string 값과 동일하다는 것을 알 수 있습니다.
+
+
 </ol>
 
 <p class=a>&#x2042;
 
 <h2 id=py-encoding>Postscript: Character Encoding Of Python Source Code</h2>
 
-<p>Python 3 assumes that your source code&nbsp;&mdash;&nbsp;<i>i.e.</i> each <code>.py</code> file&nbsp;&mdash;&nbsp;is encoded in <abbr>UTF-8</abbr>.
+<p>Python 3 는 여러분의 소스코드, 즉 <code>.py</code> 파일이 <abbr>UTF-8</abbr> 으로 인코딩 되있다고 가정합니다.
+
+
+
+
 
 <blockquote class='note compare python2'>
-<p><span class=u>&#x261E;</span>In Python 2, the <dfn>default</dfn> encoding for <code>.py</code> files was <abbr>ASCII</abbr>. In Python 3, <a href=http://www.python.org/dev/peps/pep-3120/>the default encoding is <abbr>UTF-8</abbr></a>.
+
+<p><span class=u>&#x261E;</span>Python 2 에서는 <code>.py</code> 파일에 대한 <dfn>디폴트</dfn> 인코딩이 <abbr>ASCII</abbr>입니다. 이에 반해 Python 3 에서의 , <a href=http://www.python.org/dev/peps/pep-3120/>디폴트 인코딩은 <abbr>UTF-8</abbr>입니다</a>.
 </blockquote>
 
-<p>If you would like to use a different encoding within your Python code, you can put an encoding declaration on the first line of each file. This declaration defines a <code>.py</code> file to be windows-1252:
+
+
+<p>만약 UTF-8이 아닌, 다른 인코딩 방식을 소스코드내에 적용하고 싶다면,. 소스코드 맨 첫라인에 인코딩 선언문을 명시하면 됩니다.아래 선언문은 해당 파이썬 소스코드의 인코딩을 windows-1252로 지정합니다:
+
+
+
 
 <pre class='nd pp'><code># -*- coding: windows-1252 -*-</code></pre>
 
-<p>Technically, the character encoding override can also be on the second line, if the first line is a <abbr>UNIX</abbr>-like hash-bang command.
+
+
+<p>만약 첫라인에 hash-bang 커맨드를 입력하는 경우엔, 두번째 라인에 명시해도 됩니다. 아래 처럼요.
+
 
 <pre class='nd pp'><code>#!/usr/bin/python3
 # -*- coding: windows-1252 -*-</code></pre>
 
-<p>For more information, consult <a href=http://www.python.org/dev/peps/pep-0263/><abbr>PEP</abbr> 263: Defining Python Source Code Encodings</a>.
+<p>더 자세한 내용은 <a href=http://www.python.org/dev/peps/pep-0263/><abbr>PEP</abbr> 263: Defining Python Source Code Encodings</a> 표준 문서를 참조하시기 바랍니다.
+
 
 <p class=a>&#x2042;
 
